@@ -1,0 +1,60 @@
+package com.hackerkernel.user.sqrfactor;
+
+import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+
+public class LoginScreen extends FragmentActivity {
+
+    private ViewPager viewPager;
+    private PagerAdapter pagerAdapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login_screen);
+
+        //viewPager = (ViewPager)findViewById(R.id.pager);
+        //pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
+        //viewPager.setAdapter(pagerAdapter);
+
+        getFragmentManager().beginTransaction().replace(R.id.frag, new SignupFragment(), "stuff").addToBackStack(null).commit();
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_launcher));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_launcher));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        //viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                //viewPager.setCurrentItem(tab.getPosition());
+                if (tab.getPosition() == 0) {
+
+                    getFragmentManager().beginTransaction().replace(R.id.frag, new SignupFragment(), "stuff").addToBackStack(null).commit();
+
+                }
+                if (tab.getPosition() == 1) {
+
+                    getFragmentManager().beginTransaction().replace(R.id.frag, new LoginFragment(), "stuff1").addToBackStack(null).commit();
+
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+    }
+}

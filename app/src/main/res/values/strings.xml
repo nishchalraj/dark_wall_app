@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SqrFactor</string>
+    <string name="hometext">This space has been created for you to learn and explore. A platform designed thoughtfully for architects by a team of architects and developers.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="countries">
+        <item>Choose country</item>
+        <item>Antarctica</item>
+        <item>Blah</item>
+        <item>Blah</item>
+        <item>Blah</item>
+    </string-array>
+    <string name="search">Search here...</string>
+</resources>
