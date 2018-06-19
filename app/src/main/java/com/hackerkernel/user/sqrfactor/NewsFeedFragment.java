@@ -7,16 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class TrophyFragment extends Fragment {
+public class NewsFeedFragment extends Fragment {
 
-    //Button news, red;
     TabLayout tabLayout;
+    public static int flag=0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = (View)inflater.inflate(R.layout.fragment_trophy, container, false);
+        View view = (View)inflater.inflate(R.layout.fragment_news_feed, container, false);
 
         getChildFragmentManager().beginTransaction().replace(R.id.fragment, new StatusFragment()).addToBackStack(null).commit();
 
@@ -55,29 +55,7 @@ public class TrophyFragment extends Fragment {
             }
         });
 
-        /*news = (Button)view.findViewById(R.id.feed);
-        red = (Button)view.findViewById(R.id.red);
-
-        news.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                getChildFragmentManager().beginTransaction().replace(R.id.frag1, new NewsFeedFragment()).addToBackStack(null).commit();
-
-            }
-        });
-
-        red.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                getChildFragmentManager().beginTransaction().replace(R.id.frag1, new RedFragment()).addToBackStack(null).commit();
-
-            }
-        });*/
-
         return view;
-
     }
 
 }

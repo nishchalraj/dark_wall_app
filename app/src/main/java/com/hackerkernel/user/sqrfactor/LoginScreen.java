@@ -1,16 +1,21 @@
 package com.hackerkernel.user.sqrfactor;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
-public class LoginScreen extends FragmentActivity {
+public class LoginScreen extends AppCompatActivity {
 
     private ViewPager viewPager;
     private PagerAdapter pagerAdapter;
+    private Toolbar toolbar;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +25,10 @@ public class LoginScreen extends FragmentActivity {
         //pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
         //viewPager.setAdapter(pagerAdapter);
 
-        getFragmentManager().beginTransaction().replace(R.id.frag, new SignupFragment(), "stuff").addToBackStack(null).commit();
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getFragmentManager().beginTransaction().add(R.id.frag, new SignupFragment(), "stuff").commit();
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_launcher));
@@ -35,12 +43,12 @@ public class LoginScreen extends FragmentActivity {
                 //viewPager.setCurrentItem(tab.getPosition());
                 if (tab.getPosition() == 0) {
 
-                    getFragmentManager().beginTransaction().replace(R.id.frag, new SignupFragment(), "stuff").addToBackStack(null).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.frag, new SignupFragment(), "stuff").commit();
 
                 }
                 if (tab.getPosition() == 1) {
 
-                    getFragmentManager().beginTransaction().replace(R.id.frag, new LoginFragment(), "stuff1").addToBackStack(null).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.frag, new LoginFragment(), "stuff1").commit();
 
                 }
             }

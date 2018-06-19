@@ -94,7 +94,8 @@
             android:layout_gravity="center_horizontal"
             android:background="@android:color/transparent"
             android:hint="Your email"
-            android:padding="5sp" />
+            android:padding="5sp"
+            android:inputType="textEmailAddress"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -120,7 +121,8 @@
             android:layout_gravity="center_horizontal"
             android:background="@android:color/transparent"
             android:hint="Mobile No."
-            android:padding="5sp" />
+            android:padding="5sp"
+            android:inputType="number"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -138,7 +140,8 @@
             android:layout_gravity="center_horizontal"
             android:background="@android:color/transparent"
             android:hint="Your Password"
-            android:padding="5sp" />
+            android:padding="5sp"
+            android:inputType="textPassword"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -156,7 +159,8 @@
             android:layout_gravity="center_horizontal"
             android:background="@android:color/transparent"
             android:hint="Confirm Password"
-            android:padding="5sp" />
+            android:padding="5sp"
+            android:inputType="textPassword"/>
 
     </android.support.design.widget.TextInputLayout>
 

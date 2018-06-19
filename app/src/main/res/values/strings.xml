@@ -4,6 +4,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Open">Open</string>
+    <string name="Close">Closed</string>
     <string-array name="countries">
         <item>Choose country</item>
         <item>Antarctica</item>
@@ -12,4 +14,9 @@
         <item>Blah</item>
     </string-array>
     <string name="search">Search here...</string>
+    <string-array name="index">
+        <item>Splash</item>
+        <item>Register Page</item>
+        <item>Home Page</item>
+    </string-array>
 </resources>
