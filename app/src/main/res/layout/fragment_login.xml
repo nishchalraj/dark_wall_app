@@ -22,8 +22,8 @@
         android:layout_height="60sp"
         android:layout_margin="10sp"
         android:background="@drawable/shapes"
-        android:padding="10sp"
-        app:hintTextAppearance="@color/colorPrimary"
+        android:padding="5sp"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
         android:layout_gravity="center">
 
         <EditText
@@ -42,8 +42,8 @@
         android:layout_height="60sp"
         android:layout_margin="10sp"
         android:background="@drawable/shapes"
-        android:padding="10sp"
-        app:hintTextAppearance="@color/colorPrimary"
+        android:padding="5sp"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
         android:layout_gravity="center">
 
         <EditText
@@ -76,23 +76,22 @@
             android:layout_weight="4"/>
 
         <TextView
+            android:id="@+id/forgot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Forgot my Password"
             android:textSize="15sp"
-            android:layout_gravity="top"/>
+            android:layout_gravity="top" />
 
     </LinearLayout>
 
     <Button
-        android:layout_width="300sp"
-        android:layout_height="60sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/shapes2"
         android:text="Login"
-        android:textAllCaps="false"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textColor="#ffffff"
-        android:textStyle="bold"
         android:layout_margin="10sp"
         android:layout_gravity="center"
         android:id="@+id/login"/>
@@ -108,26 +107,22 @@
         android:text="OR"/>
 
     <Button
-        android:layout_width="300sp"
-        android:layout_height="60sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/shapes3"
         android:text="Login with Facebook"
-        android:textAllCaps="false"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textColor="#ffffff"
-        android:textStyle="bold"
         android:layout_margin="10sp"
         android:layout_gravity="center"/>
 
     <Button
-        android:layout_width="300sp"
-        android:layout_height="60sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/shapes4"
         android:text="Login with Google Plus"
-        android:textAllCaps="false"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textColor="#ffffff"
-        android:textStyle="bold"
         android:layout_margin="10sp"
         android:layout_gravity="center"/>
 

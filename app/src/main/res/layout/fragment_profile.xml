@@ -6,6 +6,8 @@
     android:orientation="vertical"
     tools:context=".ProfileFragment">
 
+    <include layout="@layout/activity_toolbar"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -16,7 +18,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:src="@drawable/designimg"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"
+            />
 
         <ImageView
             android:layout_width="60sp"

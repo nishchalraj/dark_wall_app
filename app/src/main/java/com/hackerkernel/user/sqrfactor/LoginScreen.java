@@ -31,8 +31,8 @@ public class LoginScreen extends AppCompatActivity {
         getFragmentManager().beginTransaction().add(R.id.frag, new SignupFragment(), "stuff").commit();
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_launcher));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_launcher));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.signup_selected));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.login));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         //viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -43,11 +43,13 @@ public class LoginScreen extends AppCompatActivity {
                 //viewPager.setCurrentItem(tab.getPosition());
                 if (tab.getPosition() == 0) {
 
+                    tab.setIcon(R.drawable.signup_selected);
                     getFragmentManager().beginTransaction().replace(R.id.frag, new SignupFragment(), "stuff").commit();
 
                 }
                 if (tab.getPosition() == 1) {
 
+                    tab.setIcon(R.drawable.login_selected);
                     getFragmentManager().beginTransaction().replace(R.id.frag, new LoginFragment(), "stuff1").commit();
 
                 }
@@ -55,6 +57,18 @@ public class LoginScreen extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
+
+                switch (tab.getPosition()){
+
+                    case 0:
+                        tab.setIcon(R.drawable.signup);
+                        break;
+
+                    case 1:
+                        tab.setIcon(R.drawable.login);
+                        break;
+
+                }
 
             }
 

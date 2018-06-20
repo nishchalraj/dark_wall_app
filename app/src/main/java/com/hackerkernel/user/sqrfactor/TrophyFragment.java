@@ -1,5 +1,6 @@
 package com.hackerkernel.user.sqrfactor;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -33,14 +34,19 @@ public class TrophyFragment extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 
-                if (tab.getPosition()==0)
-                    getChildFragmentManager().beginTransaction().replace(R.id.fragment, new StatusFragment()).addToBackStack(null).commit();
+                switch (tab.getPosition()){
 
-                if (tab.getPosition()==1)
-                    getChildFragmentManager().beginTransaction().replace(R.id.fragment, new DesignFragment()).addToBackStack(null).commit();
+                    case 1:
+                        Intent i2 = new Intent(getContext(), DesignActivity.class);
+                        startActivity(i2);
+                        break;
 
-                if (tab.getPosition()==2)
-                    getChildFragmentManager().beginTransaction().replace(R.id.fragment, new DesignFragment()).addToBackStack(null).commit();
+                    case 2:
+                        Intent i3 = new Intent(getContext(), ArticleActivity.class);
+                        startActivity(i3);
+                        break;
+
+                }
 
             }
 

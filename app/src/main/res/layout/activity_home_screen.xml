@@ -48,27 +48,17 @@
 
         </LinearLayout-->
 
-        <android.support.design.widget.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/Theme.Design.Light">
 
-            <android.support.v7.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/toolbar">
 
-            </android.support.v7.widget.Toolbar>
-
-        </android.support.design.widget.AppBarLayout>
+        <include layout="@layout/activity_toolbar"/>
 
         <android.support.design.widget.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tabs"
             android:theme="@style/Theme.Design.Light"
-            app:tabIndicatorColor="@android:color/transparent"
-            android:background="@drawable/shapes">
+            app:tabIndicatorColor="@color/sqr"
+            >
 
         </android.support.design.widget.TabLayout>
 
@@ -76,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/pager"
-            android:layout_marginTop="10sp">
+            >
 
         </android.support.v4.view.ViewPager>
 

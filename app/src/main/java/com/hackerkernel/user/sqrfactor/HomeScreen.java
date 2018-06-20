@@ -14,13 +14,11 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-public class HomeScreen extends AppCompatActivity {
+public class HomeScreen extends ToolbarActivity {
 
     Toolbar toolbar;
     ViewPager pager;
@@ -140,14 +138,6 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.options, menu);
-        return super.onCreateOptionsMenu(menu);
-
-    }
-
     private class SectionsPagerAdapter extends FragmentStatePagerAdapter{
 
 
@@ -164,7 +154,7 @@ public class HomeScreen extends AppCompatActivity {
                     return new TrophyFragment();
 
                 case 1:
-                    return new TrophyFragment();
+                    return new MessagesFragment();
 
                 case 2:
                     return new TrophyFragment();

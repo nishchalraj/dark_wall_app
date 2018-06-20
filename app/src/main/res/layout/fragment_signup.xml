@@ -23,7 +23,7 @@
         android:layout_height="60sp"
         android:layout_margin="10sp"
         android:background="@drawable/shapes"
-        android:padding="10sp"
+        android:padding="5sp"
         android:entries="@array/user_choices"/>
 
     <android.support.design.widget.TextInputLayout
@@ -31,8 +31,8 @@
         android:layout_height="60sp"
         android:layout_margin="10sp"
         android:background="@drawable/shapes"
-        android:padding="10sp"
-        app:hintTextAppearance="@color/colorPrimary">
+        android:padding="5sp"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
         <EditText
             android:layout_width="match_parent"
@@ -42,6 +42,7 @@
             android:hint="First Name"
             android:padding="5sp" />
 
+
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -49,8 +50,8 @@
         android:layout_height="60sp"
         android:layout_margin="10sp"
         android:background="@drawable/shapes"
-        android:padding="10sp"
-        app:hintTextAppearance="@color/colorPrimary">
+        android:padding="5sp"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
         <EditText
             android:layout_width="match_parent"
@@ -67,8 +68,8 @@
         android:layout_height="60sp"
         android:layout_margin="10sp"
         android:background="@drawable/shapes"
-        android:padding="10sp"
-        app:hintTextAppearance="@color/colorPrimary">
+        android:padding="5sp"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
         <EditText
             android:layout_width="match_parent"
@@ -85,8 +86,8 @@
         android:layout_height="60sp"
         android:layout_margin="10sp"
         android:background="@drawable/shapes"
-        android:padding="10sp"
-        app:hintTextAppearance="@color/colorPrimary">
+        android:padding="5sp"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
         <EditText
             android:layout_width="match_parent"
@@ -104,7 +105,7 @@
         android:layout_height="60sp"
         android:layout_margin="10sp"
         android:background="@drawable/shapes"
-        android:padding="10sp"
+        android:padding="5sp"
         android:entries="@array/countries"/>
 
     <android.support.design.widget.TextInputLayout
@@ -112,8 +113,8 @@
         android:layout_height="60sp"
         android:layout_margin="10sp"
         android:background="@drawable/shapes"
-        android:padding="10sp"
-        app:hintTextAppearance="@color/colorPrimary">
+        android:padding="5sp"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
         <EditText
             android:layout_width="match_parent"
@@ -131,8 +132,8 @@
         android:layout_height="60sp"
         android:layout_margin="10sp"
         android:background="@drawable/shapes"
-        android:padding="10sp"
-        app:hintTextAppearance="@color/colorPrimary">
+        android:padding="5sp"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
         <EditText
             android:layout_width="match_parent"
@@ -150,8 +151,8 @@
         android:layout_height="60sp"
         android:layout_margin="10sp"
         android:background="@drawable/shapes"
-        android:padding="10sp"
-        app:hintTextAppearance="@color/colorPrimary">
+        android:padding="5sp"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
         <EditText
             android:layout_width="match_parent"
@@ -165,14 +166,12 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:layout_width="300sp"
-        android:layout_height="60sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/shapes2"
         android:text="Complete Registration!"
-        android:textAllCaps="false"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textColor="#ffffff"
-        android:textStyle="bold"
         android:layout_margin="10sp"
         android:layout_gravity="center"/>
 
@@ -187,26 +186,22 @@
         android:text="OR"/>
 
     <Button
-        android:layout_width="300sp"
-        android:layout_height="60sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/shapes3"
         android:text="Login with Facebook"
-        android:textAllCaps="false"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textColor="#ffffff"
-        android:textStyle="bold"
         android:layout_margin="10sp"
         android:layout_gravity="center"/>
 
     <Button
-        android:layout_width="300sp"
-        android:layout_height="60sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/shapes4"
         android:text="Login with Google Plus"
-        android:textAllCaps="false"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textColor="#ffffff"
-        android:textStyle="bold"
         android:layout_margin="10sp"
         android:layout_gravity="center"/>
 

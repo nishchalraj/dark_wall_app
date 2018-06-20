@@ -182,7 +182,7 @@
                 android:text="Like"
                 android:textAllCaps="false"
                 android:textStyle="bold"
-
+                android:drawableLeft="@drawable/like_small"
                 android:background="@android:color/transparent"/>
 
             <Button
@@ -192,6 +192,7 @@
                 android:text="Comment"
                 android:textAllCaps="false"
                 android:textStyle="bold"
+                android:drawableLeft="@drawable/comment_small"
                 android:background="@android:color/transparent"/>
 
             <Button
@@ -201,6 +202,7 @@
                 android:text="Share"
                 android:textAllCaps="false"
                 android:textStyle="bold"
+                android:drawableLeft="@drawable/share_small"
                 android:background="@android:color/transparent"/>
 
         </LinearLayout>
