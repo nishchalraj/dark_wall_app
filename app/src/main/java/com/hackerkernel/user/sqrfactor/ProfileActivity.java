@@ -4,30 +4,44 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 
 public class ProfileActivity extends ToolbarActivity {
 
     Toolbar toolbar;
-    TabLayout tabLayout;
+    TabLayout tabLayout1;
+    ImageView morebtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //toolbar = (Toolbar)findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
-        tabLayout = (TabLayout)findViewById(R.id.tabs2);
+        morebtn = (ImageView)findViewById(R.id.morebtn);
+        morebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu pop = new PopupMenu(getApplicationContext(), v);
+                pop.getMenuInflater().inflate(R.menu.more_menu, pop.getMenu());
+                pop.show();
+            }
+        });
 
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.status)
+        tabLayout1 = (TabLayout)findViewById(R.id.tabs2);
+
+        tabLayout1.addTab(tabLayout1.newTab().setIcon(R.drawable.status)
                 .setText("Status"));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.design)
+        tabLayout1.addTab(tabLayout1.newTab().setIcon(R.drawable.design)
                 .setText("Design"));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.article)
+        tabLayout1.addTab(tabLayout1.newTab().setIcon(R.drawable.article)
                 .setText("Article"));
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayout1.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 

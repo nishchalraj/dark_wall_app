@@ -29,7 +29,9 @@
         <activity android:name=".DesignActivity" />
         <activity android:name=".ArticleActivity" />
         <activity android:name=".ResetPassword" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".CommentsPage" />
+        <activity android:name=".MessagesActivity"></activity>
     </application>
 
 </manifest>

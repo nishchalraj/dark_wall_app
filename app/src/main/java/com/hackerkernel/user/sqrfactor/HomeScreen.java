@@ -3,28 +3,18 @@ package com.hackerkernel.user.sqrfactor;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.widget.ImageView;
 
 public class HomeScreen extends ToolbarActivity {
 
     Toolbar toolbar;
-    ViewPager pager;
+    //ViewPager pager;
     TabLayout tabLayout;
     ImageView imageView;
-    DrawerLayout drawer;
+    //DrawerLayout drawer;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -32,10 +22,12 @@ public class HomeScreen extends ToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //getSupportFragmentManager().beginTransaction().replace(R.id.mainfrag, new TrophyFragment()).commit();
 
-        drawer = (DrawerLayout)findViewById(R.id.drawer);
+        //toolbar = (Toolbar)findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+
+        /*drawer = (DrawerLayout)findViewById(R.id.drawer);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.Open, R.string.Close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
@@ -65,26 +57,24 @@ public class HomeScreen extends ToolbarActivity {
         //imageView = (ImageView) findViewById(R.id.options);
 
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        pager.setAdapter(adapter);
+        pager.setAdapter(adapter);*/
 
         tabLayout = (TabLayout)findViewById(R.id.tabs);
 
-        tabLayout.setupWithViewPager(pager);
+        //tabLayout.setupWithViewPager(pager);
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.trophy_filled);
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.trophy_filled));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.msg));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.notification));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_search_black_24dp));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_menu_black_24dp));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.profilepic));
+
+        /*tabLayout.getTabAt(0).setIcon(R.drawable.trophy_filled);
         tabLayout.getTabAt(1).setIcon(R.drawable.msg);
         tabLayout.getTabAt(2).setIcon(R.drawable.notification);
 
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-        /*imageView.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                PopupMenu pop = new PopupMenu(HomeScreen.this, imageView);
-                pop.getMenuInflater().inflate(R.menu.options, pop.getMenu());
-            }
-        });*/
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);*/
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -97,10 +87,25 @@ public class HomeScreen extends ToolbarActivity {
 
                     case 1:
                         tab.setIcon(R.drawable.envelope_filled);
+                        Intent i1 = new Intent(getApplicationContext(), MessagesActivity.class);
+                        startActivity(i1);
                         break;
 
                     case 2:
                         tab.setIcon(R.drawable.notification_filled);
+                        //Intent i2 = new Intent(getApplicationContext(), MessagesActivity.class);
+                        //startActivity(i2);
+                        break;
+
+                    case 3:
+                        //Intent i3 = new Intent(getApplicationContext(), MessagesActivity.class);
+                        //startActivity(i3);
+                        break;
+
+                    case 4:
+                        new ModalSheet().show(getSupportFragmentManager(), "");
+                        //Intent i4 = new Intent(getApplicationContext(), MessagesActivity.class);
+                        //startActivity(i4);
                         break;
 
                 }
@@ -138,7 +143,16 @@ public class HomeScreen extends ToolbarActivity {
 
     }
 
-    private class SectionsPagerAdapter extends FragmentStatePagerAdapter{
+    @Override
+    public void onBackPressed() {
+
+        //LinearLayout ll = (LinearLayout)tabLayout.getChildAt(0);
+        //ll.getChildAt(tabLayout.getSelectedTabPosition()).setSelected(false);
+        //ll.getChildAt(0).setSelected(true);
+        super.onBackPressed();
+    }
+
+    /*private class SectionsPagerAdapter extends FragmentStatePagerAdapter{
 
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -192,7 +206,7 @@ public class HomeScreen extends ToolbarActivity {
 
             return null;
 
-        }*/
+        }
     }
 
     @Override
@@ -201,5 +215,5 @@ public class HomeScreen extends ToolbarActivity {
             drawer.closeDrawers();
         else
             super.onBackPressed();
-    }
+    }*/
 }

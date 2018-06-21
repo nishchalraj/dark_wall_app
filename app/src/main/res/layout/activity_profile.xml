@@ -50,6 +50,7 @@
                 android:textSize="15sp" />
 
             <ImageView
+                android:id="@+id/morebtn"
                 android:layout_width="80sp"
                 android:layout_height="20sp"
                 android:layout_alignParentEnd="true"

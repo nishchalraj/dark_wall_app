@@ -7,34 +7,48 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 
 public class TrophyFragment extends Fragment {
 
     //Button news, red;
-    TabLayout tabLayout;
+    TabLayout tabLayout1;
+    ImageView btn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = (View)inflater.inflate(R.layout.fragment_trophy, container, false);
+        View view = (View) inflater.inflate(R.layout.fragment_trophy, container, false);
 
         getChildFragmentManager().beginTransaction().replace(R.id.fragment, new StatusFragment()).addToBackStack(null).commit();
 
-        tabLayout = (TabLayout)view.findViewById(R.id.tabs2);
+        btn = (ImageView)view.findViewById(R.id.btn);
 
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.status)
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu pop = new PopupMenu(getContext(), v);
+                pop.getMenuInflater().inflate(R.menu.home_menu, pop.getMenu());
+                pop.show();
+            }
+        });
+
+        tabLayout1 = (TabLayout) view.findViewById(R.id.tabs2);
+
+        tabLayout1.addTab(tabLayout1.newTab().setIcon(R.drawable.status)
                 .setText("Status"));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.design)
+        tabLayout1.addTab(tabLayout1.newTab().setIcon(R.drawable.design)
                 .setText("Design"));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.article)
+        tabLayout1.addTab(tabLayout1.newTab().setIcon(R.drawable.article)
                 .setText("Article"));
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayout1.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 
-                switch (tab.getPosition()){
+                switch (tab.getPosition()) {
 
                     case 1:
                         Intent i2 = new Intent(getContext(), DesignActivity.class);
