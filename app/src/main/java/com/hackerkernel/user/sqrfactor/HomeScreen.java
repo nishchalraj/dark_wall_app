@@ -22,7 +22,7 @@ public class HomeScreen extends ToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-        //getSupportFragmentManager().beginTransaction().replace(R.id.mainfrag, new TrophyFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainfrag, new TrophyFragment()).commit();
 
         //toolbar = (Toolbar)findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
@@ -63,7 +63,7 @@ public class HomeScreen extends ToolbarActivity {
 
         //tabLayout.setupWithViewPager(pager);
 
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.trophy_filled));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.news_feed2));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.msg));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.notification));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_search_black_24dp));
@@ -82,7 +82,7 @@ public class HomeScreen extends ToolbarActivity {
                 switch (tab.getPosition()){
 
                     case 0:
-                        tab.setIcon(R.drawable.trophy_filled);
+
                         break;
 
                     case 1:
@@ -93,8 +93,8 @@ public class HomeScreen extends ToolbarActivity {
 
                     case 2:
                         tab.setIcon(R.drawable.notification_filled);
-                        //Intent i2 = new Intent(getApplicationContext(), MessagesActivity.class);
-                        //startActivity(i2);
+                        Intent i2 = new Intent(getApplicationContext(), NotificationsActivity.class);
+                        startActivity(i2);
                         break;
 
                     case 3:
@@ -117,7 +117,7 @@ public class HomeScreen extends ToolbarActivity {
                 switch (tab.getPosition()){
 
                     case 0:
-                        tab.setIcon(R.drawable.trophy);
+
                         break;
 
                     case 1:

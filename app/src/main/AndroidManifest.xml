@@ -31,7 +31,10 @@
         <activity android:name=".ResetPassword" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".CommentsPage" />
-        <activity android:name=".MessagesActivity"></activity>
+        <activity android:name=".MessagesActivity" />
+        <activity android:name=".CompetitionsActivity" />
+        <activity android:name=".NotificationsActivity" />
+        <activity android:name=".JobActivity"></activity>
     </application>
 
 </manifest>

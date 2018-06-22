@@ -6,6 +6,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Open">Open</string>
     <string name="Close">Closed</string>
+    <string name="noti_string"><![CDATA[<b>Henry</b>]]> commented on your status.</string>
     <string-array name="countries">
         <item>Choose country</item>
         <item>Antarctica</item>

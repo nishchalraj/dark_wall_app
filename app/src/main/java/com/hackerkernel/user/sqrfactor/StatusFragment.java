@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class StatusFragment extends Fragment {
 
-    Button comment;
+    Button like ,comment, share, like2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -19,7 +19,11 @@ public class StatusFragment extends Fragment {
 
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_status, container, false);
 
-        comment = (Button)rootView.findViewById(R.id.commentbtn);
+        like = (Button)rootView.findViewById(R.id.like);
+        comment = (Button)rootView.findViewById(R.id.comment);
+        share = (Button)rootView.findViewById(R.id.share);
+
+        like2 = (Button)rootView.findViewById(R.id.like2);
 
         comment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,7 +35,58 @@ public class StatusFragment extends Fragment {
             }
         });
 
+        like.setOnClickListener(new View.OnClickListener() {
+
+            int flag = 0;
+            @Override
+            public void onClick(View v) {
+                if (flag == 0) {
+                    like.setTextColor(getResources().getColor(R.color.sqr));
+                    flag = 1;
+                }
+                else {
+                    like.setTextColor(getResources().getColor(R.color.gray));
+                    flag = 0;
+                }
+            }
+
+        });
+
+        share.setOnClickListener(new View.OnClickListener() {
+
+            int flag = 0;
+            @Override
+            public void onClick(View v) {
+                if (flag == 0) {
+                    share.setTextColor(getResources().getColor(R.color.sqr));
+                    flag = 1;
+                }
+                else {
+                    share.setTextColor(getResources().getColor(R.color.gray));
+                    flag = 0;
+                }
+            }
+        });
+
+        like2.setOnClickListener(new View.OnClickListener() {
+
+            int flag = 0;
+            @Override
+            public void onClick(View v) {
+                if (flag == 0) {
+                    like2.setTextColor(getResources().getColor(R.color.sqr));
+                    flag = 1;
+                }
+                else {
+                    like2.setTextColor(getResources().getColor(R.color.gray));
+                    flag = 0;
+                }
+            }
+
+        });
+
         return rootView;
 
     }
+
 }
