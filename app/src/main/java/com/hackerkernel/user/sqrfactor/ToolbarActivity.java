@@ -1,22 +1,21 @@
 package com.hackerkernel.user.sqrfactor;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 public class ToolbarActivity extends AppCompatActivity {
 
     Toolbar toolbar;
-    TabLayout tabLayout;
+    //TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toolbar);
 
-        tabLayout = (TabLayout)findViewById(R.id.tabs);
+        /*tabLayout = (TabLayout)findViewById(R.id.tabs);
 
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.trophy_filled));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.msg));
@@ -85,17 +84,14 @@ public class ToolbarActivity extends AppCompatActivity {
 
 
             }
-        });
+        });*/
 
-        //toolbar = (Toolbar)findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-    }
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
-    @Override
-    public void onBackPressed() {
-        tabLayout.getTabAt(0).select();
-        super.onBackPressed();
     }
 
     /*@Override

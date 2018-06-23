@@ -10,13 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <include layout="@layout/activity_toolbar"/>
         
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="20sp"
-            android:background="@drawable/shapes5"
+            android:background="@drawable/sqr_factor_btn_color"
             android:text="Launch Competition"
             android:textColor="#fff"
             android:layout_margin="20sp"
@@ -115,7 +117,7 @@
                     android:layout_marginLeft="20sp"
                     android:layout_marginTop="50sp"
                     android:paddingHorizontal="10sp"
-                    android:background="@drawable/shapes5"
+                    android:background="@drawable/sqr_factor_btn_color"
                     android:text="Participate"
                     android:textColor="#fff"
                     android:textAllCaps="false"

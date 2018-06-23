@@ -1,19 +1,23 @@
 package com.hackerkernel.user.sqrfactor;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 
 public class HomeScreen extends ToolbarActivity {
 
     Toolbar toolbar;
-    //ViewPager pager;
+    ViewPager pager;
     TabLayout tabLayout;
-    ImageView imageView;
+    ImageView menu, profile;
     //DrawerLayout drawer;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -22,7 +26,24 @@ public class HomeScreen extends ToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.mainfrag, new TrophyFragment()).commit();
+        menu = (ImageView)findViewById(R.id.menu);
+        profile = (ImageView)findViewById(R.id.profile);
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new ModalSheet().show(getSupportFragmentManager(), "");
+            }
+        });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new ProfileBottomSheet().show(getSupportFragmentManager(), "");
+            }
+        });
+
+        //getSupportFragmentManager().beginTransaction().replace(R.id.mainfrag, new TrophyFragment()).commit();
 
         //toolbar = (Toolbar)findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
@@ -51,35 +72,36 @@ public class HomeScreen extends ToolbarActivity {
 
             }
 
-        });
+        });*/
 
         pager = (ViewPager)findViewById(R.id.pager);
         //imageView = (ImageView) findViewById(R.id.options);
 
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        pager.setAdapter(adapter);*/
+        pager.setAdapter(adapter);
 
-        tabLayout = (TabLayout)findViewById(R.id.tabs);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
 
-        //tabLayout.setupWithViewPager(pager);
+        tabLayout.setupWithViewPager(pager);
 
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.news_feed2));
+        /*tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.news_feed2));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.msg));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.notification));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_search_black_24dp));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_menu_black_24dp));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.profilepic));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.profilepic));*/
 
-        /*tabLayout.getTabAt(0).setIcon(R.drawable.trophy_filled);
+        tabLayout.getTabAt(0).setIcon(R.drawable.news_feed2);
         tabLayout.getTabAt(1).setIcon(R.drawable.msg);
         tabLayout.getTabAt(2).setIcon(R.drawable.notification);
+        tabLayout.getTabAt(3).setIcon(R.drawable.ic_search_black_24dp);
 
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);*/
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                switch (tab.getPosition()){
+                switch (tab.getPosition()) {
 
                     case 0:
 
@@ -87,26 +109,32 @@ public class HomeScreen extends ToolbarActivity {
 
                     case 1:
                         tab.setIcon(R.drawable.envelope_filled);
-                        Intent i1 = new Intent(getApplicationContext(), MessagesActivity.class);
-                        startActivity(i1);
+                        //Intent i1 = new Intent(getApplicationContext(), MessagesActivity.class);
+                        //startActivity(i1);
                         break;
 
                     case 2:
                         tab.setIcon(R.drawable.notification_filled);
-                        Intent i2 = new Intent(getApplicationContext(), NotificationsActivity.class);
-                        startActivity(i2);
+                        //getSupportFragmentManager().beginTransaction().replace(R.id.mainfrag, new MessagesFragment()).commit();
+                        //Intent i2 = new Intent(getApplicationContext(), NotificationsActivity.class);
+                        //startActivity(i2);
                         break;
 
                     case 3:
+
                         //Intent i3 = new Intent(getApplicationContext(), MessagesActivity.class);
                         //startActivity(i3);
                         break;
 
-                    case 4:
+                    /*case 4:
                         new ModalSheet().show(getSupportFragmentManager(), "");
                         //Intent i4 = new Intent(getApplicationContext(), MessagesActivity.class);
                         //startActivity(i4);
                         break;
+
+                    case 5:
+                        new ProfileBottomSheet().show(getSupportFragmentManager(), "");
+                        break;*/
 
                 }
             }
@@ -114,7 +142,7 @@ public class HomeScreen extends ToolbarActivity {
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
-                switch (tab.getPosition()){
+                switch (tab.getPosition()) {
 
                     case 0:
 
@@ -137,7 +165,6 @@ public class HomeScreen extends ToolbarActivity {
             public void onTabReselected(TabLayout.Tab tab) {
 
 
-
             }
         });
 
@@ -152,7 +179,7 @@ public class HomeScreen extends ToolbarActivity {
         super.onBackPressed();
     }
 
-    /*private class SectionsPagerAdapter extends FragmentStatePagerAdapter{
+    private class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -162,7 +189,7 @@ public class HomeScreen extends ToolbarActivity {
         @Override
         public Fragment getItem(int position) {
 
-            switch (position){
+            switch (position) {
 
                 case 0:
                     return new TrophyFragment();
@@ -171,7 +198,10 @@ public class HomeScreen extends ToolbarActivity {
                     return new MessagesFragment();
 
                 case 2:
-                    return new TrophyFragment();
+                    return new NotificationsFragment();
+
+                case 3:
+                    return new SearchPageFragment();
 
             }
 
@@ -181,7 +211,7 @@ public class HomeScreen extends ToolbarActivity {
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
 
         /*@Nullable
@@ -216,4 +246,5 @@ public class HomeScreen extends ToolbarActivity {
         else
             super.onBackPressed();
     }*/
+    }
 }

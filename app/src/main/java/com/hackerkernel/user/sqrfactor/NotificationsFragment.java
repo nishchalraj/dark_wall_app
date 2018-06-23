@@ -1,39 +1,33 @@
 package com.hackerkernel.user.sqrfactor;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-public class NotificationsActivity extends ToolbarActivity {
+public class NotificationsFragment extends Fragment {
 
-    //TextView text, text2;
     private RecyclerView recycler;
     private RecyclerView.Adapter adapter;
     private LinearLayoutManager linearLayoutManager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notifications);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
 
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        ViewGroup view = (ViewGroup)inflater.inflate(R.layout.fragment_notifications, container, false);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
-        //text = (TextView)findViewById(R.id.text);
-        //text2 = (TextView)findViewById(R.id.text2);
-
-        String s = getApplicationContext().getResources().getString(R.string.noti_string);
+        String s = getContext().getResources().getString(R.string.noti_string);
         //text.setText(Html.fromHtml(s));
         //text2.setText(Html.fromHtml(s));
 
-        recycler = (RecyclerView)findViewById(R.id.recycler);
-        linearLayoutManager = new LinearLayoutManager(this);
+        recycler = (RecyclerView)view.findViewById(R.id.recycler);
+        linearLayoutManager = new LinearLayoutManager(getContext());
 
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(linearLayoutManager);
@@ -43,6 +37,8 @@ public class NotificationsActivity extends ToolbarActivity {
 
         DividerItemDecoration decoration = new DividerItemDecoration(recycler.getContext(), linearLayoutManager.getOrientation());
         recycler.addItemDecoration(decoration);
+
+        return view;
 
     }
 

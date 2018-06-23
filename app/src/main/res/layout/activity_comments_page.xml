@@ -164,7 +164,7 @@
                 android:layout_height="60sp"
                 android:layout_margin="10sp"
                 android:hint="Write comment..."
-                android:background="@drawable/shapes"
+                android:background="@drawable/gray_border"
                 android:padding="10sp"/>
 
         </LinearLayout>

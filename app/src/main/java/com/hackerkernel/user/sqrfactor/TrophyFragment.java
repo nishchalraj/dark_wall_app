@@ -22,7 +22,7 @@ public class TrophyFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = (View) inflater.inflate(R.layout.fragment_trophy, container, false);
 
-        getChildFragmentManager().beginTransaction().replace(R.id.fragment, new StatusFragment()).addToBackStack(null).commit();
+        //getChildFragmentManager().beginTransaction().replace(R.id.fragment, new StatusFragment()).addToBackStack(null).commit();
 
         btn = (ImageView)view.findViewById(R.id.btn);
 
