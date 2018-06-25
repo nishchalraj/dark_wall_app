@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 
 public class ModalSheet extends BottomSheetDialogFragment {
 
-    LinearLayout tv1, tv2;
+    LinearLayout ll1, ll2, ll3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -18,10 +18,11 @@ public class ModalSheet extends BottomSheetDialogFragment {
         // Inflate the layout for this fragment
         ViewGroup view = (ViewGroup)inflater.inflate(R.layout.fragment_modal_sheet, container, false);
 
-        tv1 = (LinearLayout) view.findViewById(R.id.tv1);
-        tv2 = (LinearLayout)view.findViewById(R.id.tv2);
+        ll1 = (LinearLayout) view.findViewById(R.id.ll1);
+        ll2 = (LinearLayout)view.findViewById(R.id.ll2);
+        ll3 = (LinearLayout)view.findViewById(R.id.ll3);
 
-        tv1.setOnClickListener(new View.OnClickListener() {
+        ll1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(), CompetitionsActivity.class);
@@ -29,10 +30,18 @@ public class ModalSheet extends BottomSheetDialogFragment {
             }
         });
 
-        tv2.setOnClickListener(new View.OnClickListener() {
+        ll2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(), JobActivity.class);
+                startActivity(i);
+            }
+        });
+
+        ll3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), EventsActivity.class);
                 startActivity(i);
             }
         });

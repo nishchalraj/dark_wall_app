@@ -1,8 +1,6 @@
 package com.hackerkernel.user.sqrfactor;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,7 +18,6 @@ public class HomeScreen extends ToolbarActivity {
     ImageView menu, profile;
     //DrawerLayout drawer;
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

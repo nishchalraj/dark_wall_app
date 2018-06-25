@@ -7,6 +7,34 @@
     <string name="Open">Open</string>
     <string name="Close">Closed</string>
     <string name="noti_string"><![CDATA[<b>Henry</b>]]> commented on your status.</string>
+    <string name="comp_brief"><![CDATA[<h1>Brief</h1>]]>\n\n
+Young Designers is a design contest for architects and designers in the first 5 formative years of their firm. It is an initiative by Indian Architect &amp; Builder that offers a platform to emerging designers to showcase not only their work but also a chance to communicate their ideas, values and design principles through the publication.
+<![CDATA[<br>]]><![CDATA[<br>]]>
+An initiative of IA&amp;B since last 19 year which provides a platform for young architects &amp; designer to publish their project and get themselves recognized.
+<![CDATA[<br>]]><![CDATA[<br>]]>
+<![CDATA[<b>Categories</b>]]>:<![CDATA[<br>]]>
+
+Architecture, Residential Interior Design, Commercial Interior Design, Product Design, Public Installations.
+<![CDATA[<br>]]><![CDATA[<br>]]>
+<![CDATA[<b>Project Submission</b>]]>:<![CDATA[<br>]]>
+
+Architects/ Firms have to submit the Project brief in 300 words along with low-resolution drawings, sectional plan, and images of the project in PDF format.
+<![CDATA[<br>]]><![CDATA[<br>]]>
+<![CDATA[<b>Eligibility Criteria</b>]]>:<![CDATA[<br>]]>
+
+Only architects and firms that have not been published in any national/international journal are eligible.<![CDATA[<br>]]><![CDATA[<br>]]>
+
+The project should be less than 3 years old from date of execution/handover.<![CDATA[<br>]]><![CDATA[<br>]]>
+
+Conceptual designs and projects under construction are not eligible.<![CDATA[<br>]]><![CDATA[<br>]]>
+
+Architects can participate in any number of categories. Maximum entries per category are 3.<![CDATA[<br>]]><![CDATA[<br>]]>
+
+<![CDATA[<b>About</b>]]>:<![CDATA[<br>]]>
+
+Indian Architect &amp; Builder is India\'s oldest and premier Architecture &amp; Design publication which has completed 31 years of publication reaching to over 40,000+ AEC professionals. The magazine explores the latest in the field of Architecture, Engineering &amp; Construction. </string>
+    <string name="Event">We all have visited our ever so captivating Sanjay Gandhi National Park; the beautiful historic caves and it’s remnants are a living experience of the era that once existed there. We @Architails love discovering art and architecture of our own city and around the country! So join us on one of such events on Sunday 3rd June in collaboration with Tutelage For All, at 8:30am sharp. See you there! Please register soon, only limited spots available. No Refunds or Cancellations. Event Timing: SUNDAY, 3rd june 2018, 8:30 AM onwards. Event Address: Kanheri Caves, Mumbai, Maharashtra- 400101. https://bit.ly/2ItokFy Contact us at: Amey Dalvi 9833976340 or email us at: archdetail3@gmail.com. FURTHER INFORMATION 1) Assemble at kanheri caves entrance sharp at 8.30 am. 2) HOW TO REACH: -Borivali Station East: Bus No, 188 LTD -Local Rickshaw 3) From SGNP Gate to Kanheri Caves Gate: -Shuttle Bus Available of SGNP. 4) THINGS TO CARRY: - Sufficient Water - Cap and Glares - Camera/ Sketchbook/ Other equipments at your own risk. - Any form of ID Proof 5) Expenses to be beared by participants: i) Entrance fee At SGNP Gate: INR 45 ii) Entrance fee at Kanheri Gate: INR 15 iii) Photography/ Videography charges : INR 25 iv) Shuttle Vehicle Services to Kanheri as per park norms INR 14 ONE WAY</string>
+    <string name="event_desc">Tell everyone about your event, don\'t \nforget to include your event contact info like \nemail address and phone no.</string>
     <string-array name="countries">
         <item>Choose country</item>
         <item>Antarctica</item>
@@ -19,5 +47,29 @@
         <item>Splash</item>
         <item>Register Page</item>
         <item>Home Page</item>
+    </string-array>
+    <string-array name="currency">
+        <item>USD</item>
+        <item>INR</item>
+    </string-array>
+    <string-array name="positions">
+        <item>Seclect a Position</item>
+        <item>Full Time</item>
+        <item>Part Time</item>
+        <item>Internship</item>
+    </string-array>
+    <string-array name="category">
+        <item>Select the category</item>
+        <item>Senior Architect</item>
+        <item>Junior Architect</item>
+        <item>Intern Architect</item>
+        <item>Landscape Architect</item>
+        <item>Urban Designer</item>
+        <item>Interior Designer</item>
+        <item>BIM Architect</item>
+        <item>Architectural 3D Visualizer</item>
+        <item>Draftsman</item>
+        <item>Project Manager</item>
+        <item>Professor, Guest faculty</item>
     </string-array>
 </resources>

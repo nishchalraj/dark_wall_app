@@ -296,7 +296,7 @@
                         android:drawableStart="@drawable/comment_xml"
                         android:background="@android:color/transparent"
                         android:textColor="@android:color/tertiary_text_dark"
-                        android:gravity="left|center_vertical"
+                        android:gravity="start|center_vertical"
                         android:drawablePadding="10sp"/>
 
                     <Button
@@ -439,7 +439,11 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="60sp"
-                        android:layout_margin="10sp"
+                        android:layout_marginStart="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:layout_marginRight="10sp"
+                        android:layout_marginEnd="10sp"
+                        android:layout_marginTop="10sp"
                         android:hint="Write comment..."
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:background="@drawable/gray_border"
@@ -746,7 +750,11 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="60sp"
-                        android:layout_margin="10sp"
+                        android:layout_marginStart="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:layout_marginRight="10sp"
+                        android:layout_marginEnd="10sp"
+                        android:layout_marginTop="10sp"
                         android:hint="Write comment..."
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:background="@drawable/gray_border"

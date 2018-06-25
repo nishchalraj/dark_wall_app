@@ -45,13 +45,14 @@
         <ImageView
             android:layout_width="25sp"
             android:layout_height="25sp"
-            android:src="@drawable/coins"/>
+            android:src="@drawable/article"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Credits"
+            android:text="What's Red?"
             android:layout_marginLeft="20sp"
+            android:layout_marginStart="20sp"
             android:textSize="15sp"
             android:textColor="@android:color/black"/>
 
@@ -59,6 +60,32 @@
 
     <LinearLayout
         android:id="@+id/ll3"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:orientation="horizontal"
+        android:padding="10sp"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="25sp"
+            android:layout_height="25sp"
+            android:src="@drawable/coins"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Credits"
+            android:layout_marginLeft="20sp"
+            android:layout_marginStart="20sp"
+            android:textSize="15sp"
+            android:textColor="@android:color/black"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll4"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:orientation="horizontal"
@@ -83,7 +110,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll4"
+        android:id="@+id/ll5"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:orientation="horizontal"

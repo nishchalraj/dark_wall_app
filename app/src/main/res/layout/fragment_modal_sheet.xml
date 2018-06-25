@@ -12,10 +12,11 @@
     app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
     <LinearLayout
-        android:id="@+id/tv1"
+        android:id="@+id/ll1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
         android:paddingBottom="8dp"
@@ -39,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
         android:paddingBottom="8dp"
@@ -58,15 +60,18 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/tv2"
+        android:id="@+id/ll2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
         android:paddingBottom="8dp"
         android:paddingLeft="30sp"
+        android:paddingStart="30sp"
         android:paddingRight="20sp"
+        android:paddingEnd="20sp"
         android:paddingTop="8dp">
 
 
@@ -81,14 +86,18 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
         android:paddingBottom="8dp"
         android:paddingLeft="30sp"
+        android:paddingStart="30sp"
         android:paddingRight="20sp"
+        android:paddingEnd="20sp"
         android:paddingTop="8dp">
 
 

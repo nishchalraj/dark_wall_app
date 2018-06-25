@@ -1,22 +1,22 @@
 package com.hackerkernel.user.sqrfactor;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-public class CompetitionsActivity extends ToolbarActivity {
+public class Launch2 extends AppCompatActivity {
 
-    FloatingActionButton fab;
-    Button participate;
+    Toolbar toolbar;
+    Button backbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_competitions);
+        setContentView(R.layout.activity_launch2);
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -24,10 +24,9 @@ public class CompetitionsActivity extends ToolbarActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        fab = (FloatingActionButton)findViewById(R.id.fab);
-        participate = (Button)findViewById(R.id.participate);
+        backbtn = (Button)findViewById(R.id.backbtn);
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), LaunchCompetition.class);
@@ -35,14 +34,5 @@ public class CompetitionsActivity extends ToolbarActivity {
             }
         });
 
-        participate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Participate.class);
-                startActivity(i);
-            }
-        });
-
     }
-
 }

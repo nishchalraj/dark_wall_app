@@ -24,36 +24,73 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RedActivity"
-            android:label="What's Red?"
-            android:parentActivityName=".HomeScreen"/>
+        <activity
+            android:name=".RedActivity"
+            android:label="What&apos;s Red?"
+            android:parentActivityName=".HomeScreen" />
         <activity android:name=".ToolbarActivity" />
-        <activity android:name=".DesignActivity"
+        <activity
+            android:name=".DesignActivity"
             android:label="Post Design"
-            android:parentActivityName=".HomeScreen"/>
-        <activity android:name=".ArticleActivity"
+            android:parentActivityName=".HomeScreen" />
+        <activity
+            android:name=".ArticleActivity"
             android:label="Post Article"
-            android:parentActivityName=".HomeScreen"/>
-        <activity android:name=".ResetPassword"
+            android:parentActivityName=".HomeScreen" />
+        <activity
+            android:name=".ResetPassword"
             android:label="Reset Password"
-            android:parentActivityName=".LoginScreen"/>
-        <activity android:name=".ProfileActivity"
-            android:parentActivityName=".HomeScreen"/>
-        <activity android:name=".CommentsPage"
+            android:parentActivityName=".LoginScreen" />
+        <activity
+            android:name=".ProfileActivity"
+            android:parentActivityName=".HomeScreen" />
+        <activity
+            android:name=".CommentsPage"
             android:label="Comments"
-            android:parentActivityName=".HomeScreen"/>
-        <activity android:name=".MessagesActivity"
+            android:parentActivityName=".HomeScreen" />
+        <activity
+            android:name=".MessagesActivity"
             android:label="Messages"
-            android:parentActivityName=".HomeScreen"/>
-        <activity android:name=".CompetitionsActivity"
+            android:parentActivityName=".HomeScreen" />
+        <activity
+            android:name=".CompetitionsActivity"
             android:label="Competitions"
-            android:parentActivityName=".HomeScreen"/>
-        <activity android:name=".NotificationsActivity"
+            android:parentActivityName=".HomeScreen" />
+        <activity
+            android:name=".NotificationsActivity"
             android:label="Notifications"
-            android:parentActivityName=".HomeScreen"/>
-        <activity android:name=".JobActivity"
+            android:parentActivityName=".HomeScreen" />
+        <activity
+            android:name=".JobActivity"
             android:label="Jobs/Internships"
-            android:parentActivityName=".HomeScreen"></activity>
+            android:parentActivityName=".HomeScreen" />
+        <activity
+            android:name=".EventsActivity"
+            android:label="Events"
+            android:parentActivityName=".HomeScreen" />
+        <activity
+            android:name=".PostEvent"
+            android:label="Post Event"
+            android:parentActivityName=".EventsActivity" />
+        <activity
+            android:name=".PostJob"
+            android:label="Post Job"
+            android:parentActivityName=".JobActivity" />
+        <activity
+            android:name=".LaunchCompetition"
+            android:label="Launch a Competition"
+            android:parentActivityName=".CompetitionsActivity" />
+        <activity
+            android:name=".Launch2"
+            android:label="Launch a Competition"
+            android:parentActivityName=".LaunchCompetition" />
+        <activity
+            android:name=".Participate"
+            android:label="Participate"
+            android:parentActivityName=".CompetitionsActivity" />
+        <activity android:name=".Submit"
+            android:label="Submit"
+            android:parentActivityName=".Participate"></activity>
     </application>
 
 </manifest>

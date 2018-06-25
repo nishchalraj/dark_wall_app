@@ -1,5 +1,6 @@
 package com.hackerkernel.user.sqrfactor;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.LayoutInflater;
@@ -22,6 +23,14 @@ public class ProfileBottomSheet extends BottomSheetDialogFragment{
         ll2 = (LinearLayout)view.findViewById(R.id.ll2);
         ll3 = (LinearLayout)view.findViewById(R.id.ll3);
         ll4 = (LinearLayout)view.findViewById(R.id.ll4);
+
+        ll2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), RedActivity.class);
+                startActivity(i);
+            }
+        });
 
         return view;
 
