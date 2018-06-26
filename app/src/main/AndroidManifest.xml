@@ -88,9 +88,21 @@
             android:name=".Participate"
             android:label="Participate"
             android:parentActivityName=".CompetitionsActivity" />
-        <activity android:name=".Submit"
+        <activity
+            android:name=".Submit"
             android:label="Submit"
-            android:parentActivityName=".Participate"></activity>
+            android:parentActivityName=".Participate" />
+        <activity
+            android:name=".JobDetails"
+            android:label="Job Details"
+            android:parentActivityName=".JobActivity" />
+        <activity
+            android:name=".EventDetails"
+            android:label="Event Details"
+            android:parentActivityName=".EventsActivity" />
+        <activity android:name=".About"
+            android:label="About"
+            android:parentActivityName=".ProfileActivity"></activity>
     </application>
 
 </manifest>

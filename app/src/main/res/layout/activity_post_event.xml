@@ -90,7 +90,7 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="200sp"
                 android:gravity="top"
                 android:background="@drawable/gray_border"
                 android:hint="@string/event_desc"
@@ -186,7 +186,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
-                android:background="@drawable/gray_border"
+                android:foreground="@drawable/gray_border"
                 android:padding="10sp"
                 android:entries="@array/countries"
                 android:layout_marginBottom="10sp"/>
@@ -194,7 +194,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
-                android:background="@drawable/gray_border"
+                android:foreground="@drawable/gray_border"
                 android:padding="10sp"
                 android:entries="@array/countries"
                 android:layout_marginBottom="10sp"/>
@@ -202,7 +202,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
-                android:background="@drawable/gray_border"
+                android:foreground="@drawable/gray_border"
                 android:padding="10sp"
                 android:entries="@array/countries"
                 android:layout_marginBottom="10sp"/>

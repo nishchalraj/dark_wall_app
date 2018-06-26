@@ -89,7 +89,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
-                android:background="@drawable/gray_border"
+                android:foreground="@drawable/gray_border"
                 android:padding="10sp"
                 android:entries="@array/category"
                 android:layout_marginBottom="10sp"/>
@@ -106,7 +106,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
-                android:background="@drawable/gray_border"
+                android:foreground="@drawable/gray_border"
                 android:padding="10sp"
                 android:entries="@array/positions"
                 android:layout_marginBottom="10sp"/>
@@ -123,9 +123,9 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
-                android:background="@drawable/gray_border"
+                android:foreground="@drawable/gray_border"
                 android:padding="10sp"
-                android:entries="@array/countries"
+                android:entries="@array/workex"
                 android:layout_marginBottom="10sp"/>
 
             <TextView
@@ -168,7 +168,7 @@
                 <Spinner
                     android:layout_width="0sp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/gray_border"
+                    android:foreground="@drawable/gray_border"
                     android:padding="10sp"
                     android:entries="@array/currency"
                     android:layout_marginBottom="10sp"
@@ -257,7 +257,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
-                android:background="@drawable/gray_border"
+                android:foreground="@drawable/gray_border"
                 android:padding="10sp"
                 android:entries="@array/countries"
                 android:layout_marginBottom="10sp"/>
@@ -265,7 +265,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
-                android:background="@drawable/gray_border"
+                android:foreground="@drawable/gray_border"
                 android:padding="10sp"
                 android:entries="@array/countries"
                 android:layout_marginBottom="10sp"/>
@@ -273,7 +273,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
-                android:background="@drawable/gray_border"
+                android:foreground="@drawable/gray_border"
                 android:padding="10sp"
                 android:entries="@array/countries"
                 android:layout_marginBottom="10sp"/>
@@ -288,6 +288,7 @@
                 android:layout_marginBottom="5sp"/>
 
             <EditText
+                android:id="@+id/expirydate"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:gravity="center_vertical"
@@ -295,7 +296,8 @@
                 android:background="@drawable/gray_border"
                 android:padding="15sp"
                 android:inputType="date"
-                android:layout_marginBottom="10sp"/>
+                android:layout_marginBottom="10sp"
+                android:focusable="false"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -304,13 +306,13 @@
                 android:background="@drawable/sqr_factor_btn_color"
                 android:text="Post Job"
                 android:textAllCaps="false"
-                android:textSize="20sp"
                 android:textColor="#ffffff"
                 android:textStyle="bold"
                 android:paddingLeft="10sp"
                 android:paddingStart="10sp"
                 android:paddingRight="10sp"
-                android:paddingEnd="10sp"/>
+                android:paddingEnd="10sp"
+                android:layout_gravity="center"/>
 
         </LinearLayout>
 

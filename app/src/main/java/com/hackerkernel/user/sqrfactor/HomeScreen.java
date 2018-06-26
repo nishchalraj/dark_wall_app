@@ -88,10 +88,10 @@ public class HomeScreen extends ToolbarActivity {
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_menu_black_24dp));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.profilepic));*/
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.news_feed2);
+        tabLayout.getTabAt(0).setIcon(R.drawable.news_selected);
         tabLayout.getTabAt(1).setIcon(R.drawable.msg);
-        tabLayout.getTabAt(2).setIcon(R.drawable.notification);
-        tabLayout.getTabAt(3).setIcon(R.drawable.ic_search_black_24dp);
+        tabLayout.getTabAt(2).setIcon(R.drawable.bell);
+        tabLayout.getTabAt(3).setIcon(R.drawable.search);
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
@@ -101,24 +101,24 @@ public class HomeScreen extends ToolbarActivity {
                 switch (tab.getPosition()) {
 
                     case 0:
-
+                        tab.setIcon(R.drawable.news_selected);
                         break;
 
                     case 1:
-                        tab.setIcon(R.drawable.envelope_filled);
+                        tab.setIcon(R.drawable.msg_selected);
                         //Intent i1 = new Intent(getApplicationContext(), MessagesActivity.class);
                         //startActivity(i1);
                         break;
 
                     case 2:
-                        tab.setIcon(R.drawable.notification_filled);
+                        tab.setIcon(R.drawable.bell_selected);
                         //getSupportFragmentManager().beginTransaction().replace(R.id.mainfrag, new MessagesFragment()).commit();
                         //Intent i2 = new Intent(getApplicationContext(), NotificationsActivity.class);
                         //startActivity(i2);
                         break;
 
                     case 3:
-
+                        tab.setIcon(R.drawable.search_selected);
                         //Intent i3 = new Intent(getApplicationContext(), MessagesActivity.class);
                         //startActivity(i3);
                         break;
@@ -142,7 +142,7 @@ public class HomeScreen extends ToolbarActivity {
                 switch (tab.getPosition()) {
 
                     case 0:
-
+                        tab.setIcon(R.drawable.news);
                         break;
 
                     case 1:
@@ -150,9 +150,11 @@ public class HomeScreen extends ToolbarActivity {
                         break;
 
                     case 2:
-                        tab.setIcon(R.drawable.notification);
+                        tab.setIcon(R.drawable.bell);
                         break;
 
+                    case 3:
+                        tab.setIcon(R.drawable.search);
 
                 }
 

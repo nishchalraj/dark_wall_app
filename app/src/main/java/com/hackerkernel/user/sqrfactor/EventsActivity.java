@@ -7,11 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 
 public class EventsActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     FloatingActionButton fab;
+    Button read_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,15 @@ public class EventsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), PostEvent.class);
+                startActivity(i);
+            }
+        });
+
+        read_btn = (Button)findViewById(R.id.read_btn);
+        read_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), EventDetails.class);
                 startActivity(i);
             }
         });

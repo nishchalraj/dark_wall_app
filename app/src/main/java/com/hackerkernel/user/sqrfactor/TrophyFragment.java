@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -32,6 +33,22 @@ public class TrophyFragment extends Fragment {
                 PopupMenu pop = new PopupMenu(getContext(), v);
                 pop.getMenuInflater().inflate(R.menu.home_menu, pop.getMenu());
                 pop.show();
+
+                pop.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+
+                            case R.id.comp:
+                                Intent i = new Intent(getContext(), LaunchCompetition.class);
+                                startActivity(i);
+                                return true;
+
+                        }
+                        return true;
+                    }
+                });
+
             }
         });
 

@@ -6,10 +6,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 
 public class JobActivity extends ToolbarActivity {
 
     FloatingActionButton fab;
+    Button detailsbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,15 @@ public class JobActivity extends ToolbarActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), PostJob.class);
+                startActivity(i);
+            }
+        });
+
+        detailsbtn = (Button)findViewById(R.id.detailsbtn);
+        detailsbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), JobDetails.class);
                 startActivity(i);
             }
         });

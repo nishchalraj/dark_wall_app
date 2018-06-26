@@ -90,7 +90,7 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="100sp"
+                android:layout_height="200sp"
                 android:gravity="top"
                 android:background="@drawable/gray_border"
                 android:hint="Write a description of competition \nyou want to launch."
@@ -136,13 +136,12 @@
                 android:textColor="#000"
                 android:layout_marginBottom="5sp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <RadioGroup
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10sp">
-
+                android:orientation="horizontal">
                 <RadioButton
+                    android:id="@+id/rb1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="No Jury"
@@ -150,11 +149,11 @@
                     android:layout_marginEnd="5sp"/>
 
                 <RadioButton
+                    android:id="@+id/rb2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Will update later"/>
-
-            </LinearLayout>
+            </RadioGroup>
 
             <EditText
                 android:layout_width="match_parent"
@@ -246,9 +245,9 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
-                android:background="@drawable/gray_border"
+                android:foreground="@drawable/gray_border"
                 android:padding="10sp"
-                android:entries="@array/countries"
+                android:entries="@array/prizes"
                 android:layout_marginBottom="10sp"/>
 
             <EditText
@@ -264,15 +263,15 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
-                android:background="@drawable/gray_border"
+                android:foreground="@drawable/gray_border"
                 android:padding="10sp"
-                android:entries="@array/countries"
+                android:entries="@array/currency"
                 android:layout_marginBottom="10sp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="100sp"
-                android:gravity="center_vertical"
+                android:gravity="top"
                 android:background="@drawable/gray_border"
                 android:hint="Add more details of the award/prize \nfor the competition."
                 android:padding="15sp"
@@ -321,6 +320,7 @@
                 android:layout_marginBottom="5sp"/>
 
             <EditText
+                android:id="@+id/startdate"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:gravity="center_vertical"
@@ -328,7 +328,8 @@
                 android:background="@drawable/gray_border"
                 android:padding="15sp"
                 android:inputType="date"
-                android:layout_marginBottom="10sp"/>
+                android:layout_marginBottom="10sp"
+                android:focusable="false"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -339,6 +340,7 @@
                 android:layout_marginBottom="5sp"/>
 
             <EditText
+                android:id="@+id/closedate"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:gravity="center_vertical"
@@ -346,7 +348,8 @@
                 android:background="@drawable/gray_border"
                 android:padding="15sp"
                 android:inputType="date"
-                android:layout_marginBottom="10sp"/>
+                android:layout_marginBottom="10sp"
+                android:focusable="false"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -357,6 +360,7 @@
                 android:layout_marginBottom="5sp"/>
 
             <EditText
+                android:id="@+id/closedate2"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:gravity="center_vertical"
@@ -364,7 +368,8 @@
                 android:background="@drawable/gray_border"
                 android:padding="15sp"
                 android:inputType="date"
-                android:layout_marginBottom="10sp"/>
+                android:layout_marginBottom="10sp"
+                android:focusable="false"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -375,6 +380,7 @@
                 android:layout_marginBottom="5sp"/>
 
             <EditText
+                android:id="@+id/announcedate"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:gravity="center_vertical"
@@ -382,7 +388,8 @@
                 android:background="@drawable/gray_border"
                 android:padding="15sp"
                 android:inputType="date"
-                android:layout_marginBottom="10sp"/>
+                android:layout_marginBottom="10sp"
+                android:focusable="false"/>
 
             <Button
                 android:id="@+id/nextbtn"
@@ -394,7 +401,8 @@
                 android:textAllCaps="false"
                 android:textSize="20sp"
                 android:textColor="#ffffff"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
 
         </LinearLayout>
 

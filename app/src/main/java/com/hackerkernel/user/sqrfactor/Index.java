@@ -44,6 +44,41 @@ public class Index extends AppCompatActivity {
                         startActivity(i3);
                         break;
 
+                    case 3:
+                        Intent i4 = new Intent(getApplicationContext(), ProfileActivity.class);
+                        startActivity(i4);
+                        break;
+
+                    case 4:
+                        Intent i5 = new Intent(getApplicationContext(), RedActivity.class);
+                        startActivity(i5);
+                        break;
+
+                    case 5:
+                        Intent i6 = new Intent(getApplicationContext(), DesignActivity.class);
+                        startActivity(i6);
+                        break;
+
+                    case 6:
+                        Intent i7 = new Intent(getApplicationContext(), ArticleActivity.class);
+                        startActivity(i7);
+                        break;
+
+                    case 7:
+                        Intent i8 = new Intent(getApplicationContext(), CompetitionsActivity.class);
+                        startActivity(i8);
+                        break;
+
+                    case 8:
+                        Intent i9 = new Intent(getApplicationContext(), JobActivity.class);
+                        startActivity(i9);
+                        break;
+
+                    case 9:
+                        Intent i10 = new Intent(getApplicationContext(), EventsActivity.class);
+                        startActivity(i10);
+                        break;
+
                 }
 
             }

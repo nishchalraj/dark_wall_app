@@ -31,10 +31,10 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
-                android:background="@drawable/gray_border"
+                android:foreground="@drawable/gray_border"
                 android:padding="10sp"
-                android:entries="@array/countries"
-                android:layout_marginBottom="10sp"/>
+                android:entries="@array/competitions"
+                android:layout_marginBottom="10sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
                 android:textColor="#000"
                 android:layout_marginBottom="5sp"/>
 
-            <LinearLayout
+            <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:text="Will update later"/>
 
-            </LinearLayout>
+            </RadioGroup>
 
             <EditText
                 android:layout_width="match_parent"
@@ -190,29 +190,40 @@
                 android:text="Attach more documents"
                 android:layout_marginBottom="10sp"/>
 
-            <Button
-                android:id="@+id/backbtn"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15sp"
-                android:background="@drawable/sqr_factor_btn_color"
-                android:text="Back"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                android:textColor="#ffffff"
-                android:textStyle="bold"/>
+                android:padding="15sp"
+                android:weightSum="2"
+                android:gravity="center_vertical">
 
-            <Button
-                android:id="@+id/submitbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15sp"
-                android:background="@drawable/sqr_factor_btn_color"
-                android:text="Submit"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                android:textColor="#ffffff"
-                android:textStyle="bold"/>
+                <Button
+                    android:id="@+id/backbtn"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15sp"
+                    android:layout_marginEnd="15sp"
+                    android:background="@drawable/sqr_factor_btn_color"
+                    android:text="Back"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/submitbtn"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/sqr_factor_btn_color"
+                    android:text="Submit"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

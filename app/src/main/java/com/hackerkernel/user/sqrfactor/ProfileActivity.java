@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -13,7 +14,7 @@ public class ProfileActivity extends ToolbarActivity {
 
     Toolbar toolbar;
     TabLayout tabLayout1;
-    ImageView morebtn;
+    ImageView morebtn, btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,17 @@ public class ProfileActivity extends ToolbarActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        btn = (ImageView)findViewById(R.id.btn);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu pop = new PopupMenu(getApplicationContext(), v);
+                pop.getMenuInflater().inflate(R.menu.home_menu, pop.getMenu());
+                pop.show();
+            }
+        });
+
         morebtn = (ImageView)findViewById(R.id.morebtn);
         morebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +45,23 @@ public class ProfileActivity extends ToolbarActivity {
                 PopupMenu pop = new PopupMenu(getApplicationContext(), v);
                 pop.getMenuInflater().inflate(R.menu.more_menu, pop.getMenu());
                 pop.show();
+
+                pop.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+
+                        switch (item.getItemId()){
+
+                            case R.id.about:
+                                Intent i = new Intent(getApplicationContext(), About.class);
+                                startActivity(i);
+                                return true;
+
+                        }
+                        return true;
+                    }
+                });
+
             }
         });
 

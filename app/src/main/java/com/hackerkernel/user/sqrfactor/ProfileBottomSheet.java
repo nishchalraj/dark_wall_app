@@ -24,6 +24,14 @@ public class ProfileBottomSheet extends BottomSheetDialogFragment{
         ll3 = (LinearLayout)view.findViewById(R.id.ll3);
         ll4 = (LinearLayout)view.findViewById(R.id.ll4);
 
+        ll1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), ProfileActivity.class);
+                startActivity(i);
+            }
+        });
+
         ll2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

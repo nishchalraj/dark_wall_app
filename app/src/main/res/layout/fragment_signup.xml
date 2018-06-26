@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_margin="10sp"
-        android:background="@drawable/gray_border"
+        android:foreground="@drawable/gray_border"
         android:padding="5sp"
         android:entries="@array/user_choices"/>
 
@@ -105,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_margin="10sp"
-        android:background="@drawable/gray_border"
+        android:foreground="@drawable/gray_border"
         android:padding="5sp"
         android:entries="@array/countries"/>
 
