@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -22,7 +23,7 @@ public class TrophyFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = (View) inflater.inflate(R.layout.fragment_trophy, container, false);
 
-        getChildFragmentManager().beginTransaction().replace(R.id.fragment, new StatusFragment()).addToBackStack(null).commit();
+        //getChildFragmentManager().beginTransaction().replace(R.id.fragment, new StatusFragment()).addToBackStack(null).commit();
 
         btn = (ImageView)view.findViewById(R.id.btn);
 
@@ -32,6 +33,22 @@ public class TrophyFragment extends Fragment {
                 PopupMenu pop = new PopupMenu(getContext(), v);
                 pop.getMenuInflater().inflate(R.menu.home_menu, pop.getMenu());
                 pop.show();
+
+                pop.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+
+                            case R.id.comp:
+                                Intent i = new Intent(getContext(), LaunchCompetition.class);
+                                startActivity(i);
+                                return true;
+
+                        }
+                        return true;
+                    }
+                });
+
             }
         });
 

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".About">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/activity_toolbar"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10sp"
+                    android:text="Personal Info"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:background="@drawable/gray_border"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Keanu Reeves"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    android:padding="10sp"
+                    android:layout_marginBottom="10sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Followers:"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    android:padding="10sp"
+                    android:layout_marginBottom="10sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginBottom="10sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Following:"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    android:padding="10sp"
+                    android:layout_marginBottom="10sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="21"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginBottom="10sp"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10sp"
+                    android:text="Basic Details"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:background="@drawable/gray_border"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name of the Company/Firm:"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    android:padding="10sp"
+                    android:layout_marginBottom="10sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hackerkernel"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginBottom="10sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email Address:"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    android:padding="10sp"
+                    android:layout_marginBottom="10sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="hello@hackerkernel.com"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginBottom="10sp"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

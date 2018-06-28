@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="60sp"
             android:layout_margin="10sp"
-            android:background="@drawable/shapes"
+            android:background="@drawable/gray_border"
             android:padding="10sp"
             app:hintTextAppearance="@color/colorPrimary"
             android:layout_gravity="center">
@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="60sp"
             android:layout_margin="10sp"
-            android:background="@drawable/shapes"
+            android:background="@drawable/gray_border"
             android:padding="10sp"
             app:hintTextAppearance="@color/colorPrimary"
             android:layout_gravity="center">
@@ -83,7 +83,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="200sp"
-            android:background="@drawable/shapes"
+            android:background="@drawable/gray_border"
             android:padding="15sp"
             android:inputType="text"
             android:layout_margin="10sp"
@@ -93,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="60sp"
             android:layout_margin="10sp"
-            android:background="@drawable/shapes"
+            android:background="@drawable/gray_border"
             android:padding="10sp"
             app:hintTextAppearance="@color/colorPrimary"
             android:layout_gravity="center">
@@ -113,7 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="60sp"
             android:layout_margin="10sp"
-            android:background="@drawable/shapes"
+            android:background="@drawable/gray_border"
             android:padding="10sp"
             app:hintTextAppearance="@color/colorPrimary"
             android:layout_gravity="center">
@@ -132,7 +132,7 @@
         <Button
             android:layout_width="100sp"
             android:layout_height="60sp"
-            android:background="@color/sqr"
+            android:background="@drawable/sqr_factor_btn_color"
             android:text="Save"
             android:textAllCaps="false"
             android:textSize="20sp"

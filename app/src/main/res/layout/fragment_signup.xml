@@ -10,10 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10sp"
+        android:layout_marginStart="10sp"
         android:layout_marginBottom="10sp"
         android:layout_marginTop="25sp"
         android:text="Register to Square Factor"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="#000000"
         android:padding="10sp" />
 
@@ -22,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_margin="10sp"
-        android:background="@drawable/shapes"
+        android:foreground="@drawable/gray_border"
         android:padding="5sp"
         android:entries="@array/user_choices"/>
 
@@ -30,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_margin="10sp"
-        android:background="@drawable/shapes"
+        android:background="@drawable/gray_border"
         android:padding="5sp"
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
@@ -49,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_margin="10sp"
-        android:background="@drawable/shapes"
+        android:background="@drawable/gray_border"
         android:padding="5sp"
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
@@ -67,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_margin="10sp"
-        android:background="@drawable/shapes"
+        android:background="@drawable/gray_border"
         android:padding="5sp"
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
@@ -85,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_margin="10sp"
-        android:background="@drawable/shapes"
+        android:background="@drawable/gray_border"
         android:padding="5sp"
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
@@ -104,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_margin="10sp"
-        android:background="@drawable/shapes"
+        android:foreground="@drawable/gray_border"
         android:padding="5sp"
         android:entries="@array/countries"/>
 
@@ -112,7 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_margin="10sp"
-        android:background="@drawable/shapes"
+        android:background="@drawable/gray_border"
         android:padding="5sp"
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
@@ -131,7 +132,7 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_margin="10sp"
-        android:background="@drawable/shapes"
+        android:background="@drawable/gray_border"
         android:padding="5sp"
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
@@ -150,7 +151,7 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_margin="10sp"
-        android:background="@drawable/shapes"
+        android:background="@drawable/gray_border"
         android:padding="5sp"
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Small">
 
@@ -168,7 +169,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shapes2"
+        android:background="@drawable/loginbtn"
         android:text="Complete Registration!"
         android:textSize="15sp"
         android:textColor="#ffffff"
@@ -188,7 +189,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shapes3"
+        android:background="@drawable/fbcolor"
         android:text="Login with Facebook"
         android:textSize="15sp"
         android:textColor="#ffffff"
@@ -198,7 +199,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shapes4"
+        android:background="@drawable/googlepluscolor"
         android:text="Login with Google Plus"
         android:textSize="15sp"
         android:textColor="#ffffff"
