@@ -1,148 +1,101 @@
 package com.hackerkernel.user.sqrfactor;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class HomeScreen extends ToolbarActivity {
 
     Toolbar toolbar;
-    ViewPager pager;
     TabLayout tabLayout;
-    ImageView menu, profile;
-    //DrawerLayout drawer;
+    ImageView imageView;
+    DrawerLayout drawerLayout;
 
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
-        menu = (ImageView)findViewById(R.id.menu);
-        profile = (ImageView)findViewById(R.id.profile);
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainfrag, new TrophyFragment()).commit();
 
-        menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new ModalSheet().show(getSupportFragmentManager(), "");
-            }
-        });
 
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new ProfileBottomSheet().show(getSupportFragmentManager(), "");
-            }
-        });
 
-        //getSupportFragmentManager().beginTransaction().replace(R.id.mainfrag, new TrophyFragment()).commit();
+        tabLayout = (TabLayout)findViewById(R.id.tabs);
 
-        //toolbar = (Toolbar)findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        //tabLayout.setupWithViewPager(pager);
 
-        /*drawer = (DrawerLayout)findViewById(R.id.drawer);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.Open, R.string.Close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView nav = (NavigationView)findViewById(R.id.nav);
-        nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                switch (item.getItemId()){
-
-                    case R.id.news:
-                        Intent i = new Intent(getApplicationContext(), RedActivity.class);
-                        startActivity(i);
-                        break;
-
-                }
-
-                drawer.closeDrawers();
-                return true;
-
-            }
-
-        });*/
-
-        pager = (ViewPager)findViewById(R.id.pager);
-        //imageView = (ImageView) findViewById(R.id.options);
-
-        SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        pager.setAdapter(adapter);
-
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-
-        tabLayout.setupWithViewPager(pager);
-
-        /*tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.news_feed2));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.news_feed2));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.msg));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.notification));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_search_black_24dp));
+//        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_search_black_24dp));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_menu_black_24dp));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.profilepic));*/
+//        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.profilepic));
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.news_selected);
+        /*tabLayout.getTabAt(0).setIcon(R.drawable.trophy_filled);
         tabLayout.getTabAt(1).setIcon(R.drawable.msg);
-        tabLayout.getTabAt(2).setIcon(R.drawable.bell);
-        tabLayout.getTabAt(3).setIcon(R.drawable.search);
+        tabLayout.getTabAt(2).setIcon(R.drawable.notification);
 
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);*/
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                switch (tab.getPosition()) {
+                switch (tab.getPosition()){
 
                     case 0:
-                        tab.setIcon(R.drawable.news_selected);
+
                         break;
 
                     case 1:
-                        tab.setIcon(R.drawable.msg_selected);
-                        //Intent i1 = new Intent(getApplicationContext(), MessagesActivity.class);
-                        //startActivity(i1);
+                        tab.setIcon(R.drawable.envelope_filled);
+                        Intent i1 = new Intent(getApplicationContext(), MessagesActivity.class);
+                        startActivity(i1);
                         break;
 
                     case 2:
-                        tab.setIcon(R.drawable.bell_selected);
-                        //getSupportFragmentManager().beginTransaction().replace(R.id.mainfrag, new MessagesFragment()).commit();
-                        //Intent i2 = new Intent(getApplicationContext(), NotificationsActivity.class);
-                        //startActivity(i2);
+                        tab.setIcon(R.drawable.notification_filled);
+                        Intent i2 = new Intent(getApplicationContext(), NotificationsActivity.class);
+                        startActivity(i2);
                         break;
+
 
                     case 3:
-                        tab.setIcon(R.drawable.search_selected);
-                        //Intent i3 = new Intent(getApplicationContext(), MessagesActivity.class);
-                        //startActivity(i3);
-                        break;
-
-                    /*case 4:
                         new ModalSheet().show(getSupportFragmentManager(), "");
                         //Intent i4 = new Intent(getApplicationContext(), MessagesActivity.class);
                         //startActivity(i4);
                         break;
 
-                    case 5:
-                        new ProfileBottomSheet().show(getSupportFragmentManager(), "");
-                        break;*/
-
                 }
             }
+
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
-                switch (tab.getPosition()) {
+                switch (tab.getPosition()){
 
                     case 0:
-                        tab.setIcon(R.drawable.news);
+
                         break;
 
                     case 1:
@@ -150,11 +103,9 @@ public class HomeScreen extends ToolbarActivity {
                         break;
 
                     case 2:
-                        tab.setIcon(R.drawable.bell);
+                        tab.setIcon(R.drawable.notification);
                         break;
 
-                    case 3:
-                        tab.setIcon(R.drawable.search);
 
                 }
 
@@ -164,9 +115,32 @@ public class HomeScreen extends ToolbarActivity {
             public void onTabReselected(TabLayout.Tab tab) {
 
 
+
             }
         });
-
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                int id = menuItem.getItemId();
+                if (id == R.id.navigation_profile) {
+                    Intent i = new Intent(HomeScreen.this, Profile.class);
+                    startActivity(i);
+                }
+                if (id == R.id.navigation_credits){
+                    Intent j = new Intent(HomeScreen.this,Credits.class);
+                    startActivity(j);
+                }
+                if (id == R.id.navigation_settings){
+                    Intent intent = new Intent(HomeScreen.this,Settings.class);
+                    startActivity(intent);
+                }
+                menuItem.setChecked(true);
+                drawerLayout.closeDrawers();
+                Toast.makeText(HomeScreen.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+                return true;
+            }
+        });
     }
 
     @Override
@@ -178,7 +152,7 @@ public class HomeScreen extends ToolbarActivity {
         super.onBackPressed();
     }
 
-    private class SectionsPagerAdapter extends FragmentStatePagerAdapter {
+    /*private class SectionsPagerAdapter extends FragmentStatePagerAdapter{
 
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -188,7 +162,7 @@ public class HomeScreen extends ToolbarActivity {
         @Override
         public Fragment getItem(int position) {
 
-            switch (position) {
+            switch (position){
 
                 case 0:
                     return new TrophyFragment();
@@ -197,10 +171,7 @@ public class HomeScreen extends ToolbarActivity {
                     return new MessagesFragment();
 
                 case 2:
-                    return new NotificationsFragment();
-
-                case 3:
-                    return new SearchPageFragment();
+                    return new TrophyFragment();
 
             }
 
@@ -210,7 +181,7 @@ public class HomeScreen extends ToolbarActivity {
 
         @Override
         public int getCount() {
-            return 4;
+            return 3;
         }
 
         /*@Nullable
@@ -245,5 +216,42 @@ public class HomeScreen extends ToolbarActivity {
         else
             super.onBackPressed();
     }*/
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem mSearch = menu.findItem(R.id.action_search);
+        SearchView mSearchView = (SearchView) mSearch.getActionView();
+        mSearchView.setQueryHint("Search");
+
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return true;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        switch (id) {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+            case R.id.action_search:
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
