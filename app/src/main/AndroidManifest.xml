@@ -100,9 +100,12 @@
             android:name=".EventDetails"
             android:label="Event Details"
             android:parentActivityName=".EventsActivity" />
-        <activity android:name=".About"
+        <activity
+            android:name=".About"
             android:label="About"
-            android:parentActivityName=".ProfileActivity"></activity>
+            android:parentActivityName=".ProfileActivity" />
+        <activity android:name=".EditProfile" />
+        <activity android:name=".ChatroomActivity"></activity>
     </application>
 
 </manifest>

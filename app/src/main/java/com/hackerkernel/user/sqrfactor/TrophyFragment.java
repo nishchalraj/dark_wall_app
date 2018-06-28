@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 
@@ -16,6 +17,7 @@ public class TrophyFragment extends Fragment {
     //Button news, red;
     TabLayout tabLayout1;
     ImageView btn;
+    Button like, comment, share;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +51,33 @@ public class TrophyFragment extends Fragment {
                     }
                 });
 
+            }
+        });
+
+        like = (Button)view.findViewById(R.id.like);
+        like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new LikeDialog().show(getFragmentManager(), "");
+            }
+        });
+
+        comment = (Button)view.findViewById(R.id.comment);
+        comment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(), CommentsPage.class);
+                startActivity(i);
+
+            }
+        });
+
+        share = (Button)view.findViewById(R.id.share);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new ShareDialog().show(getFragmentManager(),"");
             }
         });
 

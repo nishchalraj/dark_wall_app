@@ -37,6 +37,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         holder.tv1.setText(names[position]);
         holder.tv2.setText(desc[position]);
         holder.img.setImageDrawable(drawables[position]);
+
     }
 
     @Override
