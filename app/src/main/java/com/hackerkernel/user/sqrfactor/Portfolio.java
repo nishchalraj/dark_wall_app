@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class Portfolio extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
     private RecyclerView recyclerView;
     private ArrayList<PortfolioClass> portfolioArrayList=new ArrayList<>();
 
@@ -36,7 +35,7 @@ public class Portfolio extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_portfolio, container, false);
-        recyclerView=view.findViewById(R.id.recyclerView_portfolio);
+//        recyclerView=view.findViewById(R.id.recyclerView_portfolio);
 //        final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
 //        recyclerView.setLayoutManager(layoutManager);
 //        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -49,32 +48,4 @@ public class Portfolio extends Fragment {
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }

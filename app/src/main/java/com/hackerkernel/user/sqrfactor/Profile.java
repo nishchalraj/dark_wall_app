@@ -18,7 +18,7 @@ import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-public class Profile extends AppCompatActivity implements Portfolio.OnFragmentInteractionListener {
+public class Profile extends AppCompatActivity {
 ImageButton menu;
 Context context;
 PopupMenu popupMenu;
@@ -189,8 +189,5 @@ TextView bluePrint,portfolio,followers,following;
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
-    }
 }

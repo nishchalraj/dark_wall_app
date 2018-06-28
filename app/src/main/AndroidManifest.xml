@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.hackerkernel.user.sqrfactor">
 
     <application
@@ -31,15 +32,6 @@
             android:label="What&apos;s Red?"
             android:parentActivityName=".HomeScreen" />
         <activity android:name=".ToolbarActivity" />
-        <activity android:name=".DesignActivity" />
-        <activity android:name=".ArticleActivity" />
-        <activity android:name=".ResetPassword" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".CommentsPage" />
-        <activity android:name=".MessagesActivity" />
-        <activity android:name=".CompetitionsActivity" />
-        <activity android:name=".NotificationsActivity" />
-        <activity android:name=".JobActivity" />
         <activity android:name=".Profile">
         </activity>
         <activity android:name=".Credits" />
@@ -52,7 +44,8 @@
         <activity
             android:name=".DesignActivity"
             android:label="Post Design"
-            android:parentActivityName=".HomeScreen" />
+            android:parentActivityName=".HomeScreen"
+            tools:ignore="DuplicateActivity" />
         <activity
             android:name=".ArticleActivity"
             android:label="Post Article"

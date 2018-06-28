@@ -50,8 +50,8 @@
             android:layout_height="60sp"
             android:layout_gravity="center"
             android:layout_margin="10sp"
-            android:background="@drawable/shapes"
             android:padding="10sp"
+            android:background="@drawable/shapes"
             app:hintTextAppearance="@color/colorPrimary">
 
             <EditText
@@ -72,8 +72,8 @@
             android:layout_height="60sp"
             android:layout_gravity="center"
             android:layout_margin="10sp"
-            android:background="@drawable/shapes"
             android:padding="10sp"
+            android:background="@drawable/shapes"
             app:hintTextAppearance="@color/colorPrimary">
 
             <EditText
@@ -93,8 +93,8 @@
             android:layout_height="60sp"
             android:layout_gravity="center"
             android:layout_margin="10sp"
-            android:background="@drawable/shapes"
             android:padding="10sp"
+            android:background="@drawable/shapes"
             app:hintTextAppearance="@color/colorPrimary">
 
             <EditText
@@ -125,8 +125,8 @@
             android:layout_height="60sp"
             android:layout_gravity="center"
             android:layout_margin="10sp"
-            android:background="@drawable/shapes"
             android:padding="10sp"
+            android:background="@drawable/shapes"
             app:hintTextAppearance="@color/colorPrimary">
 
             <EditText
@@ -210,6 +210,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/UID"
+            android:background="@drawable/shapes"
             android:layout_margin="10dp"
             android:id="@+id/selectOccupation"
             android:text="select occupation*"
