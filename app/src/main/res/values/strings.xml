@@ -15,6 +15,12 @@
         <item>Blah</item>
     </string-array>
     <string name="search">Search here...</string>
+    <string name="save_next"><![CDATA[Save&Next]]></string>
+    <string name="blockProfile">Block Profile</string>
+    <string name="reportProfile">Report Profile</string>
+    <string name="turnOfNotification">Turn Off Notifications</string>
+    <string name="editPost">Edit Post</string>
+    <string name="removeFromFeatures">Remove From Featured</string>
     <string-array name="index">
         <item>Splash</item>
         <item>Register Page</item>
