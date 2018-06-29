@@ -1,12 +1,9 @@
 package com.hackerkernel.user.sqrfactor;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -30,6 +27,9 @@ TextView bluePrint,portfolio,followers,following;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PostFragment()).addToBackStack(null).commit();
+
         toolbar = (Toolbar) findViewById(R.id.profile_toolbar);
         toolbar.setTitle("Profile");
         setSupportActionBar(toolbar);
@@ -61,7 +61,7 @@ TextView bluePrint,portfolio,followers,following;
 
 
 
-        tabLayout1 = (TabLayout)findViewById(R.id.tabs2);
+        /*tabLayout1 = (TabLayout)findViewById(R.id.tabs2);
 
         tabLayout1.addTab(tabLayout1.newTab().setIcon(R.drawable.status)
                 .setText("Status"));
@@ -99,7 +99,7 @@ TextView bluePrint,portfolio,followers,following;
         public void onTabReselected(TabLayout.Tab tab) {
 
         }
-    });
+    });*/
 
         bluePrint = (TextView)findViewById(R.id.prof_blueprint);
         bluePrint.setOnClickListener(new View.OnClickListener() {

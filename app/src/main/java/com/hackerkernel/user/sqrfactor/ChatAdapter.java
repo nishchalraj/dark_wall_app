@@ -26,7 +26,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 10;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

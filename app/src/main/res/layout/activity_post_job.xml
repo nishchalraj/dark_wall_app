@@ -196,10 +196,44 @@
                 android:layout_marginBottom="5sp"/>
 
             <TextView
+                android:id="@+id/add_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add more+"
                 android:layout_marginBottom="10sp"/>
+
+            <EditText
+                android:id="@+id/skill1"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/gray_border"
+                android:hint="Add skills you are looking for"
+                android:padding="15sp"
+                android:inputType="text"
+                android:layout_marginBottom="5sp"/>
+
+            <EditText
+                android:id="@+id/skill2"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/gray_border"
+                android:hint="Add skills you are looking for"
+                android:padding="15sp"
+                android:inputType="text"
+                android:layout_marginBottom="5sp"/>
+
+            <EditText
+                android:id="@+id/skill3"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/gray_border"
+                android:hint="Add skills you are looking for"
+                android:padding="15sp"
+                android:inputType="text"
+                android:layout_marginBottom="5sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -221,10 +255,44 @@
                 android:layout_marginBottom="5sp"/>
 
             <TextView
+                android:id="@+id/add_more2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add more+"
                 android:layout_marginBottom="10sp"/>
+
+            <EditText
+                android:id="@+id/qual1"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/gray_border"
+                android:hint="Add qualification"
+                android:padding="15sp"
+                android:inputType="text"
+                android:layout_marginBottom="5sp"/>
+
+            <EditText
+                android:id="@+id/qual2"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/gray_border"
+                android:hint="Add qualification"
+                android:padding="15sp"
+                android:inputType="text"
+                android:layout_marginBottom="5sp"/>
+
+            <EditText
+                android:id="@+id/qual3"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/gray_border"
+                android:hint="Add qualification"
+                android:padding="15sp"
+                android:inputType="text"
+                android:layout_marginBottom="5sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -255,11 +323,11 @@
                 android:layout_marginBottom="5sp"/>
 
             <Spinner
+                android:id="@+id/country_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:foreground="@drawable/gray_border"
                 android:padding="10sp"
-                android:entries="@array/countries"
                 android:layout_marginBottom="10sp"/>
 
             <Spinner

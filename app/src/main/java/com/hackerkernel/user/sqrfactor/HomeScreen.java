@@ -38,8 +38,6 @@ public class HomeScreen extends ToolbarActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.mainfrag, new TrophyFragment()).commit();
 
-
-
         tabLayout = (TabLayout)findViewById(R.id.tabs);
 
         //tabLayout.setupWithViewPager(pager);

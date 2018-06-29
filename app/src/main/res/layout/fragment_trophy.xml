@@ -94,7 +94,8 @@
             android:layout_marginRight="10sp"
             android:layout_marginStart="10sp"
             android:layout_marginEnd="10sp"
-            android:layout_marginBottom="5sp">
+            android:layout_marginBottom="5sp"
+            app:cardElevation="@dimen/cardview_default_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -143,6 +144,7 @@
                     android:weightSum="6">
 
                     <ImageView
+                        android:id="@+id/camera"
                         android:layout_width="0sp"
                         android:layout_height="30sp"
                         android:src="@drawable/camera"
@@ -181,7 +183,8 @@
             android:layout_marginLeft="10sp"
             android:layout_marginRight="10sp"
             android:layout_marginStart="10sp"
-            android:layout_marginEnd="10sp">
+            android:layout_marginEnd="10sp"
+            app:cardElevation="@dimen/cardview_default_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -420,7 +423,8 @@
             android:layout_marginStart="10sp"
             android:layout_marginRight="10sp"
             android:layout_marginEnd="10sp"
-            android:layout_marginBottom="10sp">
+            android:layout_marginBottom="10sp"
+            app:cardElevation="@dimen/cardview_default_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -491,7 +495,8 @@
             android:layout_marginLeft="10sp"
             android:layout_marginStart="10sp"
             android:layout_marginRight="10sp"
-            android:layout_marginEnd="10sp">
+            android:layout_marginEnd="10sp"
+            app:cardElevation="@dimen/cardview_default_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -731,7 +736,8 @@
             android:layout_marginStart="10sp"
             android:layout_marginRight="10sp"
             android:layout_marginEnd="10sp"
-            android:layout_marginBottom="10sp">
+            android:layout_marginBottom="10sp"
+            app:cardElevation="@dimen/cardview_default_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"

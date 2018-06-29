@@ -1,7 +1,5 @@
 package com.hackerkernel.user.sqrfactor;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -35,17 +33,22 @@ public class Portfolio extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_portfolio, container, false);
-//        recyclerView=view.findViewById(R.id.recyclerView_portfolio);
-//        final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-//        recyclerView.setLayoutManager(layoutManager);
-//        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-//        PortfolioAdapter portfolioAdapter=new PortfolioAdapter(portfolioArrayList,getActivity());
+
+        recyclerView=view.findViewById(R.id.recyclerView_portfolio);
+
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+
+        recyclerView.setLayoutManager(layoutManager);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+        PortfolioAdapter portfolioAdapter = new PortfolioAdapter(portfolioArrayList,getActivity());
 //
-//        PortfolioClass portfolioClass =new PortfolioClass("url","hello there","Amit","5","4");
-//        portfolioArrayList.add(portfolioClass);
+        PortfolioClass portfolioClass = new PortfolioClass("url","hello there","Amit","5","4");
+        portfolioArrayList.add(portfolioClass);
 //
-//        recyclerView.setAdapter(portfolioAdapter);
+        recyclerView.setAdapter(portfolioAdapter);
         return view;
+
     }
 
 }

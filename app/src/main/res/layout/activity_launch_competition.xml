@@ -38,9 +38,11 @@
                 app:hintTextAppearance="@color/colorAccent">
 
                 <EditText
+                    android:id="@+id/attach"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
+                    android:focusable="false"
                     android:background="@android:color/transparent"
                     android:hint="Attachment"
                     android:padding="5sp"
@@ -228,10 +230,253 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/add_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add more+"
                 android:layout_marginBottom="10sp"/>
+
+            <LinearLayout
+                android:id="@+id/jury1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/gray_border"
+                    android:hint="Full Name"
+                    android:padding="15sp"
+                    android:inputType="text"
+                    android:layout_marginBottom="10sp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/gray_border"
+                    android:hint="Firm/Company/College Name"
+                    android:padding="15sp"
+                    android:inputType="text"
+                    android:layout_marginBottom="10sp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/gray_border"
+                    android:hint="Email address"
+                    android:padding="15sp"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginBottom="10sp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/gray_border"
+                    android:hint="Contact No."
+                    android:padding="15sp"
+                    android:inputType="number"
+                    android:layout_marginBottom="10sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/gray_border"
+                    android:padding="15sp"
+                    android:orientation="horizontal"
+                    android:weightSum="5"
+                    android:layout_marginBottom="5sp">
+
+                    <Button
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:text="Choose File"
+                        android:textAllCaps="false"
+                        android:layout_weight="3"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No file chosen"
+                        android:textColor="#000"
+                        android:layout_weight="2"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_attach_file_black_24dp"
+                        android:layout_gravity="end|center_vertical"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/jury2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/gray_border"
+                    android:hint="Full Name"
+                    android:padding="15sp"
+                    android:inputType="text"
+                    android:layout_marginBottom="10sp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/gray_border"
+                    android:hint="Firm/Company/College Name"
+                    android:padding="15sp"
+                    android:inputType="text"
+                    android:layout_marginBottom="10sp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/gray_border"
+                    android:hint="Email address"
+                    android:padding="15sp"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginBottom="10sp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/gray_border"
+                    android:hint="Contact No."
+                    android:padding="15sp"
+                    android:inputType="number"
+                    android:layout_marginBottom="10sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/gray_border"
+                    android:padding="15sp"
+                    android:orientation="horizontal"
+                    android:weightSum="5"
+                    android:layout_marginBottom="5sp">
+
+                    <Button
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:text="Choose File"
+                        android:textAllCaps="false"
+                        android:layout_weight="3"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No file chosen"
+                        android:textColor="#000"
+                        android:layout_weight="2"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_attach_file_black_24dp"
+                        android:layout_gravity="end|center_vertical"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/jury3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/gray_border"
+                    android:hint="Full Name"
+                    android:padding="15sp"
+                    android:inputType="text"
+                    android:layout_marginBottom="10sp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/gray_border"
+                    android:hint="Firm/Company/College Name"
+                    android:padding="15sp"
+                    android:inputType="text"
+                    android:layout_marginBottom="10sp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/gray_border"
+                    android:hint="Email address"
+                    android:padding="15sp"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginBottom="10sp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/gray_border"
+                    android:hint="Contact No."
+                    android:padding="15sp"
+                    android:inputType="number"
+                    android:layout_marginBottom="10sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/gray_border"
+                    android:padding="15sp"
+                    android:orientation="horizontal"
+                    android:weightSum="5"
+                    android:layout_marginBottom="5sp">
+
+                    <Button
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:text="Choose File"
+                        android:textAllCaps="false"
+                        android:layout_weight="3"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No file chosen"
+                        android:textColor="#000"
+                        android:layout_weight="2"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_attach_file_black_24dp"
+                        android:layout_gravity="end|center_vertical"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
 
             <TextView
                 android:layout_width="wrap_content"

@@ -1,11 +1,10 @@
 package com.hackerkernel.user.sqrfactor;
 
 import android.app.DatePickerDialog;
-import android.app.Fragment;
+import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -186,7 +185,7 @@ public class BasicDetails extends AppCompatActivity {
             }
 
         });
-        ArrayAdapter<String> spin_adapter = new ArrayAdapter<String>(BasicDetails.this, android.R.layout.simple_spinner_item, gender);
+        ArrayAdapter<String> spin_adapter = new ArrayAdapter<String>(BasicDetails.this, android.R.layout.simple_list_item_1, gender);
         spin.setAdapter(spin_adapter);
 
 
@@ -223,7 +222,8 @@ public class BasicDetails extends AppCompatActivity {
             }
 
         });
-        ArrayAdapter<String> spin_adapter1 = new ArrayAdapter<String>(BasicDetails.this, android.R.layout.simple_spinner_item, countries);
+
+        ArrayAdapter<String> spin_adapter1 = new ArrayAdapter<String>(BasicDetails.this, android.R.layout.simple_list_item_1, countries);
         countrySpinner.setAdapter(spin_adapter1);
 
         dateOfBirth=(EditText)findViewById(R.id.dateOfBirthText);

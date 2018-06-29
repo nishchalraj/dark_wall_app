@@ -34,18 +34,21 @@
 
                 </android.support.v7.widget.Toolbar>
 
-
                 <LinearLayout
                     android:id="@+id/mainfrag"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" />
+                    android:orientation="vertical"
+                    android:layout_marginBottom="40sp"/>
+
             </LinearLayout>
-        <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/gray"
-        android:layout_above="@+id/tabs"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray"
+                android:layout_above="@+id/tabs"/>
+
             <android.support.design.widget.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
@@ -72,10 +75,7 @@
             app:headerLayout="@layout/navigation_drawer"
             app:menu="@menu/drawer"/>
 
-
     </android.support.v4.widget.DrawerLayout>
-
-
 
 </LinearLayout>
     <!--android.support.design.widget.NavigationView

@@ -14,25 +14,22 @@
         android:background="@color/sqr"
         android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
-    <ScrollView android:id="@+id/scroll_credits"
+    <ScrollView
+        android:id="@+id/scroll_credits"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_marginTop="2dp">
 
 
         <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
 
             <ImageButton
@@ -43,7 +40,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
                 android:background="@color/White"
-                android:src="@drawable/ic_more" />
+                android:src="@drawable/ic_more"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -87,14 +86,14 @@
                     android:layout_height="wrap_content"
                     android:text="Amit Maheshwari"
                     android:textColor="#000"
-                    android:textSize="17dp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(Bangalore, KA)"
-                    android:textSize="17dp"/>
+                    android:textSize="17sp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -130,7 +129,8 @@
                         android:layout_marginStart="45dp"
                         android:text="0"
                         android:textStyle="bold"
-                        android:textColor="#ea3e42" />
+                        android:textColor="#ea3e42"
+                        android:layout_marginLeft="45dp" />
 
                     <TextView
                         android:id="@+id/credit_blueprint"
@@ -141,7 +141,8 @@
                         android:text="BluePrint"
                         android:textColor="@drawable/selector_follow"
                         android:textStyle="bold"
-                        android:textSize="15dp" />
+                        android:textSize="15sp"
+                        android:layout_marginLeft="20dp" />
 
                 </LinearLayout>
 
@@ -157,7 +158,8 @@
                         android:layout_marginStart="45dp"
                         android:text="0"
                         android:textStyle="bold"
-                        android:textColor="#ea3e42" />
+                        android:textColor="#ea3e42"
+                        android:layout_marginLeft="45dp" />
 
                     <TextView
                         android:id="@+id/credit_portfolio"
@@ -168,7 +170,8 @@
                         android:text="Portfolio"
                         android:textStyle="bold"
                         android:textColor="@drawable/selector_follow"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:layout_marginLeft="20dp" />
 
                 </LinearLayout>
 
@@ -184,7 +187,8 @@
                         android:layout_marginStart="45dp"
                         android:text="0"
                         android:textStyle="bold"
-                        android:textColor="#ea3e42" />
+                        android:textColor="#ea3e42"
+                        android:layout_marginLeft="45dp" />
 
                     <TextView
                         android:id="@+id/credit_followers"
@@ -195,7 +199,8 @@
                         android:text="Followers"
                         android:textColor="@drawable/selector_follow"
                         android:textStyle="bold"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:layout_marginLeft="20dp" />
 
                 </LinearLayout>
 
@@ -211,7 +216,8 @@
                         android:layout_marginStart="45dp"
                         android:text="0"
                         android:textStyle="bold"
-                        android:textColor="#ea3e42" />
+                        android:textColor="#ea3e42"
+                        android:layout_marginLeft="45dp" />
 
                     <TextView
                         android:id="@+id/credit_following"
@@ -222,7 +228,8 @@
                         android:text="Following"
                         android:textColor="@drawable/selector_follow"
                         android:textStyle="bold"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:layout_marginLeft="20dp" />
 
                 </LinearLayout>
 
@@ -245,7 +252,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:textStyle="bold"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:text="You haven't posted any articles yet. Go ahead and create some amazing articles!" />
     </LinearLayout>
     

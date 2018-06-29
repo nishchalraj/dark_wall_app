@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -31,8 +30,17 @@ public class MessagesActivity extends ToolbarActivity {
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        //ActionBar actionBar = getSupportActionBar();
+        //actionBar.setDisplayHomeAsUpEnabled(true);
+
+        toolbar.setNavigationIcon(R.drawable.back_arrow);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         dw1 = getApplicationContext().getResources().getDrawable(R.drawable.profilepic);
         dw2 = getApplicationContext().getResources().getDrawable(R.drawable.henry);
@@ -52,7 +60,7 @@ public class MessagesActivity extends ToolbarActivity {
         DividerItemDecoration decoration = new DividerItemDecoration(recycler.getContext(), linearLayoutManager.getOrientation());
         recycler.addItemDecoration(decoration);
 
-        recycler.addOnItemTouchListener(new TouchListener(this, recycler, new ClickListener() {
+        recycler.addOnItemTouchListener(new TouchListener(this, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 if (position==1){
@@ -64,7 +72,7 @@ public class MessagesActivity extends ToolbarActivity {
 
     }
 
-    public static interface ClickListener{
+    public interface ClickListener{
         public void onClick(View view, int position);
     }
 
@@ -72,7 +80,7 @@ public class MessagesActivity extends ToolbarActivity {
         private ClickListener clickListener;
         private GestureDetector gestureDetector;
 
-        public TouchListener(Context context, RecyclerView recyclerView, ClickListener clickListener) {
+        public TouchListener(Context context, ClickListener clickListener) {
 
             this.clickListener = clickListener;
             gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
@@ -86,9 +94,10 @@ public class MessagesActivity extends ToolbarActivity {
         @Override
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
             View child = rv.findChildViewUnder(e.getX(), e.getY());
-            clickListener.onClick(child, rv.getChildAdapterPosition(child));
+            if (child!=null && clickListener!=null && gestureDetector.onTouchEvent(e))
+                clickListener.onClick(child, rv.getChildAdapterPosition(child));
 
-            return true;
+            return false;
         }
 
         @Override
