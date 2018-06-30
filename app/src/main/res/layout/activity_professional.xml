@@ -6,43 +6,41 @@
     android:orientation="vertical"
     android:background="@color/White">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/professional_toolbar"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/sqr"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark" >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/professional_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/sqr" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Professional Details"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Professional Details"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/line"/>
-     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/COA"
                 android:layout_width="match_parent"
@@ -148,7 +146,7 @@
                     android:layout_gravity="center_horizontal"
                     android:background="@android:color/transparent"
                     android:hint="Start Date"
-                    android:inputType="text"
+                    android:inputType="date"
                     android:padding="5sp" />
 
             </android.support.design.widget.TextInputLayout>
@@ -170,7 +168,7 @@
                     android:layout_gravity="center_horizontal"
                     android:background="@android:color/transparent"
                     android:hint="End Date of Working Currently"
-                    android:inputType="text"
+                    android:inputType="date"
                     android:padding="5sp" />
 
             </android.support.design.widget.TextInputLayout>
@@ -196,11 +194,13 @@
                     android:padding="5sp" />
 
             </android.support.design.widget.TextInputLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp">
+
                 <Button
                     android:id="@+id/Add"
                     android:layout_width="wrap_content"
@@ -209,157 +209,164 @@
                     android:text="Add +"
                     android:textColor="@color/White"
                     android:textAllCaps="false"
-                    android:background="@drawable/backgroundbutton"
-                    />
+                    android:background="@drawable/sqr_factor_btn_color" />
+
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/linear">
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/Role1"
-                android:layout_width="match_parent"
-                android:layout_height="60sp"
-                android:layout_gravity="center"
-                android:layout_margin="10sp"
-                android:background="@drawable/shapes"
-                android:padding="10sp"
-                app:hintTextAppearance="@color/colorPrimary">
 
-                <EditText
-                    android:id="@+id/RoleText1"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/Role1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@android:color/transparent"
-                    android:hint="Role*"
-                    android:inputType="text"
-                    android:padding="5sp" />
+                    android:layout_height="60sp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/shapes"
+                    android:padding="10sp"
+                    app:hintTextAppearance="@color/colorPrimary">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/RoleText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@android:color/transparent"
+                        android:hint="Role*"
+                        android:inputType="text"
+                        android:padding="5sp" />
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/Company1"
-                android:layout_width="match_parent"
-                android:layout_height="60sp"
-                android:layout_gravity="center"
-                android:layout_margin="10sp"
-                android:background="@drawable/shapes"
-                android:padding="10sp"
-                app:hintTextAppearance="@color/colorPrimary">
+                </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/CompanyText1"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/Company1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@android:color/transparent"
-                    android:hint="Company/Firm Or College/University"
-                    android:inputType="text"
-                    android:padding="5sp" />
+                    android:layout_height="60sp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/shapes"
+                    android:padding="10sp"
+                    app:hintTextAppearance="@color/colorPrimary">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/CompanyText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@android:color/transparent"
+                        android:hint="Company/Firm Or College/University"
+                        android:inputType="text"
+                        android:padding="5sp" />
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/StartDate1"
-                android:layout_width="match_parent"
-                android:layout_height="60sp"
-                android:layout_gravity="center"
-                android:layout_margin="10sp"
-                android:background="@drawable/shapes"
-                android:padding="10sp"
-                app:hintTextAppearance="@color/colorPrimary">
+                </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/StartDateText1"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/StartDate1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@android:color/transparent"
-                    android:hint="Start Date"
-                    android:inputType="text"
-                    android:padding="5sp" />
+                    android:layout_height="60sp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/shapes"
+                    android:padding="10sp"
+                    app:hintTextAppearance="@color/colorPrimary">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/StartDateText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@android:color/transparent"
+                        android:hint="Start Date"
+                        android:inputType="date"
+                        android:padding="5sp" />
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/EndDate1"
-                android:layout_width="match_parent"
-                android:layout_height="60sp"
-                android:layout_gravity="center"
-                android:layout_margin="10sp"
-                android:background="@drawable/shapes"
-                android:padding="10sp"
-                app:hintTextAppearance="@color/colorPrimary">
+                </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/EndDateText1"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/EndDate1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@android:color/transparent"
-                    android:hint="End Date of Working Currently"
-                    android:inputType="text"
-                    android:padding="5sp" />
+                    android:layout_height="60sp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/shapes"
+                    android:padding="10sp"
+                    app:hintTextAppearance="@color/colorPrimary">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/EndDateText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@android:color/transparent"
+                        android:hint="End Date of Working Currently"
+                        android:inputType="date"
+                        android:padding="5sp" />
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/Salary1"
-                android:layout_width="match_parent"
-                android:layout_height="60sp"
-                android:layout_gravity="center"
-                android:layout_margin="10sp"
-                android:background="@drawable/shapes"
-                android:padding="10sp"
-                app:hintTextAppearance="@color/colorPrimary">
+                </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/SalaryText1"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/Salary1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@android:color/transparent"
-                    android:hint="Salary/Stipend"
-                    android:inputType="text"
-                    android:padding="5sp" />
+                    android:layout_height="60sp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/shapes"
+                    android:padding="10sp"
+                    app:hintTextAppearance="@color/colorPrimary">
 
-            </android.support.design.widget.TextInputLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="end"
-                android:padding="10dp">
+                    <EditText
+                        android:id="@+id/SalaryText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@android:color/transparent"
+                        android:hint="Salary/Stipend"
+                        android:inputType="text"
+                        android:padding="5sp" />
 
-                <Button
-                    android:id="@+id/Add1"
-                    android:layout_width="wrap_content"
+                </android.support.design.widget.TextInputLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:background="@drawable/backgroundbutton"
-                    android:text="Add +"
-                    android:textAllCaps="false"
-                    android:textColor="@color/White" />
-                <Button
-                    android:id="@+id/Remove"
-                    android:layout_marginStart="5sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:text="Remove"
-                    android:textColor="@color/White"
-                    android:textAllCaps="false"
-                    android:background="@color/gray"
-                    android:layout_marginLeft="5sp" />
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:padding="10dp">
+
+                    <Button
+                        android:id="@+id/Add1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:background="@drawable/sqr_factor_btn_color"
+                        android:text="Add +"
+                        android:textAllCaps="false"
+                        android:textColor="@color/White" />
+
+                    <Button
+                        android:id="@+id/Remove"
+                        android:layout_marginStart="5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="Remove"
+                        android:textColor="@color/White"
+                        android:textAllCaps="false"
+                        android:background="@drawable/gray_buttons"
+                        android:layout_marginLeft="5sp" />
+
+                </LinearLayout>
+
             </LinearLayout>
-            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/linear2">
+
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/Role2"
                     android:layout_width="match_parent"
@@ -421,7 +428,7 @@
                         android:layout_gravity="center_horizontal"
                         android:background="@android:color/transparent"
                         android:hint="Start Date"
-                        android:inputType="text"
+                        android:inputType="date"
                         android:padding="5sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -443,7 +450,7 @@
                         android:layout_gravity="center_horizontal"
                         android:background="@android:color/transparent"
                         android:hint="End Date of Working Currently"
-                        android:inputType="text"
+                        android:inputType="date"
                         android:padding="5sp" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -469,6 +476,7 @@
                         android:padding="5sp" />
 
                 </android.support.design.widget.TextInputLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -481,10 +489,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
-                        android:background="@drawable/backgroundbutton"
+                        android:background="@drawable/sqr_factor_btn_color"
                         android:text="Add +"
                         android:textAllCaps="false"
                         android:textColor="@color/White" />
+
                     <Button
                         android:id="@+id/Remove2"
                         android:layout_marginStart="5sp"
@@ -494,15 +503,19 @@
                         android:text="Remove"
                         android:textColor="@color/White"
                         android:textAllCaps="false"
-                        android:background="@color/gray"
+                        android:background="@drawable/gray_buttons"
                         android:layout_marginLeft="10sp" />
+
                 </LinearLayout>
+
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp">
+
                 <Button
                     android:id="@+id/save"
                     android:layout_width="match_parent"
@@ -510,8 +523,12 @@
                     android:text="Save"
                     android:textColor="@color/White"
                     android:textAllCaps="false"
-                    android:background="@drawable/backgroundbutton"/>
+                    android:background="@drawable/sqr_factor_btn_color"/>
+
             </LinearLayout>
-    </LinearLayout>
+
+        </LinearLayout>
+
     </ScrollView>
+
 </LinearLayout>

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.MyViewAdapter> {
+
    private ArrayList<FollowerClass> followerClassArrayList;
    private Context context;
 
@@ -32,11 +33,13 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewAdapter holder, int position) {
+
         FollowerClass followerClass=followerClassArrayList.get(position);
         holder.name.setText(followerClass.getName());
         holder.place.setText(followerClass.getPlace());
         holder.post.setText(followerClass.getPost());
         holder.portfolio.setText(followerClass.getPortfolio());
+
         holder.moreImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +89,7 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.MyVi
             place=(TextView)itemView.findViewById(R.id.place);
             post=(TextView)itemView.findViewById(R.id.post);
             portfolio=(TextView)itemView.findViewById(R.id.portfolio);
-            prfileImage=(ImageView)itemView.findViewById(R.id.imageProfile);
+            //prfileImage=(ImageView)itemView.findViewById(R.id.imageProfile);
             moreImage=(ImageView)itemView.findViewById(R.id.moregrey);
 
         }

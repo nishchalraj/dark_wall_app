@@ -3,7 +3,6 @@ package com.hackerkernel.user.sqrfactor;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -16,29 +15,88 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 public class Profile extends AppCompatActivity {
-ImageButton menu;
-Context context;
-PopupMenu popupMenu;
-Toolbar toolbar;
-TabLayout tabLayout1;
-TextView bluePrint,portfolio,followers,following;
+
+    ImageButton menu;
+    Context context;
+    PopupMenu popupMenu;
+    Toolbar toolbar;
+    TabLayout tabLayout1, tablayout;
+    TextView bluePrint,portfolio,followers,following;
     private FrameLayout fragmentContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PostFragment()).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PostFragment()).commit();
 
+        /*Intent i = getIntent();
+        String s = i.getStringExtra("Activity");
+        if (s.equals("1")){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PostFragment()).addToBackStack(null).commit();
+        }
+        else if (s.equals("2"))
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new SettingsFragment()).addToBackStack(null).commit();
+
+        else
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PostFragment()).addToBackStack(null).commit();
+        */
         toolbar = (Toolbar) findViewById(R.id.profile_toolbar);
         toolbar.setTitle("Profile");
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.back_arrow);
+
+        tablayout = (TabLayout)findViewById(R.id.tablayout);
+
+        tablayout.addTab(tablayout.newTab().setText("0\nBlueprint"));
+        tablayout.addTab(tablayout.newTab().setText("0\nPortfolio"));
+        tablayout.addTab(tablayout.newTab().setText("0\nFollowers"));
+        tablayout.addTab(tablayout.newTab().setText("0\nFollowing"));
+
+        tablayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()){
+
+                    case 0:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new BluePrintFragment()).commit();
+                        break;
+
+                    case 1:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Portfolio()).commit();
+                        break;
+
+                    case 2:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new FollowersFragment()).commit();
+                        break;
+
+                    case 3:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new FollowingFragment()).commit();
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+                if (tab.getPosition()==0)
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new BluePrintFragment()).commit();
+            }
+        });
+
         menu = (ImageButton)findViewById(R.id.prof_more);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 PopupMenu popupMenu = new PopupMenu(Profile.this,v);
                 popupMenu.inflate(R.menu.profie_menu);
@@ -51,15 +109,15 @@ TextView bluePrint,portfolio,followers,following;
                 });
                 popupMenu.show();
                 }
+
             });
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-
-
 
         /*tabLayout1 = (TabLayout)findViewById(R.id.tabs2);
 
@@ -101,7 +159,7 @@ TextView bluePrint,portfolio,followers,following;
         }
     });*/
 
-        bluePrint = (TextView)findViewById(R.id.prof_blueprint);
+        /*bluePrint = (TextView)findViewById(R.id.prof_blueprint);
         bluePrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,7 +168,7 @@ TextView bluePrint,portfolio,followers,following;
                 BluePrintFragment bluePrintFragment = new BluePrintFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragmentContainer, bluePrintFragment);
-                transaction.addToBackStack(null);
+                //transaction.addToBackStack(null);
                 transaction.commit();
 
 
@@ -125,7 +183,7 @@ TextView bluePrint,portfolio,followers,following;
                 Portfolio portfolioFragment = new Portfolio();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragmentContainer, portfolioFragment);
-                transaction.addToBackStack(null);
+                //transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
@@ -138,7 +196,7 @@ TextView bluePrint,portfolio,followers,following;
                 FollowersFragment followers = new FollowersFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragmentContainer,followers);
-                transaction.addToBackStack(null);
+                //transaction.addToBackStack(null);
                 transaction.commit();
 
             }
@@ -152,11 +210,11 @@ TextView bluePrint,portfolio,followers,following;
                 FollowingFragment following = new FollowingFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragmentContainer,following);
-                transaction.addToBackStack(null);
+                //transaction.addToBackStack(null);
                 transaction.commit();
 
             }
-        });
+        });*/
 }
 
     @Override

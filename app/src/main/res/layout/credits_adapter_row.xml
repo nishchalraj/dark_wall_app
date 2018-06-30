@@ -6,39 +6,39 @@
     android:orientation="vertical"
     android:layout_height="wrap_content">
 
-    <View
-        android:layout_width="match_parent"
-        android:background="@color/gray"
-        android:layout_height="1dp"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:weightSum="5"
-        android:layout_marginTop="10dp"
+        android:weightSum="4"
         android:orientation="horizontal"
         android:layout_height="wrap_content"
         android:gravity="center">
+
         <TextView
-            android:layout_width="100sp"
+            android:layout_width="0sp"
             android:layout_height="wrap_content"
-            android:text="do yo need"
+            android:text="Architecture is no less than an art"
             android:maxLines="4"
             android:minLines="1"
             android:id="@+id/articleName"
-            android:textSize="18sp"
+            android:textSize="13sp"
             android:gravity="center_vertical"
             android:textColor="#2b2a2a"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:background="@drawable/gray_border"
+            android:padding="5dp"/>
         <TextView
-            android:layout_width="80sp"
-            android:layout_height="wrap_content"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
             android:text="30"
             android:maxLines="1"
             android:minLines="1"
             android:id="@+id/totalView"
-            android:textSize="18sp"
+            android:textSize="13sp"
             android:gravity="center"
             android:textColor="#2b2a2a"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:background="@drawable/gray_border"
+            android:padding="5dp"/>
         <!--<TextView-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
@@ -51,27 +51,32 @@
             <!--android:textColor="#2b2a2a"-->
             <!--android:layout_weight="1"/>-->
         <TextView
-            android:layout_width="120sp"
-            android:layout_height="wrap_content"
+            android:layout_width="20sp"
+            android:layout_height="match_parent"
             android:text="30"
-            android:textSize="18sp"
+            android:textSize="13sp"
             android:maxLines="1"
             android:minLines="1"
             android:gravity="center"
             android:id="@+id/firstWeekViews"
             android:textColor="#2b2a2a"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:background="@drawable/gray_border"
+            android:padding="5dp"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
             android:maxLines="2"
             android:minLines="1"
-            android:textSize="18sp"
+            android:textSize="13sp"
             android:id="@+id/credits"
             android:gravity="center"
             android:text="10$ Redeemes"
             android:textColor="#f70505"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:background="@drawable/gray_border"
+            android:padding="5dp"/>
+
     </LinearLayout>
 
 </LinearLayout>

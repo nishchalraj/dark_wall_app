@@ -5,9 +5,9 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-    android:layout_width="match_parent"
-    android:layout_height="180dp"
-    android:background="@drawable/home_banner"/>
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/home_banner"/>
 
     <ImageView
         android:id="@+id/p_image"
@@ -18,9 +18,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/logofinal"
+        android:src="@drawable/profilepic"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
 
 </RelativeLayout>
 

@@ -8,12 +8,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 
 public class ProfileActivity extends ToolbarActivity {
 
     Toolbar toolbar;
     TabLayout tabLayout1;
     ImageView morebtn, btn;
+
+    TextView blueprint, portfolio, followers, following;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,43 @@ public class ProfileActivity extends ToolbarActivity {
                     }
                 });
 
+            }
+        });
+
+        blueprint = (TextView)findViewById(R.id.blueprint);
+        portfolio = (TextView)findViewById(R.id.portfolio);
+        followers = (TextView)findViewById(R.id.followers);
+        following = (TextView)findViewById(R.id.following);
+
+        blueprint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ProfileActivity.this, BlueprintActivity.class);
+                startActivity(i);
+            }
+        });
+
+        portfolio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ProfileActivity.this, PortfolioActivity.class);
+                startActivity(i);
+            }
+        });
+
+        followers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ProfileActivity.this, FollowersActivity.class);
+                startActivity(i);
+            }
+        });
+
+        following.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ProfileActivity.this, FollowingActivity.class);
+                startActivity(i);
             }
         });
 

@@ -2,9 +2,9 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="10dp"
-    android:layout_margin="10dp"
-    android:layout_height="400dp">
+    app:cardElevation="5dp"
+    android:layout_margin="5dp"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,10 +21,11 @@
             <ImageView
                 android:id="@+id/imageProfile"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="100dp"
                 android:gravity="center_horizontal"
                 android:scaleType="centerCrop"
                 android:src="@drawable/designimg2" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -35,26 +36,30 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
                 android:background="@color/sqr"
                 android:text="Article"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:textColor="@color/White"
-                android:textSize="24dp" />
+                android:textSize="18sp" />
 
-            <ImageView
-                android:id="@+id/more_portfolio"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="250dp"
-                android:layout_gravity="center"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_more">
+                android:orientation="vertical">
 
-            </ImageView>
+                <ImageView
+                    android:id="@+id/more_portfolio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_more"/>
+
+            </LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:gravity="center_horizontal"
@@ -67,8 +72,9 @@
                 android:layout_height="wrap_content"
                 android:text="What does radical..."
                 android:textStyle="bold"
-                android:textSize="20dp"
+                android:textSize="18sp"
                 android:id="@+id/articleTitle_portfolio"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,7 +82,7 @@
                 android:text="Sameer Shekhar"
                 android:textStyle="bold"
                 android:textColor="@color/sqr"
-                android:textSize="18dp"
+                android:textSize="15sp"
                 android:id="@+id/articleWriter_portfolio"/>
 
         </LinearLayout>
@@ -84,7 +90,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
@@ -92,7 +98,6 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="35dp"
                 android:orientation="vertical"
                 android:gravity="center">
 
@@ -101,38 +106,43 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textSize="20dp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Like"
-                    android:textSize="18dp" />
+                    android:text="Likes"
+                    android:textSize="15sp" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="35dp"
+                android:layout_marginStart="10dp"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_marginLeft="10dp">
 
                 <TextView
                     android:id="@+id/Comments_portfolio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textSize="20dp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Comments"
-                    android:textSize="18dp" />
+                    android:textSize="15sp" />
+
             </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
+
 </android.support.v7.widget.CardView>

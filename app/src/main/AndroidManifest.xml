@@ -19,7 +19,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".HomeScreen"/>
+        <activity android:name=".HomeScreen"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".Index">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,15 +33,13 @@
             android:label="What&apos;s Red?"
             android:parentActivityName=".HomeScreen" />
         <activity android:name=".ToolbarActivity" />
-        <activity android:name=".Profile">
-        </activity>
+        <activity android:name=".Profile" />
         <activity android:name=".Credits" />
         <activity android:name=".Settings" />
         <activity android:name=".ProfessionalActivity" />
         <activity android:name=".OtherDetailsActivity" />
         <activity android:name=".EducationDetailsActivity" />
-        <activity android:name=".BasicDetails"/>
-
+        <activity android:name=".BasicDetails" />
         <activity
             android:name=".DesignActivity"
             android:label="Post Design"
@@ -56,6 +55,7 @@
             android:parentActivityName=".LoginScreen" />
         <activity
             android:name=".ProfileActivity"
+            android:label="Profile"
             android:parentActivityName=".HomeScreen" />
         <activity
             android:name=".CommentsPage"
@@ -117,9 +117,17 @@
             android:name=".About"
             android:label="About"
             android:parentActivityName=".ProfileActivity" />
-
         <activity android:name=".EditProfile" />
-        <activity android:name=".ChatroomActivity"></activity>
+        <activity android:name=".ChatroomActivity" />
+        <activity
+            android:name=".FollowersActivity"
+            android:label="Followers" />
+        <activity android:name=".BlueprintActivity"
+            android:label="Blueprints"/>
+        <activity android:name=".PortfolioActivity"
+            android:label="Portfolios"/>
+        <activity android:name=".FollowingActivity"
+            android:label="Following"></activity>
     </application>
 
 </manifest>

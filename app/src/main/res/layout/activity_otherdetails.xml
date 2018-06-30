@@ -6,154 +6,43 @@
     android:orientation="vertical"
     android:background="@color/White">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/other_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/sqr"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark" />
-
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="5dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="5dp">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark" >
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Other Details"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </LinearLayout>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/other_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/sqr"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Other Details"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/line"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/awards"
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:layout_gravity="center"
-            android:layout_margin="10sp"
-            android:background="@drawable/shapes"
-            android:padding="10sp"
-            app:hintTextAppearance="@color/colorPrimary">
 
-            <EditText
-                android:id="@+id/awardsText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:background="@android:color/transparent"
-                android:hint="Awards"
-                android:inputType="text"
-                android:padding="5sp" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/awardsName"
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:layout_gravity="center"
-            android:layout_margin="10sp"
-            android:background="@drawable/shapes"
-            android:padding="10sp"
-            app:hintTextAppearance="@color/colorPrimary">
-
-            <EditText
-                android:id="@+id/awardsNameText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:background="@android:color/transparent"
-                android:hint="Award Name"
-                android:inputType="text"
-                android:padding="5sp" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/project"
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:layout_gravity="center"
-            android:layout_margin="10sp"
-            android:background="@drawable/shapes"
-            android:padding="10sp"
-            app:hintTextAppearance="@color/colorPrimary">
-
-            <EditText
-                android:id="@+id/projectText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:background="@android:color/transparent"
-                android:hint="Project Name"
-                android:inputType="text"
-                android:padding="5sp" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/service"
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:layout_gravity="center"
-            android:layout_margin="10sp"
-            android:background="@drawable/shapes"
-            android:padding="10sp"
-            app:hintTextAppearance="@color/colorPrimary">
-
-            <EditText
-                android:id="@+id/service_offered"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:background="@android:color/transparent"
-                android:hint="Service Offered"
-                android:inputType="text"
-                android:padding="5sp" />
-
-        </android.support.design.widget.TextInputLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
-                <Button
-                    android:id="@+id/Add_otherDetails"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:text="Add"
-                    android:textColor="@color/White"
-                    android:textAllCaps="false"
-                    android:background="@drawable/backgroundbutton"
-                    />
-            </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/linear_other">
+            android:orientation="vertical">
+
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/awards1"
+                android:id="@+id/awards"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:layout_gravity="center"
@@ -163,7 +52,7 @@
                 app:hintTextAppearance="@color/colorPrimary">
 
                 <EditText
-                    android:id="@+id/awardsText1"
+                    android:id="@+id/awardsText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -175,7 +64,7 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/awardsName1"
+                android:id="@+id/awardsName"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:layout_gravity="center"
@@ -185,7 +74,7 @@
                 app:hintTextAppearance="@color/colorPrimary">
 
                 <EditText
-                    android:id="@+id/awardsNameText1"
+                    android:id="@+id/awardsNameText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -197,7 +86,7 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/project1"
+                android:id="@+id/project"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:layout_gravity="center"
@@ -207,7 +96,7 @@
                 app:hintTextAppearance="@color/colorPrimary">
 
                 <EditText
-                    android:id="@+id/projectText1"
+                    android:id="@+id/projectText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -219,7 +108,7 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/service1"
+                android:id="@+id/service"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:layout_gravity="center"
@@ -229,7 +118,7 @@
                 app:hintTextAppearance="@color/colorPrimary">
 
                 <EditText
-                    android:id="@+id/service_offered1"
+                    android:id="@+id/service_offered"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -245,38 +134,151 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp">
+
                 <Button
-                    android:id="@+id/Remove_other"
+                    android:id="@+id/Add_otherDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:text="Remove"
+                    android:text="Add"
                     android:textColor="@color/White"
                     android:textAllCaps="false"
-                    android:background="@color/gray"
-                    />
+                    android:background="@drawable/sqr_factor_btn_color"/>
+
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10dp">
-                <Button
-                    android:id="@+id/save_otherDetails"
+                android:id="@+id/linear_other">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/awards1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/shapes"
+                    android:padding="10sp"
+                    app:hintTextAppearance="@color/colorPrimary">
+
+                    <EditText
+                        android:id="@+id/awardsText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@android:color/transparent"
+                        android:hint="Awards"
+                        android:inputType="text"
+                        android:padding="5sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/awardsName1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/shapes"
+                    android:padding="10sp"
+                    app:hintTextAppearance="@color/colorPrimary">
+
+                    <EditText
+                        android:id="@+id/awardsNameText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@android:color/transparent"
+                        android:hint="Award Name"
+                        android:inputType="text"
+                        android:padding="5sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/project1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/shapes"
+                    android:padding="10sp"
+                    app:hintTextAppearance="@color/colorPrimary">
+
+                    <EditText
+                        android:id="@+id/projectText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@android:color/transparent"
+                        android:hint="Project Name"
+                        android:inputType="text"
+                        android:padding="5sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/service1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10sp"
+                    android:background="@drawable/shapes"
+                    android:padding="10sp"
+                    app:hintTextAppearance="@color/colorPrimary">
+
+                    <EditText
+                        android:id="@+id/service_offered1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@android:color/transparent"
+                        android:hint="Service Offered"
+                        android:inputType="text"
+                        android:padding="5sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Save"
-                    android:textColor="@color/White"
-                    android:textAllCaps="false"
-                    android:background="@drawable/backgroundbutton"/>
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <Button
+                        android:id="@+id/Remove_other"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="Remove"
+                        android:textColor="@color/White"
+                        android:textAllCaps="false"
+                        android:background="@drawable/gray_buttons"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <Button
+                        android:id="@+id/save_otherDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Save"
+                        android:textColor="@color/White"
+                        android:textAllCaps="false"
+                        android:background="@drawable/sqr_factor_btn_color"/>
+
+                </LinearLayout>
+
             </LinearLayout>
 
-
         </LinearLayout>
-
-
-        </LinearLayout>
-
 
     </ScrollView>
 

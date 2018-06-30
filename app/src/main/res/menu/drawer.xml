@@ -4,11 +4,11 @@
     <item
         android:id="@+id/navigation_profile"
         android:checked="true"
-        android:icon="@drawable/avatar"
+        android:icon="@drawable/profile"
         android:title="Profile" />
     <item
         android:id="@+id/navigation_credits"
-        android:icon="@drawable/coins"
+        android:icon="@drawable/credits"
         android:title="Credits" />
     <item
         android:id="@+id/navigation_settings"
@@ -20,5 +20,4 @@
         android:icon="@drawable/logout"
         android:title="Logout" />
 </group>
-
-    </menu>
+</menu>

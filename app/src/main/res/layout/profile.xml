@@ -8,14 +8,20 @@
     android:background="#FFF"
     tools:context=".Profile">
 
-    <android.support.v7.widget.Toolbar
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:background="@color/sqr"
-        android:id="@+id/profile_toolbar">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    </android.support.v7.widget.Toolbar>
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sqr"
+            android:id="@+id/profile_toolbar">
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
 
     <ScrollView
         android:id="@+id/scroll_profile"
@@ -74,7 +80,7 @@
 
             </RelativeLayout>
 
-            <LinearLayout
+            <!--LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
@@ -235,7 +241,18 @@
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </LinearLayout-->
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                app:tabIndicatorColor="@color/White"
+                app:tabTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@android:color/black"
+                app:tabTextColor="@android:color/black" />
 
             <View
                 android:layout_width="match_parent"
@@ -265,10 +282,11 @@
 
                 </LinearLayout>
 
-                <FrameLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:id="@+id/fragmentContainer"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"/>
 
                 <!--LinearLayout
                     android:layout_width="match_parent"
@@ -359,7 +377,7 @@
             </LinearLayout-->
         <!--/FrameLayout-->
 
-    </LinearLayout>
+        </LinearLayout>
 
     </ScrollView>
 

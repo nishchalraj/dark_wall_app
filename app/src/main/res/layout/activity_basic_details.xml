@@ -6,35 +6,26 @@
     android:orientation="vertical"
     android:background="@color/White">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/basic_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/sqr"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark" />
-
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark" >
 
-        <LinearLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/basic_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="5dp">
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/sqr"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Basic Details"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+    </android.support.design.widget.AppBarLayout>
 
-        </LinearLayout>
-
-    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Basic Details"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10sp"/>
 
     <View
         android:layout_width="match_parent"
@@ -48,7 +39,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:focusableInTouchMode="true">
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/fName"
@@ -111,7 +103,7 @@
                     android:layout_gravity="center_horizontal"
                     android:background="@android:color/transparent"
                     android:hint="Email*"
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
                     android:padding="5sp" />
 
             </android.support.design.widget.TextInputLayout>
@@ -165,15 +157,15 @@
                     android:layout_gravity="center_horizontal"
                     android:background="@android:color/transparent"
                     android:hint="Date Of Birth*"
-                    android:inputType="text"
+                    android:inputType="date"
                     android:padding="5sp" />
 
             </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:id="@+id/linerGender"
-                android:layout_width="364dp"
-                android:layout_height="44dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:orientation="horizontal"
                 android:padding="10dp">
@@ -193,6 +185,7 @@
                     android:layout_below="@id/dateOfBirth"
                     android:textSize="24sp"
                     android:foreground="@drawable/gray_border"/>
+
             </LinearLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -324,71 +317,87 @@
                     android:background="@drawable/backgroundbutton"
                     android:text="Add"
                     android:layout_marginLeft="20dp" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linerCountry"
-                android:layout_width="364dp"
-                android:layout_height="44dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:orientation="horizontal"
                 android:padding="10dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:text="Select Country"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_marginEnd="5sp"/>
 
                 <Spinner
                     android:id="@+id/Country"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:foreground="@drawable/gray_border"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linerState"
-                android:layout_width="364dp"
-                android:layout_height="44dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:orientation="horizontal"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:gravity="center_vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:text="Select State"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_marginEnd="5sp"/>
 
                 <Spinner
                     android:id="@+id/State"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:foreground="@drawable/gray_border"
+                    android:entries="@array/countries"
+                    android:padding="5dp"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linerCity"
-                android:layout_width="364dp"
-                android:layout_height="44dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:orientation="horizontal"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:gravity="center_vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:text="Select City"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_marginEnd="5sp"/>
 
                 <Spinner
                     android:id="@+id/City"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:foreground="@drawable/gray_border"
+                    android:entries="@array/countries"
+                    android:padding="5dp"/>
 
             </LinearLayout>
 

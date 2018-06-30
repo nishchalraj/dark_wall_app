@@ -5,28 +5,32 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.PopupMenu;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Credits extends AppCompatActivity {
+
     Toolbar toolbar;
-    ImageButton menu;
+    ImageView menu;
     private RecyclerView recyclerView;
     TextView bluePrint,portfolio,followers,following;
-    ArrayList<CreditsClass> creditsClassArrayList=new ArrayList<>();
+    ArrayList<CreditsClass> creditsClassArrayList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.credits);
+
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new CreditsFragment()).commit();
 
         recyclerView=(RecyclerView) findViewById(R.id.recyclerView_credit);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(Credits.this);
@@ -35,9 +39,10 @@ public class Credits extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
         //adding dummy data for testing
-        CreditsClass creditsClass=new CreditsClass("ther sbdhsd need to ambadb","25","26","$20 reedmens");
+        CreditsClass creditsClass=new CreditsClass("Powerful illustrations of the world...","25","26","$20 reedmens");
         creditsClassArrayList.add(creditsClass);
-        CreditsClass creditsClass1=new CreditsClass("ther sbdhsd need to ambadb","25","26","$20 reedmens");
+
+        CreditsClass creditsClass1=new CreditsClass("Architecture is no less than an art...","25","26","$20 reedmens");
         creditsClassArrayList.add(creditsClass1);
 
         CreditsAdapter creditsAdapter=new CreditsAdapter(this,creditsClassArrayList);
@@ -47,11 +52,11 @@ public class Credits extends AppCompatActivity {
         toolbar.setTitle("Credits");
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.back_arrow);
-        menu = (ImageButton)findViewById(R.id.more);
+
+        menu = (ImageView)findViewById(R.id.morebtn);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 PopupMenu popupMenu = new PopupMenu(Credits.this,v);
                 popupMenu.inflate(R.menu.profie_menu);
@@ -65,7 +70,52 @@ public class Credits extends AppCompatActivity {
                 popupMenu.show();
             }
         });
-        bluePrint = (TextView)findViewById(R.id.credit_blueprint);
+
+        bluePrint = (TextView)findViewById(R.id.blueprint);
+        bluePrint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Credits.this,BlueprintActivity.class);
+                startActivity(i);
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Portfolio())
+                //.addToBackStack(null).commit();
+
+            }
+        });
+
+        portfolio = (TextView)findViewById(R.id.portfolio);
+        portfolio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent j = new Intent(Credits.this,PortfolioActivity.class);
+                startActivity(j);
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Portfolio())
+                        //.addToBackStack(null).commit();
+            }
+        });
+        followers = (TextView)findViewById(R.id.followers);
+        followers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent k = new Intent(Credits.this, FollowersActivity.class);
+                startActivity(k);
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Portfolio())
+                //.addToBackStack(null).commit();
+
+            }
+        });
+        following = (TextView)findViewById(R.id.following);
+        following.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent l = new Intent(Credits.this, FollowingActivity.class);
+                startActivity(l);
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Portfolio())
+                //.addToBackStack(null).commit();
+
+            }
+        });
+        /*bluePrint = (TextView)findViewById(R.id.credit_blueprint);
         bluePrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +146,7 @@ public class Credits extends AppCompatActivity {
                 Intent l = new Intent(Credits.this,FollowingFragment.class);
                 startActivity(l);
             }
-        });
+        });*/
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

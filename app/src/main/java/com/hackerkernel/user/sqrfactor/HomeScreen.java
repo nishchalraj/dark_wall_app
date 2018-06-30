@@ -122,15 +122,18 @@ public class HomeScreen extends ToolbarActivity {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 if (id == R.id.navigation_profile) {
-                    Intent i = new Intent(HomeScreen.this, Profile.class);
+                    Intent i = new Intent(HomeScreen.this, ProfileActivity.class);
+                    //i.putExtra("Activity", "1");
                     startActivity(i);
                 }
                 if (id == R.id.navigation_credits){
                     Intent j = new Intent(HomeScreen.this,Credits.class);
+                    //j.putExtra("Activity", "2");
                     startActivity(j);
                 }
                 if (id == R.id.navigation_settings){
                     Intent intent = new Intent(HomeScreen.this,Settings.class);
+                    //intent.putExtra("Activity", "3");
                     startActivity(intent);
                 }
                 menuItem.setChecked(true);

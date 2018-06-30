@@ -94,6 +94,7 @@ public class BasicDetails extends AppCompatActivity {
                 addPromptButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         count++;
                         if(!email2 && count==1)
                         {
@@ -105,9 +106,6 @@ public class BasicDetails extends AppCompatActivity {
                             linearLayoutPrompt2.setVisibility(View.VISIBLE);
                             email3=true;
                         }
-
-
-
 
                     }
                 });
@@ -136,22 +134,23 @@ public class BasicDetails extends AppCompatActivity {
                     }
                 });
 
+
                 // set dialog message
-//                alertDialogBuilder
-//                        .setCancelable(false)
-//                        .setPositiveButton("SAVE",
-//                                new DialogInterface.OnClickListener() {
-//                                    public void onClick(DialogInterface dialog,int id) {
-//                                        // here we will get the new email
-//                                        //
-//                                    }
-//                                })
-//                        .setNegativeButton("CANCEL",
-//                                new DialogInterface.OnClickListener() {
-//                                    public void onClick(DialogInterface dialog,int id) {
-//                                        dialog.cancel();
-//                                    }
-//                                });
+                /*alertDialogBuilder
+                        .setCancelable(false)
+                        .setPositiveButton("SAVE",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        // here we will get the new email
+                                        //
+                                    }
+                                })
+                        .setNegativeButton("CANCEL",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });*/
 
                 // create alert dialog
                 AlertDialog alertDialog = alertDialogBuilder.create();

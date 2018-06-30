@@ -9,30 +9,33 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
 public class Settings extends AppCompatActivity {
-Toolbar toolbar;
-ImageButton menu;
-TextView text1,text2,text3,text4;
-TextView bluePrint,portfolio,followers,following;
+
+    Toolbar toolbar;
+    ImageView menu;
+    TextView text1,text2,text3,text4;
+    TextView bluePrint,portfolio,followers,following;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new SettingsFragment()).commit();
 
         toolbar = (Toolbar) findViewById(R.id.settings_toolbar);
         toolbar.setTitle("Settings");
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.back_arrow);
 
-        menu = (ImageButton)findViewById(R.id.settings_more);
+        menu = (ImageView)findViewById(R.id.morebtn);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 PopupMenu popupMenu = new PopupMenu(Settings.this,v);
                 popupMenu.inflate(R.menu.profie_menu);
@@ -44,6 +47,50 @@ TextView bluePrint,portfolio,followers,following;
                     }
                 });
                 popupMenu.show();
+
+            }
+        });
+
+        bluePrint = (TextView)findViewById(R.id.blueprint);
+        bluePrint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Settings.this, BlueprintActivity.class);
+                startActivity(i);
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Portfolio())
+                //.addToBackStack(null).commit();
+
+            }
+        });
+
+        portfolio = (TextView)findViewById(R.id.portfolio);
+        portfolio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent j = new Intent(Settings.this, PortfolioActivity.class);
+                startActivity(j);
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Portfolio())
+                //.addToBackStack(null).commit();
+            }
+        });
+        followers = (TextView)findViewById(R.id.followers);
+        followers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent k = new Intent(Settings.this, FollowersActivity.class);
+                startActivity(k);
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Portfolio())
+                //.addToBackStack(null).commit();
+
+            }
+        });
+        following = (TextView)findViewById(R.id.following);
+        following.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent l = new Intent(Settings.this, FollowingActivity.class);
+                startActivity(l);
+
             }
         });
 
@@ -81,7 +128,7 @@ TextView bluePrint,portfolio,followers,following;
             }
         });
 
-        bluePrint = (TextView)findViewById(R.id.setting_blueprint);
+        /*bluePrint = (TextView)findViewById(R.id.setting_blueprint);
         bluePrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +159,7 @@ TextView bluePrint,portfolio,followers,following;
                 Intent l = new Intent(Settings.this,FollowingFragment.class);
                 startActivity(l);
             }
-        });
+        });*/
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
