@@ -3,7 +3,6 @@
 <group android:checkableBehavior="single">
     <item
         android:id="@+id/navigation_profile"
-        android:checked="true"
         android:icon="@drawable/profile"
         android:title="Profile" />
     <item

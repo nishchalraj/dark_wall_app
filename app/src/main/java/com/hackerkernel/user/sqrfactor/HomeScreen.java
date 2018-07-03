@@ -1,9 +1,7 @@
 package com.hackerkernel.user.sqrfactor;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -22,9 +20,8 @@ public class HomeScreen extends ToolbarActivity {
     TabLayout tabLayout;
     ImageView imageView;
     DrawerLayout drawerLayout;
+    NavigationView navigationView;
 
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,20 +63,20 @@ public class HomeScreen extends ToolbarActivity {
 
                     case 1:
                         tab.setIcon(R.drawable.envelope_filled);
-                        Intent i1 = new Intent(getApplicationContext(), MessagesActivity.class);
+                        Intent i1 = new Intent(HomeScreen.this, MessagesActivity.class);
                         startActivity(i1);
                         break;
 
                     case 2:
                         tab.setIcon(R.drawable.notification_filled);
-                        Intent i2 = new Intent(getApplicationContext(), NotificationsActivity.class);
+                        Intent i2 = new Intent(HomeScreen.this, NotificationsActivity.class);
                         startActivity(i2);
                         break;
 
 
                     case 3:
                         new ModalSheet().show(getSupportFragmentManager(), "");
-                        //Intent i4 = new Intent(getApplicationContext(), MessagesActivity.class);
+                        //Intent i4 = new Intent(HomeScreen.this, MessagesActivity.class);
                         //startActivity(i4);
                         break;
 
@@ -116,7 +113,7 @@ public class HomeScreen extends ToolbarActivity {
 
             }
         });
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -125,21 +122,24 @@ public class HomeScreen extends ToolbarActivity {
                     Intent i = new Intent(HomeScreen.this, ProfileActivity.class);
                     //i.putExtra("Activity", "1");
                     startActivity(i);
+
                 }
                 if (id == R.id.navigation_credits){
                     Intent j = new Intent(HomeScreen.this,Credits.class);
                     //j.putExtra("Activity", "2");
                     startActivity(j);
+
                 }
                 if (id == R.id.navigation_settings){
                     Intent intent = new Intent(HomeScreen.this,Settings.class);
                     //intent.putExtra("Activity", "3");
                     startActivity(intent);
+
                 }
-                menuItem.setChecked(true);
+                menuItem.setChecked(false);
                 drawerLayout.closeDrawers();
                 Toast.makeText(HomeScreen.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
-                return true;
+                return false;
             }
         });
     }
@@ -147,10 +147,15 @@ public class HomeScreen extends ToolbarActivity {
     @Override
     public void onBackPressed() {
 
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            //navigationView.getMenu().getItem(0).setCheckable(false);
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else
+            super.onBackPressed();
         //LinearLayout ll = (LinearLayout)tabLayout.getChildAt(0);
         //ll.getChildAt(tabLayout.getSelectedTabPosition()).setSelected(false);
         //ll.getChildAt(0).setSelected(true);
-        super.onBackPressed();
     }
 
     /*private class SectionsPagerAdapter extends FragmentStatePagerAdapter{
