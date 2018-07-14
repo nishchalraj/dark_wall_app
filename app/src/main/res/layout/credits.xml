@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@color/White"
-    tools:context=".Credits">
+    tools:context=".Activities.CreditsActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -175,7 +175,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="Portfolio"
+                    android:text="PortfolioFragment"
                     android:textStyle="bold"
                     android:textColor="@drawable/selector_follow"
                     android:textSize="15sp"

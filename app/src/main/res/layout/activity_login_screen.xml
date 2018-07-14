@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".LoginScreen">
+    tools:context=".Activities.LoginScreenActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,7 +59,7 @@
         android:isScrollContainer="true"
         android:orientation="vertical"
         android:scrollbars="vertical"
-        tools:context=".LoginScreen">
+        tools:context=".LoginScreenActivity">
 
         <ImageView
             android:layout_width="100sp"

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/White"
-    tools:context=".Settings">
+    tools:context=".Activities.SettingsActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -173,7 +173,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:text="Portfolio"
+                        android:text="PortfolioFragment"
                         android:textColor="@drawable/selector_follow"
                         android:textStyle="bold"
                         android:textSize="15sp"

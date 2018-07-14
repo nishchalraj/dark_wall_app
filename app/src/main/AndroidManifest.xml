@@ -3,7 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.hackerkernel.user.sqrfactor">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+        android:name=".Application.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,16 +16,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".LoginScreen" />
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.LoginScreenActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".HomeScreen"
+        <activity android:name=".Activities.HomeScreenActivity"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".Index">
+        <activity android:name=".Activities.IndexActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,104 +33,104 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RedActivity"
+            android:name=".Activities.RedActivity"
             android:label="What&apos;s Red?"
-            android:parentActivityName=".HomeScreen" />
-        <activity android:name=".ToolbarActivity" />
-        <activity android:name=".Profile" />
-        <activity android:name=".Credits" />
-        <activity android:name=".Settings" />
-        <activity android:name=".ProfessionalActivity" />
-        <activity android:name=".OtherDetailsActivity" />
-        <activity android:name=".EducationDetailsActivity" />
-        <activity android:name=".BasicDetails" />
+            android:parentActivityName=".Activities.HomeScreenActivity" />
+        <activity android:name=".Activities.ToolbarActivity" />
+        <activity android:name=".Activities.Profile" />
+        <activity android:name=".Activities.CreditsActivity" />
+        <activity android:name=".Activities.SettingsActivity" />
+        <activity android:name=".Activities.ProfessionalActivity" />
+        <activity android:name=".Activities.OtherDetailsActivity" />
+        <activity android:name=".Activities.EducationDetailsActivity" />
+        <activity android:name=".Activities.BasicDetailsActivity" />
         <activity
-            android:name=".DesignActivity"
+            android:name=".Activities.DesignActivity"
             android:label="Post Design"
-            android:parentActivityName=".HomeScreen"
+            android:parentActivityName=".Activities.HomeScreenActivity"
             tools:ignore="DuplicateActivity" />
         <activity
-            android:name=".ArticleActivity"
+            android:name=".Activities.ArticleActivity"
             android:label="Post Article"
-            android:parentActivityName=".HomeScreen" />
+            android:parentActivityName=".Activities.HomeScreenActivity" />
         <activity
-            android:name=".ResetPassword"
+            android:name=".Activities.ResetPasswordActivity"
             android:label="Reset Password"
-            android:parentActivityName=".LoginScreen" />
+            android:parentActivityName=".Activities.LoginScreenActivity" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".Activities.ProfileActivity"
             android:label="Profile"
-            android:parentActivityName=".HomeScreen" />
+            android:parentActivityName=".Activities.HomeScreenActivity" />
         <activity
-            android:name=".CommentsPage"
+            android:name=".Activities.CommentsPageActivity"
             android:label="Comments"
-            android:parentActivityName=".HomeScreen" />
+            android:parentActivityName=".Activities.HomeScreenActivity" />
         <activity
-            android:name=".MessagesActivity"
+            android:name=".Activities.MessagesActivity"
             android:label="Messages"
-            android:parentActivityName=".HomeScreen" />
+            android:parentActivityName=".Activities.HomeScreenActivity" />
         <activity
-            android:name=".CompetitionsActivity"
+            android:name=".Activities.CompetitionsActivity"
             android:label="Competitions"
-            android:parentActivityName=".HomeScreen" />
+            android:parentActivityName=".Activities.HomeScreenActivity" />
         <activity
-            android:name=".NotificationsActivity"
+            android:name=".Activities.NotificationsActivity"
             android:label="Notifications"
-            android:parentActivityName=".HomeScreen" />
+            android:parentActivityName=".Activities.HomeScreenActivity" />
         <activity
-            android:name=".JobActivity"
+            android:name=".Activities.JobActivity"
             android:label="Jobs/Internships"
-            android:parentActivityName=".HomeScreen" />
+            android:parentActivityName=".Activities.HomeScreenActivity" />
         <activity
-            android:name=".EventsActivity"
+            android:name=".Activities.EventsActivity"
             android:label="Events"
-            android:parentActivityName=".HomeScreen" />
+            android:parentActivityName=".Activities.HomeScreenActivity" />
         <activity
-            android:name=".PostEvent"
+            android:name=".Activities.PostEventActivity"
             android:label="Post Event"
-            android:parentActivityName=".EventsActivity" />
+            android:parentActivityName=".Activities.EventsActivity" />
         <activity
-            android:name=".PostJob"
+            android:name=".Activities.PostJobActivity"
             android:label="Post Job"
-            android:parentActivityName=".JobActivity" />
+            android:parentActivityName=".Activities.JobActivity" />
         <activity
-            android:name=".LaunchCompetition"
+            android:name=".Activities.LaunchCompetitionActivity"
             android:label="Launch a Competition"
-            android:parentActivityName=".CompetitionsActivity" />
+            android:parentActivityName=".Activities.CompetitionsActivity" />
         <activity
-            android:name=".Launch2"
+            android:name=".Activities.Launch2Activity"
             android:label="Launch a Competition"
-            android:parentActivityName=".LaunchCompetition" />
+            android:parentActivityName=".Activities.LaunchCompetitionActivity" />
         <activity
-            android:name=".Participate"
+            android:name=".Activities.ParticipateActivity"
             android:label="Participate"
-            android:parentActivityName=".CompetitionsActivity" />
+            android:parentActivityName=".Activities.CompetitionsActivity" />
         <activity
-            android:name=".Submit"
+            android:name=".Activities.SubmitActivity"
             android:label="Submit"
-            android:parentActivityName=".Participate" />
+            android:parentActivityName=".Activities.ParticipateActivity" />
         <activity
-            android:name=".JobDetails"
+            android:name=".Activities.JobDetailsActivity"
             android:label="Job Details"
-            android:parentActivityName=".JobActivity" />
+            android:parentActivityName=".Activities.JobActivity" />
         <activity
-            android:name=".EventDetails"
+            android:name=".Activities.EventDetailsActivity"
             android:label="Event Details"
-            android:parentActivityName=".EventsActivity" />
+            android:parentActivityName=".Activities.EventsActivity" />
         <activity
-            android:name=".About"
+            android:name=".Activities.AboutActivity"
             android:label="About"
-            android:parentActivityName=".ProfileActivity" />
-        <activity android:name=".EditProfile" />
-        <activity android:name=".ChatroomActivity" />
+            android:parentActivityName=".Activities.ProfileActivity" />
+        <activity android:name=".Activities.EditProfileActivity" />
+        <activity android:name=".Activities.ChatroomActivity" />
         <activity
-            android:name=".FollowersActivity"
+            android:name=".Activities.FollowersActivity"
             android:label="Followers" />
-        <activity android:name=".BlueprintActivity"
+        <activity android:name=".Activities.BlueprintActivity"
             android:label="Blueprints"/>
-        <activity android:name=".PortfolioActivity"
+        <activity android:name=".Activities.PortfolioActivity"
             android:label="Portfolios"/>
-        <activity android:name=".FollowingActivity"
+        <activity android:name=".Activities.FollowingActivity"
             android:label="Following"></activity>
     </application>
 

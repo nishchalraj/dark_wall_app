@@ -1,233 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".InfoFragment">
+    tools:context=".Fragments.InfoFragment">
+
+<android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.InfoFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:id="@+id/content_layout"
+        android:orientation="vertical"
+        android:layout_margin="10sp"
+        android:background="@drawable/gray_border"
+        android:padding="10sp">
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="vertical"
-           android:layout_margin="10sp"
-           android:background="@drawable/gray_border"
-           android:padding="10sp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Brief"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
-           <TextView
-               android:id="@+id/brief1"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/comp_brief2"
-               android:layout_marginBottom="5sp"/>
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/info_webview"/>
 
-           <ImageView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:src="@drawable/comp_image"
-               android:scaleType="centerCrop"
-               android:adjustViewBounds="true"
-               android:layout_marginBottom="5sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/prizes_n_awards"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
-           <TextView
-               android:id="@+id/brief2"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/comp_brief3"
-               android:layout_marginBottom="5sp"/>
-
-           <ImageView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:src="@drawable/comp_image2"
-               android:adjustViewBounds="true"
-               android:layout_marginBottom="5sp"/>
-
-           <TextView
-               android:id="@+id/brief3"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/comp_brief4"
-               android:layout_marginBottom="5sp"/>
-
-           <TextView
-               android:id="@+id/heading1"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_gravity="center"
-               android:text="@string/heading1"
-               android:layout_marginBottom="5sp"/>
-
-           <ImageView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:src="@drawable/jury"
-               android:scaleType="centerCrop"
-               android:adjustViewBounds="true"/>
-
-           <TextView
-               android:id="@+id/brief4"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/comp_brief5"
-               android:layout_marginBottom="5sp"/>
-
-           <ImageView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:src="@drawable/sponsors"
-               android:scaleType="centerCrop"
-               android:adjustViewBounds="true"
-               android:layout_marginBottom="10sp"/>
-
-           <TextView
-               android:id="@+id/heading2"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/heading2"/>
-
-           <TextView
-               android:id="@+id/prizes1"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/prizes1"
-               android:layout_marginBottom="5sp"
-               android:padding="5sp"
-               android:background="@drawable/gray_border"/>
-
-           <TextView
-               android:id="@+id/prizes2"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/prizes2"
-               android:layout_marginBottom="5sp"
-               android:padding="5sp"
-               android:background="@drawable/gray_border"/>
-
-           <TextView
-               android:id="@+id/prizes3"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/prizes3"
-               android:layout_marginBottom="5sp"
-               android:padding="5sp"
-               android:background="@drawable/gray_border"/>
-
-           <TextView
-               android:id="@+id/prizes4"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/prizes4"
-               android:layout_marginBottom="5sp"
-               android:padding="5sp"
-               android:background="@drawable/gray_border"/>
-
-           <TextView
-               android:id="@+id/prizes5"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/prizes5"
-               android:layout_marginBottom="5sp"
-               android:padding="5sp"
-               android:background="@drawable/gray_border"/>
-
-           <TextView
-               android:id="@+id/prizes6"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/prizes6"
-               android:layout_marginBottom="5sp"
-               android:padding="5sp"
-               android:background="@drawable/gray_border"/>
-
-           <TextView
-               android:id="@+id/prizes7"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/prizes7"
-               android:layout_marginBottom="5sp"
-               android:padding="5sp"
-               android:background="@drawable/gray_border"/>
-
-           <TextView
-               android:id="@+id/prizes8"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/prizes8"
-               android:layout_marginBottom="5sp"
-               android:padding="5sp"
-               android:background="@drawable/gray_border"/>
-
-           <TextView
-               android:id="@+id/prizes9"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/prizes9"
-               android:layout_marginBottom="5sp"
-               android:padding="5sp"
-               android:background="@drawable/gray_border"/>
-
-           <TextView
-               android:id="@+id/prizes10"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:text="@string/prizes10"
-               android:layout_marginBottom="5sp"
-               android:padding="5sp"
-               android:background="@drawable/gray_border"/>
-
-           <TextView
-               android:id="@+id/sponsor"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/heading1"
-               android:layout_marginBottom="5sp"/>
-
-           <ImageView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_gravity="center_horizontal"
-               android:scaleType="centerCrop"
-               android:adjustViewBounds="true"
-               android:layout_marginBottom="5sp"
-               android:src="@drawable/sponsor1"/>
-
-       </LinearLayout>
-
-        <LinearLayout
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10sp"
-            android:background="@drawable/gray_border"
-            android:padding="10sp">
+            android:id="@+id/info_prize_rv"/>
 
-            <TextView
-                android:id="@+id/note"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/jury"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10sp"
-            android:background="@drawable/gray_border"
-            android:padding="10sp">
+            android:id="@+id/info_jury_rv"/>
 
-            <TextView
-                android:id="@+id/eligibility"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/in_association_with"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
-        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_partner_rv"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/attachments"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_attachments_rv"/>
 
         <Button
             android:id="@+id/register_btn"
@@ -241,4 +100,53 @@
 
     </LinearLayout>
 
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+
+
+
+        <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:orientation="vertical"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_margin="10sp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@drawable/gray_border"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:padding="10sp">&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/note"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"/>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:orientation="vertical"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_margin="10sp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@drawable/gray_border"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:padding="10sp">&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/eligibility"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"/>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
+
+
+    <!--</RelativeLayout>-->
+
 </android.support.v4.widget.NestedScrollView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pb"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

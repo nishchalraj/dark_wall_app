@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ResultsFragment">
+    tools:context=".Fragments.ResultsFragment">
 
 
     <LinearLayout
@@ -17,7 +17,7 @@
             android:id="@+id/submitbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Submit design in Competition"
+            android:text="SubmitActivity design in Competition"
             android:background="@drawable/sqr_factor_btn_color"
             android:textAllCaps="false"
             android:paddingLeft="5sp"

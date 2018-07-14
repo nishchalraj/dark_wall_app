@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LaunchCompetition">
+    tools:context=".Activities.LaunchCompetitionActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -493,7 +493,7 @@
                 android:layout_height="60sp"
                 android:foreground="@drawable/gray_border"
                 android:padding="10sp"
-                android:entries="@array/prizes"
+                android:entries="@array/attachments"
                 android:layout_marginBottom="10sp"/>
 
             <EditText
