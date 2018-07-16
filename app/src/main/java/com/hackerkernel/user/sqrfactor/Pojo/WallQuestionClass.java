@@ -1,14 +1,28 @@
 package com.hackerkernel.user.sqrfactor.Pojo;
 
+import org.json.JSONArray;
+
 public class WallQuestionClass {
+    private String subject;
     private String description;
     private String announcedBy;
     private String id;
+    private JSONArray commentsArray;
 
-    public WallQuestionClass(String description, String announcedBy, String id) {
+    public WallQuestionClass(String subject, String description, String announcedBy, String id, JSONArray commentsArray) {
+        this.subject = subject;
         this.description = description;
         this.announcedBy = announcedBy;
+        this.commentsArray = commentsArray;
         this.id = id;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
     public String getDescription() {
@@ -33,5 +47,13 @@ public class WallQuestionClass {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public JSONArray getCommentsArray() {
+        return commentsArray;
+    }
+
+    public void setCommentsArray(JSONArray commentsArray) {
+        this.commentsArray = commentsArray;
     }
 }

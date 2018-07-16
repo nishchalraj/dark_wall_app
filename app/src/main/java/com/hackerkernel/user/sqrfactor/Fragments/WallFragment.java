@@ -116,14 +116,16 @@ public class WallFragment extends Fragment {
                         for (int i = 0; i < questionsArray.length(); i++) {
                             JSONObject singleObject = questionsArray.getJSONObject(i);
 
-                            String description = singleObject.getString("subject");
+                            String subject = singleObject.getString("subject");
+                            String description = singleObject.getString("description");
                             String id = singleObject.getString("id");
 
+                            JSONArray commentsArray = singleObject.getJSONArray("comments");
+                            Log.d(TAG, "onResponse: comments array = " + commentsArray);
 
-                            WallQuestionClass wallQuestion = new WallQuestionClass(description, "No One", id);
+                            WallQuestionClass wallQuestion = new WallQuestionClass(subject, description,  "No One", id, commentsArray);
                             mWallQuestions.add(wallQuestion);
                             mWallQuestionsAdapter.notifyDataSetChanged();
-
                         }
 
                     } else {
@@ -162,6 +164,7 @@ public class WallFragment extends Fragment {
 //                return params;
 //            }
         };
+
         request.setRetryPolicy(new DefaultRetryPolicy(20 * 1000, 0,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         mRequestQueue.add(request);

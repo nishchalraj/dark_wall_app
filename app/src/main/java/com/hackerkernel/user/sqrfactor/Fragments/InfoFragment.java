@@ -69,12 +69,12 @@ public class InfoFragment extends Fragment {
     AttachmentsAdapter mAttachmentsAdapter;
 
 
-    WebView mWebView;
+    private WebView mWebView;
 
-    ProgressBar mPb;
-    LinearLayout mContentLayout;
-    MySharedPreferences mSp;
-    RequestQueue mRequestQueue;
+    private ProgressBar mPb;
+    private LinearLayout mContentLayout;
+    private MySharedPreferences mSp;
+    private RequestQueue mRequestQueue;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

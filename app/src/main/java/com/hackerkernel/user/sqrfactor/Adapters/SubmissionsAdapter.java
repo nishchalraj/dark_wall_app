@@ -1,29 +1,28 @@
 package com.hackerkernel.user.sqrfactor.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
-import com.hackerkernel.user.sqrfactor.Activities.QuestionDetailActivity;
-import com.hackerkernel.user.sqrfactor.Constants.BundleConstants;
-import com.hackerkernel.user.sqrfactor.Pojo.WallQuestionClass;
+import com.hackerkernel.user.sqrfactor.Constants.ServerConstants;
+import com.hackerkernel.user.sqrfactor.Pojo.SubmissionClass;
 import com.hackerkernel.user.sqrfactor.R;
 import com.hackerkernel.user.sqrfactor.Storage.MySharedPreferences;
-
-import org.json.JSONArray;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class WallQuestionsAdapter extends RecyclerView.Adapter<WallQuestionsAdapter.MyViewHolder> {
-    private static final String TAG = "WallQuestionsAdapter";
+public class SubmissionsAdapter extends RecyclerView.Adapter<SubmissionsAdapter.MyViewHolder> {
+    private static final String TAG = "SubmissionsAdapter";
     private Context mContext;
-    private List<WallQuestionClass> mWallQuestions;
+    private List<SubmissionClass> mSubmissions;
 
     private RequestQueue mRequestQueue;
 
@@ -31,34 +30,27 @@ public class WallQuestionsAdapter extends RecyclerView.Adapter<WallQuestionsAdap
 
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView announcedByTV;
-        TextView subjectTV;
+        TextView titleTV;
+        TextView codeTV;
+        ImageView coverIV;
+        Button likeButton;
+        Button commentButton;
 
         MyViewHolder(View view) {
             super(view);
-            announcedByTV = view.findViewById(R.id.wall_announced_by);
-            subjectTV = view.findViewById(R.id.wall_subject);
+            titleTV = view.findViewById(R.id.submission_title);
+            codeTV = view.findViewById(R.id.submission_code);
+            coverIV = view.findViewById(R.id.submission_cover);
+            likeButton = view.findViewById(R.id.submission_like);
+            commentButton = view.findViewById(R.id.submission_comment);
 
-            view.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
             Log.d(TAG, "onClick: called");
             int pos = getAdapterPosition();
-            WallQuestionClass wallQuestion = mWallQuestions.get(pos);
-
-            JSONArray commentsArray = wallQuestion.getCommentsArray();
-            String commentsArrayString = commentsArray.toString();
-            Log.d(TAG, "onClick: comments array string = " + commentsArrayString);
-
-            String questionDesc = wallQuestion.getDescription();
-
-            Intent i = new Intent(mContext, QuestionDetailActivity.class);
-            i.putExtra(BundleConstants.QUESTION_DESCRIPTION, questionDesc);
-            i.putExtra(BundleConstants.COMMENTS_ARRAY, commentsArrayString);
-
-            mContext.startActivity(i);
+            SubmissionClass submission = mSubmissions.get(pos);
 
 //            if (view.getId() == R.id.participate) {
 //                String slug =  prize.getSlug();
@@ -138,33 +130,44 @@ public class WallQuestionsAdapter extends RecyclerView.Adapter<WallQuestionsAdap
 //    }
 
 
-    public WallQuestionsAdapter(Context context, List<WallQuestionClass> wallQuestions) {
+    public SubmissionsAdapter(Context context, List<SubmissionClass> submissions) {
         this.mContext = context;
-        this.mWallQuestions = wallQuestions;
+        this.mSubmissions = submissions;
 
         mSp = MySharedPreferences.getInstance(mContext);
 
     }
 
     @Override
-    public WallQuestionsAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SubmissionsAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.wall_item, parent, false);
+                .inflate(R.layout.submission_item, parent, false);
 
-        return new WallQuestionsAdapter.MyViewHolder(itemView);
+        return new SubmissionsAdapter.MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        WallQuestionClass wallQuestion = mWallQuestions.get(position);
+        SubmissionClass submission = mSubmissions.get(position);
 
-        holder.announcedByTV.setText("announced by " + wallQuestion.getAnnouncedBy());
-        holder.subjectTV.setText(wallQuestion.getSubject());
+        holder.titleTV.setText(submission.getTitle());
+        holder.codeTV.setText(submission.getCode());
+
+        Log.d(TAG, "onBindViewHolder: cover url = " + ServerConstants.BASE_URL + submission.getCoverUrl());
+
+        String coverUrl = submission.getCoverUrl();
+        Log.d(TAG, "onBindViewHolder: cover url = " + coverUrl);
+
+        if (coverUrl != null && !coverUrl.equals("null")) {
+            Picasso.get().load(ServerConstants.IMAGE_BASE_URL + submission.getCoverUrl()).into(holder.coverIV);
+        }
+
+
     }
 
     @Override
     public int getItemCount() {
-        return mWallQuestions.size();
+        return mSubmissions.size();
     }
 
 }

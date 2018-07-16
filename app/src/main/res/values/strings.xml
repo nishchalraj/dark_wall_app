@@ -131,6 +131,10 @@ Week Winners and 3 words for a week will be announced at 11 PM on dates – 10, 
     <string name="jury">Jury</string>
     <string name="in_association_with">In Association With</string>
     <string name="attachments">Attachments</string>
+    <string name="final_winners">Final Winners</string>
+    <string name="fourth_week_winners">Fourth Week Winners</string>
+    <string name="online_marketplace_for_architectural_services">Online Marketplace for Architectural services</string>
+    <string name="architecture_plus_technology">Architecture + Technology</string>
 
     <string-array name="countries">
         <item>Choose country</item>
