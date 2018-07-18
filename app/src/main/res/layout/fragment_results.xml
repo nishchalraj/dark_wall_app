@@ -1,183 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.ResultsFragment">
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-    <LinearLayout
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/results_rv"/>
+
+
+
+    <!--Button
+        android:id="@+id/submitbtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10sp">
+        android:text="SubmitActivity design in Competition"
+        android:background="@drawable/sqr_factor_btn_color"
+        android:textAllCaps="false"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:paddingStart="5sp"
+        android:paddingEnd="5sp"
+        android:textColor="#fff"
+        android:layout_marginBottom="20sp"
+        android:layout_gravity="center"/-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/final_winners"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="15 Jun 2018"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/info_prize_rv"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/fourth_week_winners"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="15 Jun 2018"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/info_jury_rv"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/online_marketplace_for_architectural_services"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="15 Jun 2018"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/info_partner_rv"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/architecture_plus_technology"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="15 Jun 2018"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/info_attachments_rv"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/architecture_plus_technology"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="15 Jun 2018"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/info_attachments_rv"/>
-
-        <!--Button
-            android:id="@+id/submitbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SubmitActivity design in Competition"
-            android:background="@drawable/sqr_factor_btn_color"
-            android:textAllCaps="false"
-            android:paddingLeft="5sp"
-            android:paddingRight="5sp"
-            android:paddingStart="5sp"
-            android:paddingEnd="5sp"
-            android:textColor="#fff"
-            android:layout_marginBottom="20sp"
-            android:layout_gravity="center"/-->
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pb"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
 
 
-    </LinearLayout>
-
-</android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

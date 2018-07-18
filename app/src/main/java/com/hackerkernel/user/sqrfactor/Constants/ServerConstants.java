@@ -25,6 +25,8 @@ public class ServerConstants {
 
 
     //Get
+    public static final String EVENT_LIST = BASE_URL + "event/list";
+    public static final String EVENT_DETAIL = BASE_URL + "event/";
 
 
     //JOBS

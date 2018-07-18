@@ -185,7 +185,7 @@ Week Winners and 3 words for a week will be announced at 11 PM on dates – 10, 
         <item>2nd prize</item>
         <item>3nd prize</item>
     </string-array>
-    <string-array name="competitions">
+    <string-array name="events">
         <item>Select Competition Type</item>
         <item>Free Competition</item>
         <item>Paid Competition</item>
