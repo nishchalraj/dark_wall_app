@@ -13,6 +13,7 @@ public class ServerConstants {
 
     // COMPETITIONS
     //Post
+    public static final String WALL_QUESTION_ADD = BASE_URL_COMPETITION + "wall/question/add";
 
 
     //Get
@@ -22,6 +23,7 @@ public class ServerConstants {
 
     // EVENTS
     //Post
+    public static final String EVENT_ADD = BASE_URL_EVENT + "add";
 
 
     //Get

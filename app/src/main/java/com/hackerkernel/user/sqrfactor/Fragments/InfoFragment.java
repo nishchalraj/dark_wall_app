@@ -91,6 +91,7 @@ public class InfoFragment extends Fragment {
 
         mPrizesRecyclerView.setHasFixedSize(true);
         mPrizesRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mPrizesRecyclerView.setNestedScrollingEnabled(false);
 
         mPrizes = new ArrayList<>();
         mPrizesAdapter = new PrizesAdapter(getActivity(), mPrizes);
@@ -98,14 +99,15 @@ public class InfoFragment extends Fragment {
 
         mJuryRecyclerView.setHasFixedSize(true);
         mJuryRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mJuryRecyclerView.setNestedScrollingEnabled(false);
 
         mJuryList = new ArrayList<>();
         mJuryAdapter = new JuryAdapter(getActivity(), mJuryList);
         mJuryRecyclerView.setAdapter(mJuryAdapter);
 
-
         mPartnersRecyclerView.setHasFixedSize(true);
         mPartnersRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mPartnersRecyclerView.setNestedScrollingEnabled(false);
 
         mPartners = new ArrayList<>();
         mPartnersAdapter = new PartnersAdapter(getActivity(), mPartners);
@@ -114,6 +116,7 @@ public class InfoFragment extends Fragment {
 
         mAttachmentsRecyclerview.setHasFixedSize(true);
         mAttachmentsRecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mAttachmentsRecyclerview.setNestedScrollingEnabled(false);
 
         mAttachments = new ArrayList<>();
         mAttachmentsAdapter = new AttachmentsAdapter(getActivity(), mAttachments);

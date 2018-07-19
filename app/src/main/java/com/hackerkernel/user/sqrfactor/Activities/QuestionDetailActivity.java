@@ -1,14 +1,22 @@
 package com.hackerkernel.user.sqrfactor.Activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hackerkernel.user.sqrfactor.Adapters.QuestionCommentsAdapter;
 import com.hackerkernel.user.sqrfactor.Constants.BundleConstants;
@@ -29,6 +37,8 @@ public class QuestionDetailActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private TextView mCommentsCountTV;
 
+    private Toolbar mToolbar;
+
     List<QuestionCommentClass> mComments;
     QuestionCommentsAdapter mCommentsAdapter;
 
@@ -36,6 +46,21 @@ public class QuestionDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_detail);
+
+        mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+
+        //ActionBar actionBar = getSupportActionBar();
+        //actionBar.setDisplayHomeAsUpEnabled(true);
+
+        mToolbar.setNavigationIcon(R.drawable.back_arrow);
+
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         mWebView = findViewById(R.id.question_detail_desc);
         mRecyclerView = findViewById(R.id.question_detail_rv);
@@ -89,5 +114,70 @@ public class QuestionDetailActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.question_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.question_menu_edit: {
+                showQuestionEditDialog();
+            }
+
+            case R.id.question_menu_delete: {
+
+            }
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    private void showQuestionEditDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = LayoutInflater.from(this).inflate(R.layout.edit_question_dialog,null);
+
+        Intent i = getIntent();
+        String questionId = i.getStringExtra(BundleConstants.QUESTION_ID);
+        String questionDesc = i.getStringExtra(BundleConstants.QUESTION_DESCRIPTION);
+
+        final EditText questionEditText = view.findViewById(R.id.question);
+
+        questionEditText.setText(questionDesc);
+        questionEditText.setSelection(questionEditText.getText().length());
+
+        builder.setTitle("Edit your question").setView(view)
+                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String question = questionEditText.getText().toString();
+                        if (question.length() < 1){
+                            Toast.makeText(QuestionDetailActivity.this, "Type at least one character before saving changes", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        wallQuestionUpdateApi();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void wallQuestionUpdateApi() {
+        Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();
+
     }
 }

@@ -53,8 +53,10 @@ public class WallQuestionsAdapter extends RecyclerView.Adapter<WallQuestionsAdap
             Log.d(TAG, "onClick: comments array string = " + commentsArrayString);
 
             String questionDesc = wallQuestion.getDescription();
+            String questionId = wallQuestion.getId();
 
             Intent i = new Intent(mContext, QuestionDetailActivity.class);
+            i.putExtra(BundleConstants.QUESTION_ID, questionId);
             i.putExtra(BundleConstants.QUESTION_DESCRIPTION, questionDesc);
             i.putExtra(BundleConstants.COMMENTS_ARRAY, commentsArrayString);
 

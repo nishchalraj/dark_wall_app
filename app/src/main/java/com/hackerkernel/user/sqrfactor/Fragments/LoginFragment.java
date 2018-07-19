@@ -130,9 +130,13 @@ public class LoginFragment extends Fragment {
                 try {
                     JSONObject responseObject = new JSONObject(response);
                     JSONObject successObject = responseObject.getJSONObject("success");
+                    JSONObject userObject = responseObject.getJSONObject("user");
+
                     String token = successObject.getString("token");
+                    String profileUrl = userObject.getString("profile");
 
                     mSp.setKey(SPConstants.API_KEY, token);
+                    mSp.setKey(SPConstants.PROFILE_URL, profileUrl);
 
                     if (mRememberMeBox.isChecked()) {
                         mSp.setKey(SPConstants.EMAIL, email);

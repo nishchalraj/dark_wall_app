@@ -35,38 +35,48 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:weightSum="4">
+                    android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="0sp"
-                        android:layout_height="60sp"
-                        android:src="@drawable/profilepic"
-                        android:layout_weight="1"
-                        android:layout_marginTop="10sp"/>
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/wall_profile"
+                        android:src="@drawable/profilepic"/>
 
-                    <EditText
-                        android:layout_width="0sp"
-                        android:layout_height="150sp"
-                        android:layout_weight="3"
-                        android:hint="Share your thoughts here..."
-                        android:gravity="top"
-                        android:paddingLeft="10sp"
-                        android:paddingStart="10sp"
-                        android:paddingRight="10sp"
-                        android:paddingEnd="10sp"
-                        android:paddingTop="10sp"
-                        android:background="@android:color/transparent"
-                        android:layout_marginTop="10sp"
-                        android:layout_marginRight="20sp"
-                        android:layout_marginEnd="20sp"
-                        android:textSize="15sp" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/wall_question_title"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginStart="16dp"
+                            android:hint="Title"
+                            android:background="@android:color/transparent"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/wall_question_description"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginStart="16dp"
+                            android:hint="Description"
+                            android:background="@android:color/transparent"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/wall_post_question"
                     android:layout_margin="10sp"
                     android:text="Post Question"
                     android:textAllCaps="false"

@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -29,6 +32,7 @@ import com.hackerkernel.user.sqrfactor.Pojo.WallQuestionClass;
 import com.hackerkernel.user.sqrfactor.R;
 import com.hackerkernel.user.sqrfactor.Storage.MySharedPreferences;
 import com.hackerkernel.user.sqrfactor.Utils.NetworkUtil;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,6 +56,14 @@ public class WallFragment extends Fragment {
     MySharedPreferences mSp;
     RequestQueue mRequestQueue;
 
+    Button mPostQuestionButton;
+    EditText mQuestionTitleEditText;
+    EditText mQuestionDescEditText;
+    ImageView mProfileImageView;
+
+    String mCompetitionId;
+    private String mSlug;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -74,15 +86,103 @@ public class WallFragment extends Fragment {
         mWallQuestionsAdapter = new WallQuestionsAdapter(getActivity(), mWallQuestions);
         mWallRecyclerView.setAdapter(mWallQuestionsAdapter);
 
-        Intent i = getActivity().getIntent();
-        String slug = i.getStringExtra(BundleConstants.SLUG);
+        mPostQuestionButton = view.findViewById(R.id.wall_post_question);
+        mQuestionTitleEditText = view.findViewById(R.id.wall_question_title);
+        mQuestionDescEditText = view.findViewById(R.id.wall_question_description);
+        mProfileImageView = view.findViewById(R.id.wall_profile);
 
-        competitionWallApi(slug);
+        Log.d(TAG, "onCreateView: profile image path = " + ServerConstants.IMAGE_BASE_URL + mSp.getKey(SPConstants.PROFILE_URL));
+        Picasso.get().load(ServerConstants.IMAGE_BASE_URL + mSp.getKey(SPConstants.PROFILE_URL)).into(mProfileImageView);
+
+        Intent i = getActivity().getIntent();
+        mSlug = i.getStringExtra(BundleConstants.SLUG);
+
+        competitionWallApi(mSlug);
+
+        mPostQuestionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mCompetitionId != null) {
+                    wallQuestionAddApi();
+                }
+            }
+        });
 
         return view;
     }
 
+    private void wallQuestionAddApi() {
+        mPb.setVisibility(View.VISIBLE);
+        mContentLayout.setVisibility(View.GONE);
+
+        if (!NetworkUtil.isNetworkAvailable()) {
+            Toast.makeText(getActivity(), "No internet", Toast.LENGTH_SHORT).show();
+            mPb.setVisibility(View.GONE);
+            mContentLayout.setVisibility(View.VISIBLE);
+            return;
+        }
+        mRequestQueue = MyVolley.getInstance().getRequestQueue();
+
+        StringRequest request = new StringRequest(Request.Method.POST, ServerConstants.WALL_QUESTION_ADD, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                mPb.setVisibility(View.GONE);
+                mContentLayout.setVisibility(View.VISIBLE);
+
+                Log.d(TAG, "onResponse: competition wall response = " + response);
+
+                try {
+                    JSONObject responseObject = new JSONObject(response);
+
+                    String message = responseObject.getString("message");
+                    Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+
+                    competitionWallApi(mSlug);
+
+                    mQuestionTitleEditText.setText("");
+                    mQuestionDescEditText.setText("");
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                mPb.setVisibility(View.GONE);
+                mContentLayout.setVisibility(View.VISIBLE);
+                NetworkUtil.handleSimpleVolleyRequestError(error, getActivity());
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() {
+                final Map<String, String> headers = new HashMap<>();
+                headers.put(getString(R.string.accept), getString(R.string.application_json));
+                headers.put(getString(R.string.authorization), Constants.AUTHORIZATION_HEADER + mSp.getKey(SPConstants.API_KEY));
+//                headers.put("Content-Type", contentType);
+                return headers;
+            }
+
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+
+                params.put("subject", mQuestionTitleEditText.getText().toString());
+                params.put("description", mQuestionDescEditText.getText().toString());
+                params.put("users_competition_id", mCompetitionId);
+
+                return params;
+            }
+        };
+
+        request.setRetryPolicy(new DefaultRetryPolicy(20 * 1000, 0,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        mRequestQueue.add(request);
+    }
+
     private void competitionWallApi(String slug) {
+        mWallQuestions.clear();
         mPb.setVisibility(View.VISIBLE);
         mContentLayout.setVisibility(View.GONE);
         if (!NetworkUtil.isNetworkAvailable()) {
@@ -108,6 +208,7 @@ public class WallFragment extends Fragment {
                     JSONObject responseObject = new JSONObject(response);
                     JSONObject competitionWallObj = responseObject.getJSONObject("competition_wall");
 
+                    mCompetitionId = competitionWallObj.getString("id");
 
                     JSONArray questionsArray = competitionWallObj.getJSONArray("user_competition_wall_question");
 

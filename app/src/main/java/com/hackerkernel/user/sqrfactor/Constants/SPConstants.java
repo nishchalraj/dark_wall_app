@@ -7,4 +7,5 @@ public class SPConstants {
 
     public static final String EMAIL = "username";
     public static final String PASSWORD = "password";
+    public static final String PROFILE_URL = "profile_url";
 }

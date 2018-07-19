@@ -39,7 +39,7 @@
                 app:hintTextAppearance="@color/colorAccent">
 
                 <EditText
-                    android:id="@+id/attach"
+                    android:id="@+id/event_add_attach"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:focusable="false"
@@ -74,6 +74,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/event_add_title"
                     android:layout_gravity="center_horizontal"
                     android:background="@android:color/transparent"
                     android:hint="Event Title"
@@ -94,6 +95,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="200sp"
+                android:id="@+id/event_add_description"
                 android:gravity="top"
                 android:background="@drawable/gray_border"
                 android:hint="@string/event_desc"
@@ -122,6 +124,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/event_add_venue"
                     android:layout_gravity="center_horizontal"
                     android:background="@android:color/transparent"
                     android:hint="Venue Address"
@@ -291,7 +294,7 @@
                 android:layout_marginBottom="5sp"/>
 
             <Spinner
-                android:id="@+id/country_spinner"
+                android:id="@+id/event_add_country"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:foreground="@drawable/gray_border"
@@ -317,6 +320,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/event_add_next"
                 android:layout_marginTop="15sp"
                 android:background="@drawable/sqr_factor_btn_color"
                 android:text="Next"
