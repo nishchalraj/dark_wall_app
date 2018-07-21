@@ -148,6 +148,7 @@ public class SubmissionsFragment extends Fragment {
                     Log.d(TAG, "dataArray: "+ dataArray.length() + " == " + requestCount);
 
                     if (dataArray.length() != 0) {
+                        ViewUtils.dismissProgressBar();
                         for (int i = 0; i < dataArray.length(); i++) {
                             JSONObject singleObject = dataArray.getJSONObject(i);
                             String id = singleObject.getString("id");
@@ -161,6 +162,7 @@ public class SubmissionsFragment extends Fragment {
                         mSubmissionsAdapter.notifyDataSetChanged();
 
                     } else {
+                        ViewUtils.dismissProgressBar();
                         Toast.makeText(getActivity(), "No prize found", Toast.LENGTH_SHORT).show();
                     }
 

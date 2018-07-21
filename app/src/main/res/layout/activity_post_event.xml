@@ -294,7 +294,7 @@
                 android:layout_marginBottom="5sp"/>
 
             <Spinner
-                android:id="@+id/event_add_country"
+                android:id="@+id/country_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:foreground="@drawable/gray_border"

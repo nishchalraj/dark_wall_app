@@ -2,6 +2,8 @@ package com.hackerkernel.user.sqrfactor.Fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +14,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -25,6 +29,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.hackerkernel.user.sqrfactor.Activities.BrowserActivity;
 import com.hackerkernel.user.sqrfactor.Adapters.AttachmentsAdapter;
 import com.hackerkernel.user.sqrfactor.Adapters.JuryAdapter;
 import com.hackerkernel.user.sqrfactor.Adapters.PartnersAdapter;
@@ -79,6 +84,7 @@ public class InfoFragment extends Fragment {
     private LinearLayout mContentLayout;
     private MySharedPreferences mSp;
     private RequestQueue mRequestQueue;
+    private float m_downX;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -175,6 +181,7 @@ public class InfoFragment extends Fragment {
                     Log.d("brief: ", brief);
                     initWebView(brief);
                     JSONArray prizesArray = competitionDetailObj.getJSONArray("users_competitions_award");
+                    Log.d(TAG, "prizesArray: " + prizesArray.toString());
 
                     if (prizesArray.length() > 0) {
 
@@ -322,7 +329,98 @@ public class InfoFragment extends Fragment {
     private void initWebView(String brief) {
 
         mWebView.loadData(brief, "text/html", null);
+        mWebView.getSettings().setSupportZoom(true);
+        mWebView.getSettings().setBuiltInZoomControls(true);
+        mWebView.getSettings().setDisplayZoomControls(true);
+        mWebView.setWebChromeClient(new MyWebChromeClient());
+        mWebView.getSettings().setJavaScriptEnabled(true);
 
+    }
+    private class MyWebChromeClient extends WebChromeClient {
+        Context context;
+
+        private MyWebChromeClient() {
+        }
+
+        public boolean shouldOverrideUrlLoading(WebView paramWebView, String paramString) {
+            Intent i = new Intent("android.intent.action.VIEW", Uri.parse(paramString));
+            getActivity().startActivity(i);
+            return true;
+        }
+
+        public MyWebChromeClient(Context context) {
+            super();
+            this.context = context;
+        }
+    }
+
+    private void initWebView() {
+        mWebView.setWebChromeClient(new MyWebChromeClient(getActivity()));
+        mWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+
+                if (url.endsWith(".pdf")) {
+                    getActivity().startActivity(new Intent("android.intent.action.VIEW", Uri.parse(url)));
+                    return true;
+                }
+                if ((url != null) && (url.startsWith("whatsapp://"))) {
+                    view.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse(url)));
+                    return true;
+                } else {
+                    mWebView.loadUrl(url);
+                }
+
+                return true;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+
+            }
+
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                super.onReceivedError(view, request, error);
+
+            }
+        });
+        mWebView.setInitialScale(1);
+        mWebView.clearCache(true);
+        mWebView.clearHistory();
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.setHorizontalScrollBarEnabled(false);
+        mWebView.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (event.getPointerCount() > 1) {
+                    return true;
+                }
+
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        m_downX = event.getX();
+                    }
+                    break;
+
+                    case MotionEvent.ACTION_MOVE:
+                    case MotionEvent.ACTION_CANCEL:
+                    case MotionEvent.ACTION_UP: {
+                        event.setLocation(m_downX, event.getY());
+                    }
+                    break;
+                }
+
+                return false;
+            }
+        });
     }
 
 }

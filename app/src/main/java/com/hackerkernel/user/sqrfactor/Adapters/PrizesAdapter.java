@@ -139,7 +139,7 @@ public class PrizesAdapter extends RecyclerView.Adapter<PrizesAdapter.MyViewHold
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         PrizeClass prize = mPrizes.get(position);
 
-        holder.titleTV.setText(prize.getType() + " - " + prize.getAmount());
+        holder.titleTV.setText(prize.getType() + "\nAmount - " + prize.getAmount());
         holder.descriptionTV.setText(prize.getExtra());
     }
 

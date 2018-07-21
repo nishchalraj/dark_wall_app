@@ -63,7 +63,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="16dp"
                                 android:layout_marginTop="5dip"
-
                                 android:hint="Description"
                                 android:textSize="16sp" />
 

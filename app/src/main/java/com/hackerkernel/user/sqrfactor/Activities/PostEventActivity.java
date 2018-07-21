@@ -1,24 +1,24 @@
-    package com.hackerkernel.user.sqrfactor.Activities;
+package com.hackerkernel.user.sqrfactor.Activities;
 
-    import android.content.Intent;
-    import android.os.Bundle;
-    import android.support.v7.app.AppCompatActivity;
-    import android.support.v7.widget.Toolbar;
-    import android.view.View;
-    import android.widget.ArrayAdapter;
-    import android.widget.Button;
-    import android.widget.EditText;
-    import android.widget.LinearLayout;
-    import android.widget.Spinner;
-    import android.widget.TextView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
 
-    import com.hackerkernel.user.sqrfactor.R;
+import com.hackerkernel.user.sqrfactor.R;
 
-    import java.util.ArrayList;
-    import java.util.Collections;
-    import java.util.Locale;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Locale;
 
-    public class PostEventActivity extends AppCompatActivity {
+public class PostEventActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     Spinner country_spinner;
@@ -33,7 +33,7 @@
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_event);
 
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //ActionBar actionBar = getSupportActionBar();
@@ -48,7 +48,7 @@
             }
         });
 
-        image = (Button)findViewById(R.id.image);
+        image = (Button) findViewById(R.id.image);
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +59,7 @@
             }
         });
 
-        attach = (EditText)findViewById(R.id.attach);
+        attach = (EditText) findViewById(R.id.event_add_attach);
 
         attach.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,28 +70,29 @@
             }
         });
 
-        add_more = (TextView)findViewById(R.id.add_more);
-        more_img1 = (LinearLayout)findViewById(R.id.more_img1);
-        more_img2 = (LinearLayout)findViewById(R.id.more_img2);
-        more_img3 = (LinearLayout)findViewById(R.id.more_img3);
+        add_more = (TextView) findViewById(R.id.add_more);
+        more_img1 = (LinearLayout) findViewById(R.id.more_img1);
+        more_img2 = (LinearLayout) findViewById(R.id.more_img2);
+        more_img3 = (LinearLayout) findViewById(R.id.more_img3);
 
-        img1 = (Button)findViewById(R.id.img1);
-        img2 = (Button)findViewById(R.id.img2);
-        img3 = (Button)findViewById(R.id.img3);
+        img1 = (Button) findViewById(R.id.img1);
+        img2 = (Button) findViewById(R.id.img2);
+        img3 = (Button) findViewById(R.id.img3);
 
         more_img1.setVisibility(View.GONE);
         more_img2.setVisibility(View.GONE);
         more_img3.setVisibility(View.GONE);
 
         add_more.setOnClickListener(new View.OnClickListener() {
-            int count=1;
+            int count = 1;
+
             @Override
             public void onClick(View v) {
-                if (count==1)
+                if (count == 1)
                     more_img1.setVisibility(View.VISIBLE);
-                if (count==2)
+                if (count == 2)
                     more_img2.setVisibility(View.VISIBLE);
-                if (count==3)
+                if (count == 3)
                     more_img3.setVisibility(View.VISIBLE);
                 count++;
             }
@@ -124,13 +125,13 @@
             }
         });
 
-        country_spinner = (Spinner)findViewById(R.id.country_spinner);
+        country_spinner = (Spinner) findViewById(R.id.country_spinner);
         Locale[] locale = Locale.getAvailableLocales();
 
         String country;
-        for (Locale loc : locale){
+        for (Locale loc : locale) {
             country = loc.getDisplayCountry();
-            if (country.length()>0 && !countries.contains(country)){
+            if (country.length() > 0 && !countries.contains(country)) {
                 countries.add(country);
             }
         }
@@ -142,4 +143,4 @@
 
     }
 
-    }
+}

@@ -23,6 +23,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+
         <activity
             android:name=".Activities.HomeScreenActivity"
             android:windowSoftInputMode="adjustPan" />
@@ -136,7 +137,15 @@
         <activity
             android:name=".Activities.FollowingActivity"
             android:label="Following" />
-        <activity android:name=".Activities.QuestionDetailActivity"></activity>
+        <activity android:name=".Activities.QuestionDetailActivity" />
+        <activity
+            android:name=".Activities.W"
+            android:label="@string/title_activity_w"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activities.BrowserActivity"
+            android:label="@string/title_activity_browser"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

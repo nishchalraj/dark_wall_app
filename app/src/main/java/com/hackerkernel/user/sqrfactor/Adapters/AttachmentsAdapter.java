@@ -1,6 +1,11 @@
 package com.hackerkernel.user.sqrfactor.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.media.Image;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,9 +15,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
+import com.hackerkernel.user.sqrfactor.Activities.W;
+import com.hackerkernel.user.sqrfactor.Constants.ServerConstants;
 import com.hackerkernel.user.sqrfactor.Pojo.AttachmentClass;
 import com.hackerkernel.user.sqrfactor.R;
 import com.hackerkernel.user.sqrfactor.Storage.MySharedPreferences;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -24,15 +32,16 @@ public class AttachmentsAdapter extends RecyclerView.Adapter<AttachmentsAdapter.
     private RequestQueue mRequestQueue;
 
     private MySharedPreferences mSp;
-
+    AlertDialog dialog;
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView nameTV;
+        TextView nameTV, download_link;
         ImageView imageIV;
 
         MyViewHolder(View view) {
             super(view);
             nameTV = view.findViewById(R.id.attachment_url);
+            download_link = view.findViewById(R.id.download_link);
         }
 
         @Override
@@ -139,13 +148,24 @@ public class AttachmentsAdapter extends RecyclerView.Adapter<AttachmentsAdapter.
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         AttachmentClass attachment = mAttachments.get(position);
 
-        holder.nameTV.setText(attachment.getAttachmentUrl());
-//        Log.d(TAG, "onBindViewHolder: jury image url = " + ServerConstants.IMAGE_URL + jury.getImageUrl());
+        holder.nameTV.setText("Download Breif");
+        holder.download_link.setText(attachment.getAttachmentUrl());
+        holder.nameTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(ServerConstants.IMAGE_BASE_URL + holder.download_link.getText().toString()));
+                Intent chooser = Intent.createChooser(intent, "Select Browser");
+                mContext.startActivity(chooser);
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return mAttachments.size();
     }
+
 
 }

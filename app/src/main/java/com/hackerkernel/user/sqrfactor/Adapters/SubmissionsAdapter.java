@@ -76,7 +76,7 @@ public class SubmissionsAdapter extends RecyclerView.Adapter<SubmissionsAdapter.
 
         if (coverUrl != null && !coverUrl.equals("null")) {
             Picasso.get().load("https://cfvod.kaltura.com/p/1836881/sp/183688100/thumbnail/entry_id/1_87thk8o6/version/100001/width/600/height/400").into(holder.coverIV);
-            //Picasso.get().load(ServerConstants.IMAGE_BASE_URL + submission.getCoverUrl()).into(holder.coverIV);
+            Picasso.get().load(ServerConstants.IMAGE_BASE_URL + submission.getCoverUrl()).resize(350, 200).into(holder.coverIV);
         }
 
 
