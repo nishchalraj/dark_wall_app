@@ -9,4 +9,5 @@
     <color name="White">#FFF</color>
     <color name="line">#ece6f5</color>
     <color name="white">#FFFFFF</color>
+    <color name="colorPrimarytrans">#00f44336</color>
 </resources>

@@ -1,5 +1,6 @@
 package com.hackerkernel.user.sqrfactor.Fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,9 +8,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -80,7 +84,7 @@ public class InfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        ViewGroup view = (ViewGroup)inflater.inflate(R.layout.fragment_info, container, false);
+        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_info, container, false);
 
         mWebView = view.findViewById(R.id.info_webview);
         mPrizesRecyclerView = view.findViewById(R.id.info_prize_rv);
@@ -155,13 +159,12 @@ public class InfoFragment extends Fragment {
         }
 
         mRequestQueue = MyVolley.getInstance().getRequestQueue();
-        Log.d(TAG, "competitionDetailApi: url = " + ServerConstants.COMPETITION_DETAIL + slug);
+        Log.d(TAG, "SHIVANI: url = " + ServerConstants.COMPETITION_DETAIL + slug);
         StringRequest request = new StringRequest(Request.Method.GET, ServerConstants.COMPETITION_DETAIL + slug, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 mPb.setVisibility(View.GONE);
                 mContentLayout.setVisibility(View.VISIBLE);
-
                 Log.d(TAG, "onResponse: competition detail response = " + response);
                 try {
                     JSONObject responseObject = new JSONObject(response);
@@ -169,8 +172,8 @@ public class InfoFragment extends Fragment {
 
 
                     String brief = competitionDetailObj.getString("brief");
-                    mWebView.loadData(brief, "text/html", null);
-
+                    Log.d("brief: ", brief);
+                    initWebView(brief);
                     JSONArray prizesArray = competitionDetailObj.getJSONArray("users_competitions_award");
 
                     if (prizesArray.length() > 0) {
@@ -195,26 +198,37 @@ public class InfoFragment extends Fragment {
                     }
 
                     JSONArray juryArray = competitionDetailObj.getJSONArray("user_competition_jury");
+                    Log.d("juryArray: ", juryArray + "");
 
-                    if (juryArray.length() > 0) {
+                    if (juryArray.length() != 0) {
 
                         for (int i = 0; i < juryArray.length(); i++) {
                             JSONObject singleObject = juryArray.getJSONObject(i);
-                            JSONObject userObject = singleObject.getJSONObject("user");
+                            if (singleObject.has("user")) {
+                                Log.d(TAG, "singleObject.: " + singleObject.getString("user"));
+                                if (!singleObject.getString("user").toString().equals("null")) {
+                                    JSONObject userObject = singleObject.getJSONObject("user");
+                                    Log.d(TAG, "userObject: " + userObject.toString());
 
-                            String id = singleObject.getString("id");
-                            String fullName = singleObject.getString("jury_fullname");
-                            String imageUrl = userObject.getString("profile");
+
+                                    String id = singleObject.getString("id");
+                                    String fullName = singleObject.getString("jury_fullname");
+                                    String imageUrl = userObject.getString("profile");
 
 
-                            JuryClass jury = new JuryClass(id, fullName, imageUrl);
-                            mJuryList.add(jury);
-                            mJuryAdapter.notifyDataSetChanged();
+                                    JuryClass jury = new JuryClass(id, fullName, imageUrl);
+                                    mJuryList.add(jury);
+                                    mJuryAdapter.notifyDataSetChanged();
+                                }
+
+
+                            }
+
 
                         }
 
                     } else {
-                        Toast.makeText(getActivity(), "No Report found", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "No Jury", Toast.LENGTH_SHORT).show();
                     }
 
                     JSONArray partnersArray = competitionDetailObj.getJSONArray("user_competition_partner");
@@ -223,17 +237,23 @@ public class InfoFragment extends Fragment {
 
                         for (int i = 0; i < partnersArray.length(); i++) {
                             JSONObject singleObject = partnersArray.getJSONObject(i);
-                            JSONObject userObject = singleObject.getJSONObject("user");
 
-                            String id = singleObject.getString("id");
-                            String name = singleObject.getString("partner_name");
-                            String imageUrl = userObject.getString("profile");
+                            if (singleObject.has("user")) {
+                                Log.d(TAG, "singleObject.: " + singleObject.getString("user"));
+                                if (!singleObject.getString("user").toString().equals("null")) {
+
+                                    JSONObject userObject = singleObject.getJSONObject("user");
+
+                                    String id = singleObject.getString("id");
+                                    String name = singleObject.getString("partner_name");
+                                    String imageUrl = userObject.getString("profile");
 
 
-                            PartnerClass partner = new PartnerClass(id, name, imageUrl);
-                            mPartners.add(partner);
-                            mPartnersAdapter.notifyDataSetChanged();
-
+                                    PartnerClass partner = new PartnerClass(id, name, imageUrl);
+                                    mPartners.add(partner);
+                                    mPartnersAdapter.notifyDataSetChanged();
+                                }
+                            }
                         }
 
                     } else {
@@ -277,7 +297,8 @@ public class InfoFragment extends Fragment {
             public Map<String, String> getHeaders() {
                 final Map<String, String> headers = new HashMap<>();
                 headers.put(getString(R.string.accept), getString(R.string.application_json));
-                headers.put(getString(R.string.authorization), Constants.AUTHORIZATION_HEADER + mSp.getKey(SPConstants.API_KEY));
+                headers.put(getString(R.string.authorization), "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjYyODI4YjM3MjJjMzcyN2ZiNThiOGU0YWRjMDg3ZDgzNzFhYzdhNGFlNzhlODc4NWY2NzI3Y2EyM2JmMTEyOGYzNGVkODA4OGU4MjQ5MjFmIn0.eyJhdWQiOiIzIiwianRpIjoiNjI4MjhiMzcyMmMzNzI3ZmI1OGI4ZTRhZGMwODdkODM3MWFjN2E0YWU3OGU4Nzg1ZjY3MjdjYTIzYmYxMTI4ZjM0ZWQ4MDg4ZTgyNDkyMWYiLCJpYXQiOjE1MzIwNzM0NjQsIm5iZiI6MTUzMjA3MzQ2NCwiZXhwIjoxNTYzNjA5NDY0LCJzdWIiOiIxMDYiLCJzY29wZXMiOltdfQ.kGgIH4IStNn0mkjj3pXs85YfpUNH37vKM8v3QUn3Vbljwds0eXQXacX76-r_uA7pbT_1b0HQmdOxxqdOGHPJ8ahweNe6wEbSgsSvWuhJ-niHb2Hf6y4KWlIK0AI6ktDvKfNFKKlAXbH-mML0N9Te6tge_MEkMtzhoy8RptlDrycJR1aoLr5UR0z3KUuynRqmh5hind79OD5vM6zq_4I2-VPvFe_WNRRsb63HDLZaGunZwTUPCE0SSW3Xo30zDPsgLBjZpwkt_8fIJzd9N1GPPEmjwFqHuggDlthh81zR3r-dGN9GdGpzWtIsLouyt-b0Rel2olgAjFkrR8kIjvShv1S4sgdFMlP-90gpdHBTbQ6rL4gsBkcPxC1veaxTGFxvGds81N3jQidjZh2_wnZ-OSBBYcxndDlxuQt5WceDQA7M4muX1y714gAJEL698qX9tXPFPXhlKBzP5KvPEfxRg_neIhEWf5KnuX40dnWAkD5EDdwJWi2n5BqBBMqjvt57EpPIlHovgSP2HT3bp8Y-rCbvdwGTfb-d2cItofndZfxzHTstRqzrgsKgNuI1ZsJudLIo_9fpulsoga9-88eJXzaOJMhHf0nmymuxOfaB3m0HHWw1wLpVbS7dOpN0H_z5a1HFqugBpDfXECsiPlJtZ8D8wJ5zhbKLYer_89OtYrc");
+                //headers.put(getString(R.string.authorization), Constants.AUTHORIZATION_HEADER + mSp.getKey(SPConstants.API_KEY));
 //                headers.put("Content-Type", contentType);
                 return headers;
             }
@@ -295,6 +316,12 @@ public class InfoFragment extends Fragment {
         request.setRetryPolicy(new DefaultRetryPolicy(20 * 1000, 0,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         mRequestQueue.add(request);
+
+    }
+
+    private void initWebView(String brief) {
+
+        mWebView.loadData(brief, "text/html", null);
 
     }
 

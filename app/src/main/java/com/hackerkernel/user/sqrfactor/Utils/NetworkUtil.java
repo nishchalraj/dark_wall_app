@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
@@ -27,14 +28,12 @@ public class NetworkUtil {
         return networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected();
     }
 
-    /*
-     * Method to handle simple volley request error
-     * */
     public static void handleSimpleVolleyRequestError(VolleyError error, Context context) {
         if (error.networkResponse != null) {
             int statusCode = error.networkResponse.statusCode;
             try {
                 String body = new String(error.networkResponse.data, "UTF-8");
+                Log.d("handleSimpleVolley: ", body);
                 if (statusCode == 400 || statusCode == 401) {
                     //server error
                     String errorMsg = JsonParser.SimpleParser(body);

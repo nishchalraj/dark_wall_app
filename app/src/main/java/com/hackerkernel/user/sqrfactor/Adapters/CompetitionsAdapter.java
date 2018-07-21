@@ -2,9 +2,13 @@ package com.hackerkernel.user.sqrfactor.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.ViewUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,8 +22,10 @@ import com.hackerkernel.user.sqrfactor.Constants.ServerConstants;
 import com.hackerkernel.user.sqrfactor.Pojo.CompetitionClass;
 import com.hackerkernel.user.sqrfactor.R;
 import com.hackerkernel.user.sqrfactor.Storage.MySharedPreferences;
+import com.hackerkernel.user.sqrfactor.Utils.MyMethods;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
 import java.util.List;
 
 public class CompetitionsAdapter extends RecyclerView.Adapter<CompetitionsAdapter.MyViewHolder> {
@@ -30,6 +36,7 @@ public class CompetitionsAdapter extends RecyclerView.Adapter<CompetitionsAdapte
     private RequestQueue mRequestQueue;
 
     private MySharedPreferences mSp;
+    int pos;
 
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -41,6 +48,7 @@ public class CompetitionsAdapter extends RecyclerView.Adapter<CompetitionsAdapte
         TextView competitionTypeTV;
         ImageView competitionImageView;
         Button participateButton;
+        ImageView comp_menu;
 
         MyViewHolder(View view) {
             super(view);
@@ -51,7 +59,7 @@ public class CompetitionsAdapter extends RecyclerView.Adapter<CompetitionsAdapte
             prizeTV = view.findViewById(R.id.comp_prize);
             competitionTypeTV = view.findViewById(R.id.comp_type);
             competitionImageView = view.findViewById(R.id.comp_image);
-
+            comp_menu = view.findViewById(R.id.comp_menu);
             participateButton = view.findViewById(R.id.participate);
 
             participateButton.setOnClickListener(this);
@@ -65,7 +73,7 @@ public class CompetitionsAdapter extends RecyclerView.Adapter<CompetitionsAdapte
             CompetitionClass competition = mCompetitions.get(pos);
 
             if (view.getId() == R.id.participate) {
-                String slug =  competition.getSlug();
+                String slug = competition.getSlug();
 
                 Intent i = new Intent(mContext, ParticipateActivity.class);
                 i.putExtra(BundleConstants.SLUG, slug);
@@ -159,11 +167,15 @@ public class CompetitionsAdapter extends RecyclerView.Adapter<CompetitionsAdapte
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         CompetitionClass competition = mCompetitions.get(position);
 
         holder.competitionNameTV.setText(competition.getCompetitionName());
-        holder.startTimeAgoTV.setText(competition.getStartTimeAgo());
+        try {
+            holder.startTimeAgoTV.setText(MyMethods.convertDate(competition.getStartTimeAgo()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         holder.lastSubmissionDateTV.setText("Last Date of Submission: " + competition.getLastSubmissionDate());
         holder.lastRegistrationDateTV.setText("Last Date of Registration: " + competition.getLastRegistrationDate());
         holder.prizeTV.setText("Prize: " + competition.getPrize());
@@ -172,6 +184,15 @@ public class CompetitionsAdapter extends RecyclerView.Adapter<CompetitionsAdapte
 
         Picasso.get().load(ServerConstants.IMAGE_BASE_URL + competition.getImageUrl()).into(holder.competitionImageView);
 
+
+        holder.comp_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pos = position;
+                showPopupMenu(view);
+            }
+        });
+
     }
 
     @Override
@@ -179,4 +200,37 @@ public class CompetitionsAdapter extends RecyclerView.Adapter<CompetitionsAdapte
         return mCompetitions.size();
     }
 
+    private void showPopupMenu(View view) {
+        PopupMenu popup = new PopupMenu(mContext, view);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.competitions_adapter_menu, popup.getMenu());
+        popup.setOnMenuItemClickListener(new MyMenuItemClickListener());
+        popup.show();
+    }
+
+    class MyMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
+
+        public MyMenuItemClickListener() {
+        }
+
+        @Override
+        public boolean onMenuItemClick(MenuItem menuItem) {
+            switch (menuItem.getItemId()) {
+                case R.id.full_view:
+                    CompetitionClass competition = mCompetitions.get(pos);
+                    String slug = competition.getSlug();
+                    Log.d("onMenuItemClick: ", slug);
+                    Intent i = new Intent(mContext, ParticipateActivity.class);
+                    i.putExtra(BundleConstants.SLUG, slug);
+                    mContext.startActivity(i);
+
+
+                    return true;
+
+
+                default:
+            }
+            return false;
+        }
+    }
 }

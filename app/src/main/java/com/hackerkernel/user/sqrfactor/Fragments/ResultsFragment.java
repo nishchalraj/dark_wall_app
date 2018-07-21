@@ -54,7 +54,7 @@ public class ResultsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        ViewGroup view = (ViewGroup)inflater.inflate(R.layout.fragment_results, container, false);
+        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_results, container, false);
 
         mResultsRV = view.findViewById(R.id.results_rv);
 
@@ -102,43 +102,45 @@ public class ResultsFragment extends Fragment {
 
                 try {
                     JSONObject responseObject = new JSONObject(response);
-                    JSONObject competitionObject = responseObject.getJSONObject("competition");
-                    JSONArray awardArray = competitionObject.getJSONArray("users_competition_design_submition_award");
+                    JSONArray competitionArray = responseObject.getJSONArray("competition");
+                    if (competitionArray.length() != 0) {
+                        //JSONArray awardArray = competitionObject.getJSONArray("users_competition_design_submition_award");
+                        for (int i = 0; i < competitionArray.length(); i++) {
+                            JSONObject singleObject = competitionArray.getJSONObject(i);
+                            String heading = singleObject.getString("title");
 
-                    for (int i = 0; i < awardArray.length(); i++) {
-                        JSONObject singleObject = awardArray.getJSONObject(i);
-                        String heading = singleObject.getString("title");
-
-                        ResultClass headingResult = new ResultClass(Constants.TYPE_HEADING, null, null, null, null, 0, 0, null, heading);
-                        mResults.add(headingResult);
-                        mResultsAdapter.notifyDataSetChanged();
-
-
-                        JSONArray awardItemArray = singleObject.getJSONArray("users_competition_design_submition_award_item");
-
-                        for (int j = 0; j < awardItemArray.length(); j++ ) {
-                            JSONObject singleItemObject = awardItemArray.getJSONObject(j);
-                            JSONObject awardObject = singleItemObject.getJSONObject("users_competitions_award");
-                            JSONObject designObject = singleItemObject.getJSONObject("users_competitions_design");
-                            JSONArray likesArray = designObject.getJSONArray("likes");
-                            JSONArray commentsArray = designObject.getJSONArray("comments");
-
-                            String id = singleItemObject.getString("id");
-                            String prizeTitle = awardObject.getString("award_type");
-
-                            String title = designObject.getString("title");
-                            String code = designObject.getString("code");
-                            String coverUrl = designObject.getString("cover");
-                            int likesCount = likesArray.length();
-                            int commentsCount = commentsArray.length();
-
-                            ResultClass result = new ResultClass(Constants.TYPE_DATA, id, coverUrl, title, code,likesCount, commentsCount, prizeTitle, null);
-                            mResults.add(result);
+                            ResultClass headingResult = new ResultClass(Constants.TYPE_HEADING, null, null, null, null, 0, 0, null, heading);
+                            mResults.add(headingResult);
                             mResultsAdapter.notifyDataSetChanged();
 
-                        }
 
+                            JSONArray awardItemArray = singleObject.getJSONArray("users_competition_design_submition_award_item");
+
+                            for (int j = 0; j < awardItemArray.length(); j++) {
+                                JSONObject singleItemObject = awardItemArray.getJSONObject(j);
+                                JSONObject awardObject = singleItemObject.getJSONObject("users_competitions_award");
+                                JSONObject designObject = singleItemObject.getJSONObject("users_competitions_design");
+                                JSONArray likesArray = designObject.getJSONArray("likes");
+                                JSONArray commentsArray = designObject.getJSONArray("comments");
+
+                                String id = singleItemObject.getString("id");
+                                String prizeTitle = awardObject.getString("award_type");
+
+                                String title = designObject.getString("title");
+                                String code = designObject.getString("code");
+                                String coverUrl = designObject.getString("cover");
+                                int likesCount = likesArray.length();
+                                int commentsCount = commentsArray.length();
+
+                                ResultClass result = new ResultClass(Constants.TYPE_DATA, id, coverUrl, title, code, likesCount, commentsCount, prizeTitle, null);
+                                mResults.add(result);
+                                mResultsAdapter.notifyDataSetChanged();
+
+                            }
+
+                        }
                     }
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -157,7 +159,8 @@ public class ResultsFragment extends Fragment {
             public Map<String, String> getHeaders() {
                 final Map<String, String> headers = new HashMap<>();
                 headers.put(getString(R.string.accept), getString(R.string.application_json));
-                headers.put(getString(R.string.authorization), Constants.AUTHORIZATION_HEADER + mSp.getKey(SPConstants.API_KEY));
+                headers.put(getString(R.string.authorization), "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjYyODI4YjM3MjJjMzcyN2ZiNThiOGU0YWRjMDg3ZDgzNzFhYzdhNGFlNzhlODc4NWY2NzI3Y2EyM2JmMTEyOGYzNGVkODA4OGU4MjQ5MjFmIn0.eyJhdWQiOiIzIiwianRpIjoiNjI4MjhiMzcyMmMzNzI3ZmI1OGI4ZTRhZGMwODdkODM3MWFjN2E0YWU3OGU4Nzg1ZjY3MjdjYTIzYmYxMTI4ZjM0ZWQ4MDg4ZTgyNDkyMWYiLCJpYXQiOjE1MzIwNzM0NjQsIm5iZiI6MTUzMjA3MzQ2NCwiZXhwIjoxNTYzNjA5NDY0LCJzdWIiOiIxMDYiLCJzY29wZXMiOltdfQ.kGgIH4IStNn0mkjj3pXs85YfpUNH37vKM8v3QUn3Vbljwds0eXQXacX76-r_uA7pbT_1b0HQmdOxxqdOGHPJ8ahweNe6wEbSgsSvWuhJ-niHb2Hf6y4KWlIK0AI6ktDvKfNFKKlAXbH-mML0N9Te6tge_MEkMtzhoy8RptlDrycJR1aoLr5UR0z3KUuynRqmh5hind79OD5vM6zq_4I2-VPvFe_WNRRsb63HDLZaGunZwTUPCE0SSW3Xo30zDPsgLBjZpwkt_8fIJzd9N1GPPEmjwFqHuggDlthh81zR3r-dGN9GdGpzWtIsLouyt-b0Rel2olgAjFkrR8kIjvShv1S4sgdFMlP-90gpdHBTbQ6rL4gsBkcPxC1veaxTGFxvGds81N3jQidjZh2_wnZ-OSBBYcxndDlxuQt5WceDQA7M4muX1y714gAJEL698qX9tXPFPXhlKBzP5KvPEfxRg_neIhEWf5KnuX40dnWAkD5EDdwJWi2n5BqBBMqjvt57EpPIlHovgSP2HT3bp8Y-rCbvdwGTfb-d2cItofndZfxzHTstRqzrgsKgNuI1ZsJudLIo_9fpulsoga9-88eJXzaOJMhHf0nmymuxOfaB3m0HHWw1wLpVbS7dOpN0H_z5a1HFqugBpDfXECsiPlJtZ8D8wJ5zhbKLYer_89OtYrc");
+                //headers.put(getString(R.string.authorization), Constants.AUTHORIZATION_HEADER + mSp.getKey(SPConstants.API_KEY));
 //                headers.put("Content-Type", contentType);
                 return headers;
             }

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20sp"
-    android:padding="10sp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:padding="10sp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,102 +14,101 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="5"
             android:padding="10sp">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="4">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/comp_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="Young Designers' Award'18"
                     android:textColor="#000"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/comp_start_time_ago"
-                    android:text="6 months ago"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dip"
+                    android:text="6 months ago" />
 
             </LinearLayout>
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:id="@+id/comp_menu"
-                android:src="@drawable/ellipsis"
-                android:padding="5sp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ellipsis" />
 
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/comp_image"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_gravity="center"
+            android:layout_marginVertical="10sp"
             android:scaleType="fitCenter"
-            android:id="@+id/comp_image"
-            android:src="@drawable/henry"
-            android:layout_marginVertical="10sp"/>
+            android:src="@drawable/henry" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/comp_last_submission_date"
-            android:text="Last Date of Submission: 30/12/18"
-            android:textColor="@color/gray"
+            android:layout_marginLeft="10sp"
             android:layout_marginTop="2sp"
-            android:layout_marginLeft="10sp"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/comp_last_reg_date"
-            android:text="Last Date of Registration: 30/12/18"
-            android:textColor="@color/gray"
-            android:layout_marginTop="2sp"
-            android:layout_marginLeft="10sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/comp_prize"
-            android:text="Prizes: Not applicable"
-            android:textColor="@color/gray"
-            android:layout_marginTop="2sp"
-            android:layout_marginLeft="10sp"/>
+            <TextView
+                android:id="@+id/comp_last_submission_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Last Date of Submission: 30/12/18"
+                android:textColor="@color/gray" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/comp_type"
-            android:text="Type: free"
-            android:textColor="@color/gray"
-            android:layout_marginTop="2sp"
-            android:layout_marginLeft="10sp"/>
+            <TextView
+                android:id="@+id/comp_last_reg_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2sp"
+                android:text="Last Date of Registration: 30/12/18"
+                android:textColor="@color/gray" />
+
+            <TextView
+                android:id="@+id/comp_prize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2sp"
+                android:text="Prizes: Not applicable"
+                android:textColor="@color/gray" />
+
+            <TextView
+                android:id="@+id/comp_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2sp"
+                android:text="Type: free"
+                android:textColor="@color/gray" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/participate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginStart="20sp"
-            android:layout_marginTop="50sp"
-            android:paddingLeft="10sp"
-            android:paddingStart="10sp"
-            android:paddingRight="10sp"
-            android:paddingEnd="10sp"
+            android:layout_width="150dip"
+            android:layout_height="35dip"
+            android:layout_margin="10dip"
             android:background="@drawable/sqr_factor_btn_color"
             android:text="Participate"
-            android:textColor="#fff"
             android:textAllCaps="false"
-            android:layout_marginBottom="20sp"/>
+            android:textColor="#fff" />
 
     </LinearLayout>
 
