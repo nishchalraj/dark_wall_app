@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 
@@ -44,10 +46,7 @@ class _MyHomePageState extends State<MyHomePage>{
 
           //cards we need
           new Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: new CardFlipper(), //initiate the card widget
-            ),
+            child: new CardFlipper(),
           ),
 
 
@@ -68,14 +67,37 @@ class CardFlipper extends StatefulWidget { //needs to be a stateful widget becau
   _CardFlipperState createState() => _CardFlipperState();
 }
 
-class _CardFlipperState extends State<CardFlipper> {
+class _CardFlipperState extends State<CardFlipper> with TickerProviderStateMixin {
   double scrollPercent = 0.0;
   Offset startDrag;
   double startDragPercentScroll;
   //these will come at the end
   double finishScrollStart;
   double finishScrollEnd;
-  AnimationController firstScrollController;
+  AnimationController finishScrollController;
+
+  @override
+  void initState(){
+    super.initState();
+    
+    finishScrollController = new AnimationController(
+      duration: const Duration(milliseconds: 150),
+      vsync: this,
+    )
+    ..addListener((){ //will run everytime the animation changes
+      setState((){ //this is how we gonna generate scrollPercent every frame of animation
+        scrollPercent = lerpDouble(finishScrollStart, finishScrollEnd, finishScrollController.value); //linear interpolation
+      });
+    });
+  }
+
+  @override
+  void dispose(){
+    finishScrollController.dispose();
+    super.dispose();
+  }
+
+
 
   //now we will make all the methods for the dragging
   void _onHorizontalDragStart(DragStartDetails details){
@@ -95,7 +117,15 @@ class _CardFlipperState extends State<CardFlipper> {
   }
 
   void _onHorizontalDragEnd(DragEndDetails details){
-    //TODO: finish
+    final numCards = 5;
+    //to figure out where the animation is suppossed to be
+
+    //we will start the animation from where ever the user ended their scrolling
+    finishScrollStart = scrollPercent;
+
+    //where want to animate to
+    finishScrollEnd = (scrollPercent * numCards).round() / numCards;
+    finishScrollController.forward(from: 0.0);
 
     setState(() {
       startDrag = null;
